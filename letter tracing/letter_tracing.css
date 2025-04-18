@@ -1,0 +1,141 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: #fff8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .container {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+  
+  h1 {
+    color: #ff7b54;
+    margin-bottom: 10px;
+  }
+  
+  canvas {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+    background: #ffb47b; /* Light blue background */
+    touch-action: none;
+  }
+  
+  .buttons {
+    margin: 15px 0;
+  }
+  
+  button {
+    font-size: 1rem;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    background-color: #ffb86b;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ff7b54;
+  }
+  
+  .letter-display {
+    font-size: 3rem;
+    margin-top: 15px;
+    color: #ffaf69;
+    font-weight: bold;
+  }
+  
+  /* Confetti animation styling */
+  @keyframes confetti {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+    }
+  }
+  
+  .confetti {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #ff7b54;
+    animation: confetti 3s ease-out infinite;
+  }
+  /* Media Queries for Responsiveness */
+
+/* For small screens (mobiles) */
+@media (max-width: 600px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    .letter-display {
+      font-size: 2.5rem;
+    }
+  
+    canvas {
+      height: 250px;
+    }
+  
+    button {
+      font-size: 0.9rem;
+      padding: 8px 12px;
+    }
+  }
+  
+  /* For medium screens (tablets) */
+  @media (max-width: 1024px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .letter-display {
+      font-size: 3rem;
+    }
+  
+    canvas {
+      height: 280px;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 10px 15px;
+    }
+  }
+  
+  /* For large screens (desktops) */
+  @media (min-width: 1025px) {
+    .container {
+      max-width: 800px;
+    }
+  
+    h1 {
+      font-size: 2.5rem;
+    }
+  
+    .letter-display {
+      font-size: 4rem;
+    }
+  
+    canvas {
+      height: 400px;
+    }
+  
+    button {
+      font-size: 1.1rem;
+      padding: 12px 18px;
+    }
+  }

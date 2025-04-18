@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alphabet Tracing</title>
+  <link rel="stylesheet" href="letter_tracing.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Alphabet Tracing</h1>
+    <p>Trace the letters from A to Z with a colorful rainbow trail!</p>
+    
+    <div class="buttons">
+      <button onclick="prevLetter()">⬅️ Prev</button>
+      <button onclick="clearCanvas()">🧹 Clear</button>
+      <button onclick="nextLetter()">Next ➡️</button>
+    </div>
+
+    <canvas id="canvas" width="400" height="400"></canvas>
+
+    <div class="letter-display">
+      <span id="current-letter"></span>
+    </div>
+  </div>
+
+  <script src="letter_tracing.js"></script>
+</body>
+</html>
