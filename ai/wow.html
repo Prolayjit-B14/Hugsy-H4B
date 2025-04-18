@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FriendlyBot - Helper for Special Kids</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Floating animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Robot container styles */
+        .robot-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background: linear-gradient(135deg, #e0f7fa, #bbdefb);
+        }
+        
+        /* Robot model selector */
+        .robot-model-selector {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 10;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        
+        .robot-model-selector.active {
+            max-height: 600px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .model-option {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .model-option:hover {
+            background-color: #f0f9ff;
+        }
+        
+        .model-option.active {
+            background-color: #e6f7ff;
+            font-weight: bold;
+        }
+        
+        .mini-robot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: white;
+        }
+        
+        /* Robot avatar styles */
+        .robot {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 40px;
+        }
+        
+        .robot-head {
+            width: 120px;
+            height: 120px;
+            background-color: #4a90e2;
+            border-radius: 60px 60px 50px 50px;
+            position: relative;
+            overflow: hidden;
+            border: 5px solid #3a77b9;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .robot-eyes {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 30px;
+        }
+        
+        .robot-eye {
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .robot-pupil {
+            width: 12px;
+            height: 12px;
+            background-color: #333;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .robot-antenna {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .antenna-ball {
+            width: 15px;
+            height: 15px;
+            background-color: #ff4081;
+            border-radius: 50%;
+            margin-bottom: 2px;
+        }
+        
+        .antenna-stem {
+            width: 5px;
+            height: 15px;
+            background-color: #3a77b9;
+        }
+        
+        .robot-mouth {
+            width: 40px;
+            height: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            margin: 20px auto 0;
+            position: relative;
+        }
+        
+        .robot-mouth.happy {
+            height: 10px;
+            border-radius: 0 0 10px 10px;
+            transform: translateY(-5px);
+        }
+        
+        .robot-mouth.talking:after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            width: 30px;
+            height: 4px;
+            background-color: white;
+            border-radius: 2px;
+            left: 5px;
+        }
+        
+        .robot-body {
+            width: 140px;
+            height: 100px;
+            background-color: #4a90e2;
+            border-radius: 20px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid #3a77b9;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .robot-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .robot-button {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ff4081;
+        }
+        
+        /* Chat box styles */
+        .chat-box {
+            width: 400px;
+            height: 550px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-header {
+            padding: 15px;
+            background-color: #4a90e2;
+            color: white;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .robot-icon {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #4a90e2;
+        }
+        
+        .chat-controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .control-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .control-btn:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+        
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        #message-input {
+            flex: 1;
+            padding: 10px 15px;
+            border-radius: 25px;
+            border: 1px solid #ddd;
+            outline: none;
+            transition: border 0.3s;
+            font-size: 16px;
+        }
+        
+        #message-input:focus {
+            border-color: #4a90e2;
+        }
+        
+        .emoji-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        
+        .emoji-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .send-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        
+        .send-btn:hover {
+            background-color: #3a77b9;
+        }
+        
+        /* Message bubbles */
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+            animation: fade-in 0.3s ease-in-out;
+        }
+        
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .bot-message {
+            align-self: flex-start;
+            background-color: #e6f7ff;
+            color: #333;
+            border-radius: 18px 18px 18px 5px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .user-message {
+            align-self: flex-end;
+            background-color: #4a90e2;
+            color: white;
+            border-radius: 18px 18px 5px 18px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Help panel styles */
+        .help-panel {
+            position: absolute;
+            right: 20px;
+            top: 70px;
+            width: 300px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 100;
+            overflow: hidden;
+        }
+        
+        .help-panel.active {
+            display: block;
+            animation: slide-in 0.3s ease-in-out;
+        }
+        
+        @keyframes slide-in {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .help-header {
+            padding: 15px;
+            background-color: #4a90e2;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .help-header button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        .help-content {
+            padding: 15px;
+        }
+        
+        .help-content h4 {
+            margin-bottom: 10px;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        
+        .help-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .help-content li {
+            margin-bottom: 5px;
+        }
+        
+        /* Mood selector */
+        .mood-selector {
+            position: absolute;
+            right: 20px;
+            top: 70px;
+            width: 200px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 100;
+        }
+        
+        .mood-selector.active {
+            display: block;
+            animation: slide-in 0.3s ease-in-out;
+        }
+        
+        .mood-option {
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .mood-option:hover {
+            background-color: #f0f9ff;
+        }
+        
+        .mood-option:first-child {
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .mood-option:last-child {
+            border-radius: 0 0 12px 12px;
+        }
+        
+        /* Quick responses */
+        .quick-responses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 0 5px;
+        }
+        
+        .quick-response {
+            background-color: #f0f9ff;
+            color: #4a90e2;
+            border: 1px solid #4a90e2;
+            border-radius: 15px;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .quick-response:hover {
+            background-color: #e6f7ff;
+        }
+        
+        /* Visual timer */
+        .visual-timer {
+            width: 100%;
+            height: 40px;
+            background-color: #f0f9ff;
+            border-radius: 10px;
+            margin-top: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .timer-progress {
+            height: 100%;
+            background-color: #4a90e2;
+            width: 0;
+            transition: width 1s linear;
+        }
+        
+        .timer-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #333;
+            font-weight: bold;
+        }
+        
+        /* Breathing exercise */
+        .breathing-circle {
+            width: 120px;
+            height: 120px;
+            background-color: #4a90e2;
+            border-radius: 50%;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 16px;
+            animation: breathe 10s infinite ease-in-out;
+        }
+        
+        @keyframes breathe {
+            0%, 100% { transform: scale(0.8); background-color: #4a90e2; }
+            50% { transform: scale(1.2); background-color: #60a5fa; }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .robot-container {
+                flex-direction: column;
+                padding: 20px 10px;
+            }
+            
+            .robot {
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 150px;
+                height: 200px;
+            }
+            
+            .robot-head {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .chat-box {
+                width: 95%;
+                height: 500px;
+            }
+            
+            .help-panel,
+            .mood-selector {
+                width: 280px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+        
+        /* Theme colors for different robots */
+        .theme-blue .robot-head,
+        .theme-blue .robot-body {
+            background-color: #4a90e2;
+            border-color: #3a77b9;
+        }
+        
+        .theme-blue .chat-header,
+        .theme-blue .send-btn {
+            background-color: #4a90e2;
+        }
+        
+        .theme-green .robot-head,
+        .theme-green .robot-body {
+            background-color: #4CAF50;
+            border-color: #388E3C;
+        }
+        
+        .theme-green .chat-header,
+        .theme-green .send-btn {
+            background-color: #4CAF50;
+        }
+        
+        .theme-pink .robot-head,
+        .theme-pink .robot-body {
+            background-color: #FF4081;
+            border-color: #D81B60;
+        }
+        
+        .theme-pink .chat-header,
+        .theme-pink .send-btn {
+            background-color: #FF4081;
+        }
+        
+        .theme-purple .robot-head,
+        .theme-purple .robot-body {
+            background-color: #9C27B0;
+            border-color: #7B1FA2;
+        }
+        
+        .theme-purple .chat-header,
+        .theme-purple .send-btn {
+            background-color: #9C27B0;
+        }
+        
+        .theme-yellow .robot-head,
+        .theme-yellow .robot-body {
+            background-color: #FFC107;
+            border-color: #FFB300;
+        }
+        
+        .theme-yellow .chat-header,
+        .theme-yellow .send-btn {
+            background-color: #FFC107;
+        }
+        
+        .theme-animal .robot-head {
+            background-color: #FFB74D;
+            border-color: #FF9800;
+            border-radius: 65px 65px 40px 40px;
+        }
+        
+        .theme-animal .robot-body {
+            background-color: #FFB74D;
+            border-color: #FF9800;
+        }
+        
+        .theme-animal .robot-ear {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background-color: #FFB74D;
+            border: 5px solid #FF9800;
+            border-radius: 50%;
+            top: -15px;
+        }
+        
+        .theme-animal .robot-ear.left {
+            left: 15px;
+        }
+        
+        .theme-animal .robot-ear.right {
+            right: 15px;
+        }
+        
+        .theme-animal .chat-header,
+        .theme-animal .send-btn {
+            background-color: #FF9800;
+        }
+        
+        /* Fullscreen mode */
+        .fullscreen-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e0f7fa, #bbdefb);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- BuddyBot Container -->
+    <div class="robot-container theme-blue">
+        <!-- Robot Model Selector -->
+        <div class="robot-model-selector" id="robot-model-selector">
+            <div class="model-option active" data-model="robo-blue" data-color="#4a90e2" data-theme="theme-blue">
+                <div class="mini-robot bg-blue-500">🤖</div>
+                <span>Robo Blue</span>
+            </div>
+            <div class="model-option" data-model="robo-green" data-color="#4CAF50" data-theme="theme-green">
+                <div class="mini-robot bg-green-500">🤖</div>
+                <span>Robo Green</span>
+            </div>
+            <div class="model-option" data-model="robo-pink" data-color="#FF4081" data-theme="theme-pink">
+                <div class="mini-robot bg-pink-500">🤖</div>
+                <span>Robo Pink</span>
+            </div>
+            <div class="model-option" data-model="robo-purple" data-color="#9C27B0" data-theme="theme-purple">
+                <div class="mini-robot bg-purple-500">🤖</div>
+                <span>Robo Purple</span>
+            </div>
+            <div class="model-option" data-model="animal-buddy" data-color="#FF9800" data-theme="theme-animal">
+                <div class="mini-robot bg-yellow-500">🐶</div>
+                <span>Buddy Dog</span>
+            </div>
+            <div class="model-option" data-model="girl-assistant" data-color="#FF4081" data-theme="theme-pink">
+                <div class="mini-robot bg-pink-500">👧</div>
+                <span>Lisa</span>
+            </div>
+            <div class="model-option" data-model="boy-assistant" data-color="#4a90e2" data-theme="theme-blue">
+                <div class="mini-robot bg-blue-500">👦</div>
+                <span>Max</span>
+            </div>
+        </div>
+
+        <!-- Robot Avatar -->
+        <div class="robot float-animation" id="robot">
+            <div class="robot-head">
+                <div class="robot-eyes">
+                    <div class="robot-eye">
+                        <div class="robot-pupil"></div>
+                    </div>
+                    <div class="robot-eye">
+                        <div class="robot-pupil"></div>
+                    </div>
+                </div>
+                <div class="robot-antenna">
+                    <div class="antenna-ball"></div>
+                    <div class="antenna-stem"></div>
+                </div>
+                <div class="robot-mouth"></div>
+            </div>
+            <div class="robot-body">
+                <div class="robot-buttons">
+                    <div class="robot-button"></div>
+                    <div class="robot-button"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chat Box -->
+        <div class="chat-box" id="chat-box">
+            <div class="chat-header">
+                <div class="flex items-center">
+                    <div class="robot-icon mr-2">
+                        <i class="fa fa-robot"></i>
+                    </div>
+                    <h3 class="text-lg font-bold">FriendlyBot</h3>
+                </div>
+                <div class="chat-controls">
+                    <button id="change-robot-btn" title="Change Robot" class="control-btn">
+                        <i class="fa fa-robot"></i>
+                    </button>
+                    <button id="help-button" title="Help" class="control-btn">
+                        <i class="fa fa-question-circle"></i>
+                    </button>
+                    <button id="mood-button" title="Change Mood" class="control-btn">
+                        <i class="fa fa-smile"></i>
+                    </button>
+                    <button id="full-size" title="Open in Full Screen" class="control-btn">
+                        <i class="fa fa-expand"></i>
+                    </button>
+                    <button id="close-chat" title="Close Chat" class="control-btn">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will be added here dynamically -->
+            </div>
+            
+            <div class="quick-responses" id="quick-responses">
+                <button class="quick-response">Need help focusing</button>
+                <button class="quick-response">I need a break</button>
+                <button class="quick-response">Let's play a game</button>
+                <button class="quick-response">Tell me a story</button>
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Type your message...">
+                <button id="emoji-button" title="Add Emoji" class="emoji-btn">😊</button>
+                <button id="send-button" class="send-btn">
+                    <i class="fa fa-paper-plane"></i>
+                </button>
+            </div>
+            
+            <!-- Help Panel -->
+            <div class="help-panel" id="help-panel">
+                <div class="help-header">
+                    <h3>FriendlyBot Help</h3>
+                    <button id="help-close-btn"><i class="fa fa-times"></i></button>
+                </div>
+                <div class="help-content">
+                    <h4>How I Can Help You:</h4>
+                    <ul>
+                        <li><strong>Focus Support:</strong> Type "help me focus" or "I'm distracted"</li>
+                        <li><strong>Break Time:</strong> Ask for "I need a break"</li>
+                        <li><strong>Games:</strong> Say "let's play a game"</li>
+                        <li><strong>Stories:</strong> Ask "tell me a story"</li>
+                        <li><strong>Breathing:</strong> Type "help me relax" or "breathing exercise"</li>
+                        <li><strong>Timer:</strong> Ask for a "timer" or "set a timer"</li>
+                    </ul>
+                    <p>I'm designed to help kids with special needs, but I'm not a replacement for professional help.</p>
+                </div>
+            </div>
+            
+            <!-- Mood Selector -->
+            <div class="mood-selector" id="mood-selector">
+                <div class="mood-option" data-mood="friendly">😊 Friendly</div>
+                <div class="mood-option" data-mood="happy">😄 Happy</div>
+                <div class="mood-option" data-mood="curious">🤔 Curious</div>
+                <div class="mood-option" data-mood="excited">🚀 Excited</div>
+                <div class="mood-option" data-mood="calm">😌 Calm</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="c.js"></script>
+</body>
+</html>
