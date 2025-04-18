@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nursery Rhymes for Special Kids</title>
+    <link rel="stylesheet" href="rhymes.css">
+</head>
+<body>
+    <h1>Nursery Rhymes for Special Kids</h1>
+
+    <!-- English Rhymes Buttons -->
+    <button onclick="playRhyme('twinkle')">Play Twinkle Twinkle</button>
+    <button onclick="playRhyme('ringa')">Play Ringa Ringa Roses</button>
+    <button onclick="playRhyme('abc')">Play ABC Song</button>
+    <button onclick="playRhyme('baba')">Play Baba Black Sheep</button>
+
+    <!-- Hindi Rhymes Buttons -->
+    <button onclick="playRhyme('lakdi')">Play Lakdi Ki Kaathi</button>
+    <button onclick="playRhyme('chanda')">Play Chanda Mama</button>
+    <button onclick="playRhyme('nanhe')">Play Nanhe Munne</button>
+    <button onclick="playRhyme('moti')">Play Moti Ke Paili</button>
+
+    <!-- English Rhymes Texts -->
+    <div id="twinkle" class="rhyme" style="display: none;">
+        <p>Twinkle, twinkle, little star,</p>
+        <p>How I wonder what you are!</p>
+        <p>Up above the world so high,</p>
+        <p>Like a diamond in the sky.</p>
+        <p>Twinkle, twinkle, little star,</p>
+        <p>How I wonder what you are!</p>
+    </div>
+
+    <div id="ringa" class="rhyme" style="display: none;">
+        <p>Ringa ringa roses,</p>
+        <p>Pocket full of posies,</p>
+        <p>A-tishoo! A-tishoo!</p>
+        <p>We all fall down.</p>
+    </div>
+
+    <div id="abc" class="rhyme" style="display: none;">
+        <p>A B C D E F G,</p>
+        <p>H I J K L M N O P,</p>
+        <p>Q R S T U V,</p>
+        <p>W X Y and Z!</p>
+    </div>
+
+    <div id="baba" class="rhyme" style="display: none;">
+        <p>Baba black sheep, have you any wool?</p>
+        <p>Yes sir, yes sir, three bags full!</p>
+        <p>One for the master, one for the dame,</p>
+        <p>And one for the little boy who lives down the lane.</p>
+    </div>
+
+    <!-- Hindi Rhymes Texts -->
+    <div id="lakdi" class="rhyme" style="display: none;">
+        <p>लकड़ी की काठी, काठी पे घोड़ा,</p>
+        <p>घोड़े की दुम, दुम पे जोड़ा।</p>
+        <p>जोड़ा टूट गया, घोड़ा गिरा,</p>
+        <p>लकड़ी की काठी, काठी पे घोड़ा।</p>
+    </div>
+
+    <div id="chanda" class="rhyme" style="display: none;">
+        <p>चंदा मामा दूर के,</p>
+        <p>पुए पकाए बूर के।</p>
+        <p>आपसे भी अच्छा है,</p>
+        <p>हमारा चाँद प्यारा।</p>
+    </div>
+
+    <div id="nanhe" class="rhyme" style="display: none;">
+        <p>नन्हे-मुन्ने बच्चों की,</p>
+        <p>कभी भी कोई बात हो।</p>
+        <p>मन की बात हो, जख्मी हो,</p>
+        <p>बड़े बच्चों की तरह प्यार हो।</p>
+    </div>
+
+    <div id="moti" class="rhyme" style="display: none;">
+        <p>मोती के पायल झंकारे,</p>
+        <p>नन्हे मुन्ने बच्चे मन में गाते हैं।</p>
+        <p>नदी की धार बहने वाली,</p>
+        <p>नन्हे मुन्ने बच्चों के साथ।</p>
+    </div>
+
+    <!-- Audio files for English Rhymes -->
+    <audio id="twinkleAudio" src="audio/Twinkle-Twinkle-Little-Star.mp3"></audio>
+    <audio id="ringaAudio" src="audio/Ringa-Ringa-Roses.mp3"></audio>
+    <audio id="abcAudio" src="audio/ABC-Song.mp3"></audio>
+    <audio id="babaAudio" src="audio/Baba-Black-Sheep.mp3"></audio>
+
+    <!-- Audio files for Hindi Rhymes -->
+    <audio id="lakdiAudio" src="audio/Lakdi-Ki-Kathi.mp3"></audio>
+    <audio id="chandaAudio" src="audio/Chanda-Mama.mp3"></audio>
+    <audio id="nanheAudio" src="audio/Nanhe-Munne.mp3"></audio>
+    <audio id="motiAudio" src="audio/Moti-Ke-Paili.mp3"></audio>
+
+    <script src="rhymes.js"></script>
+</body>
+</html>
