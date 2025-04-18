@@ -6,6 +6,13 @@
     <title>Alphabet & Words | Learn</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         /* Navigation Bar */
         nav {
             position: fixed;
@@ -47,9 +54,7 @@
             font-family: 'Comic Sans MS', sans-serif;
             text-align: center;
             background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-            padding-top: 60px; /* Push content below navbar */
+            padding-top: 80px; /* Increased padding to give extra space */
         }
 
         h1 {
@@ -58,42 +63,51 @@
             margin-top: 20px;
         }
 
+        p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
-            padding: 20px;
+            padding: 10px;
             max-width: 90%;
             margin: auto;
+            z-index: 2; /* Ensures the container stays above other elements */
         }
 
         .card {
-            width: 100px;
-            height: 120px;
+            width: 150px;
+            height: 150px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 18px;
             font-weight: bold;
             color: black;
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s, background 0.3s;
-            padding: 10px;
+            padding: 5px;
+            z-index: 1;
         }
 
         .card img {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 5px;
+            width: 50px;
+            height: 50px;
+            margin-bottom: 3px;
         }
 
         .card:hover {
             transform: scale(1.2);
             background: #4caf50 !important;
         }
+
+        /* Letter-specific backgrounds */
         .letter-a { background: #ff6b6b; }
         .letter-b { background: #6bcbff; }
         .letter-c { background: #ffb86b; }
