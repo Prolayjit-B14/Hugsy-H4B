@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Accessibility Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .accessibility-panel {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      width: 260px;
+    }
+
+    .accessibility-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #007BFF;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .accessibility-controls {
+      display: none;
+      margin-top: 16px;
+    }
+
+    .accessibility-controls.open {
+      display: block;
+    }
+
+    .control-group {
+      margin-bottom: 15px;
+    }
+
+    .control-group label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .control-btn {
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+
+    .toggle-switch input {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    .high-contrast {
+      background-color: #000 !important;
+      color: #fff !important;
+    }
+
+    .no-animations * {
+      transition: none !important;
+      animation: none !important;
+    }
+
+    .dyslexic-font {
+      font-family: 'OpenDyslexic', Arial, sans-serif !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessibility Panel -->
+  <div class="accessibility-panel" id="accessibility-panel">
+    <button class="accessibility-toggle" aria-expanded="false" aria-controls="accessibility-controls">
+      ♿ <span>Accessibility</span>
+    </button>
+
+    <div class="accessibility-controls" id="accessibility-controls">
+      <h4>Customize Your Experience</h4>
+
+      <div class="control-group">
+        <label>Text Size</label>
+        <div class="button-group">
+          <button class="control-btn" data-action="decrease-font">A-</button>
+          <button class="control-btn" data-action="reset-font">Reset</button>
+          <button class="control-btn" data-action="increase-font">A+</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>Contrast</label>
+        <div class="button-group">
+          <button class="control-btn" data-action="high-contrast">High</button>
+          <button class="control-btn" data-action="normal-contrast">Normal</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>Animations</label>
+        <div class="toggle-switch">
+          <input type="checkbox" id="animations-toggle" checked>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>Dyslexia-Friendly Font</label>
+        <div class="toggle-switch">
+          <input type="checkbox" id="dyslexic-font-toggle">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleBtn = document.querySelector(".accessibility-toggle");
+      const controls = document.getElementById("accessibility-controls");
+
+      let currentFontSize = 100;
+
+      // Toggle panel visibility
+      toggleBtn.addEventListener("click", () => {
+        const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
+        toggleBtn.setAttribute("aria-expanded", !expanded);
+        controls.classList.toggle("open");
+      });
+
+      // Text size control
+      document.querySelectorAll(".control-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const action = btn.getAttribute("data-action");
+          if (action === "increase-font") {
+            currentFontSize += 10;
+          } else if (action === "decrease-font") {
+            currentFontSize = Math.max(50, currentFontSize - 10);
+          } else if (action === "reset-font") {
+            currentFontSize = 100;
+          }
+          document.body.style.fontSize = `${currentFontSize}%`;
+        });
+      });
+
+      // Contrast
+      document.querySelector("[data-action='high-contrast']").addEventListener("click", () => {
+        document.body.classList.add("high-contrast");
+      });
+
+      document.querySelector("[data-action='normal-contrast']").addEventListener("click", () => {
+        document.body.classList.remove("high-contrast");
+      });
+
+      // Toggle animations
+      document.getElementById("animations-toggle").addEventListener("change", (e) => {
+        document.body.classList.toggle("no-animations", !e.target.checked);
+      });
+
+      // Dyslexia-friendly font
+      document.getElementById("dyslexic-font-toggle").addEventListener("change", (e) => {
+        document.body.classList.toggle("dyslexic-font", e.target.checked);
+      });
+    });
+  </script>
+
+</body>
+</html>

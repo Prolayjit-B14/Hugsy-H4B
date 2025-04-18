@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightMinds - Inclusive Learning Platform</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #4D90FE;
+            --secondary-color: #FF8C42;
+            --accent-color: #7DDE92;
+            --text-color: #333333;
+            --light-bg: #F8F9FA;
+            --font-regular: 'Arial', sans-serif;
+            --font-dyslexic: 'Arial', sans-serif; /* Fallback until custom font is loaded */
+        }
+        
+        /* Font for dyslexia support */
+        @font-face {
+            font-family: 'DyslexicFont';
+            src: url('https://cdnjs.cloudflare.com/ajax/libs/dyslexie-font/7.1.0/eot/dyslexie-regular.eot'),
+                 url('https://cdnjs.cloudflare.com/ajax/libs/dyslexie-font/7.1.0/woff2/dyslexie-regular.woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-regular);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            transition: all 0.3s ease;
+        }
+        
+        .dyslexic-font {
+            font-family: 'DyslexicFont', var(--font-regular);
+            letter-spacing: 0.5px;
+            word-spacing: 3px;
+            line-height: 1.8;
+        }
+        
+        /* Accessibility Controls */
+        .accessibility-controls {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+        
+        .accessibility-controls button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .accessibility-controls button:hover {
+            background: #777;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            display: block;
+            padding: 15px 20px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        
+        nav a:hover, nav a:focus {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            background-color: rgba(77, 144, 254, 0.1);
+        }
+
+        /* Icons for navigation */
+        nav a::before {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        /* Main Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin: 30px 0;
+            color: var(--primary-color);
+        }
+        
+        main p {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        
+        /* Features Section */
+        .features-wrapper {
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feature-card:hover, .feature-card:focus {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .feature-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .feature-card h3 {
+            padding: 15px 20px 10px;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+        
+        .feature-card p {
+            padding: 0 20px;
+            font-size: 1rem;
+            flex-grow: 1;
+            text-align: left;
+        }
+        
+        .feature-card button {
+            margin: 15px 20px 20px;
+            padding: 10px 15px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .feature-card button:hover, .feature-card button:focus {
+            background-color: #ff7a29;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        /* High contrast mode */
+        .high-contrast {
+            --primary-color: #FFFF00;
+            --secondary-color: #FFFFFF;
+            --text-color: #FFFFFF;
+            --light-bg: #000000;
+            background-color: #000000;
+        }
+        
+        .high-contrast nav {
+            background-color: #222;
+        }
+        
+        .high-contrast nav a {
+            color: #FFFFFF;
+        }
+        
+        .high-contrast .feature-card {
+            background-color: #222;
+            color: #FFFFFF;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .features {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
+        /* Helper classes for text sizes */
+        .text-large {
+            font-size: 120%;
+        }
+        
+        .text-larger {
+            font-size: 140%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Accessibility Controls -->
+    <div class="accessibility-controls">
+        <button id="font-toggle" aria-label="Toggle Dyslexia-Friendly Font">Dyslexia Font</button>
+        <button id="contrast-toggle" aria-label="Toggle High Contrast">High Contrast</button>
+        <button id="text-increase" aria-label="Increase Text Size">A+</button>
+        <button id="text-decrease" aria-label="Decrease Text Size">A-</button>
+        <button id="simplify-toggle" aria-label="Toggle Simplified Mode">Simple Mode</button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html" aria-label="Home">🏠 Home</a></li>
+            <li><a href="learn.html" aria-label="Learn Now">📚 Learn Now</a></li>
+            <li><a href="games.html" aria-label="Let's Play">🎮 Let's Play</a></li>
+            <li><a href="dashboard.html" aria-label="Dashboard">📊 Dashboard</a></li>
+            <li><a href="stories.html" aria-label="Story">📖 Story</a></li>
+            <li><a href="hear-speak.html" aria-label="Hear & Speak">🔊 Hear & Speak</a></li>
+            <li><a href="settings.html" aria-label="More">⚙️ Settings</a></li>
+            <li><a href="parents.html" aria-label="Parental Guides">👨‍👩‍👧‍👦 Parent Guide</a></li>
+            <li><a href="meeting.html" aria-label="Connect">🤝 Connect</a></li>
+            <li><a href="doctor.html" aria-label="Doctor">👩‍⚕️ Therapist Help</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content">
+        <h1>Welcome to BrightMinds Learning</h1>
+        <p>Interactive learning designed for all children, including those with dyslexia and special learning needs. Learn at your own pace with fun activities!</p>
+
+        <!-- Feature Section -->
+        <section class="features-wrapper">
+            <div class="features">
+                <!-- Language Skills Section -->
+                <a href="alphabet.html" class="feature-card" aria-label="Learn Alphabet & Words">
+                    <img src="/api/placeholder/300/180" alt="Alphabet learning activities showing letters and associated pictures">
+                    <h3>📖 Alphabet & Words</h3>
+                    <p>Multi-sensory alphabet learning with audio support and visual cues. Perfect for early readers and children with dyslexia.</p>
+                    <button>Start Learning</button>
+                </a>
+
+                <a href="speech.html" class="feature-card" aria-label="Learn Speech & Language">
+                    <img src="/api/placeholder/300/180" alt="Child practicing speech with visual support">
+                    <h3>🗣️ Speech & Language</h3>
+                    <p>Practice pronunciation with visual mouth positioning guides. Record and playback your voice to improve communication skills.</p>
+                    <button>Start Learning</button>
+                </a>
+
+                <!-- Math Skills Section -->
+                <a href="number.html" class="feature-card" aria-label="Learn Numbers & Counting">
+                    <img src="/api/placeholder/300/180" alt="Numbers and counting objects for math learning">
+                    <h3>🔢 Numbers & Counting</h3>
+                    <p>Visual counting activities with clear patterns and progression. Includes number recognition games with audio support.</p>
+                    <button>Start Learning</button>
+                </a>
+
+                <!-- Visual Skills Section -->
+                <a href="shapes.html" class="feature-card" aria-label="Learn Shapes & Colors">
+                    <img src="/api/placeholder/300/180" alt="Various shapes and colors for visual learning">
+                    <h3>🔺 Shapes & Colors</h3>
+                    <p>Interactive activities to identify shapes and colors. Includes pattern recognition exercises with adjustable difficulty levels.</p>
+                    <button>Start Learning</button>
+                </a>
+
+                <!-- Motor Skills Section -->
+                <a href="tracing.html" class="feature-card" aria-label="Tracing Activities">
+                    <img src="/api/placeholder/300/180" alt="Child tracing letters on screen or paper">
+                    <h3>✍️ Tracing Activities</h3>
+                    <p>Practice fine motor skills with guided tracing for letters, numbers, and shapes. Features adjustable guides and highlighting.</p>
+                    <button>Start Learning</button>
+                </a>
+
+                <!-- Social Emotional Section -->
+                <a href="social-emotional-play.html" class="feature-card" aria-label="Social & Emotional Play">
+                    <img src="/api/placeholder/300/180" alt="Children engaged in cooperative play activities">
+                    <h3>🎭 Social & Emotional Play</h3>
+                    <p>Learn about emotions, social cues, and appropriate responses through stories and interactive scenarios.</p>
+                    <button>Start Playing</button>
+                </a>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section class="recent-progress">
+            <h2>Your Learning Journey</h2>
+            <div id="progress-display">
+                <!-- Progress will be displayed here via JavaScript -->
+                <p>Sign in to track your progress and earn rewards!</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 BrightMinds Learning Platform. All Rights Reserved.</p>
+        <p>Designed with accessibility in mind for all learners</p>
+        <div class="footer-links">
+            <a href="accessibility.html">Accessibility Statement</a> | 
+            <a href="contact.html">Contact Support</a> | 
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <script>
+        // Accessibility Features
+        document.getElementById('font-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dyslexic-font');
+        });
+        
+        document.getElementById('contrast-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('high-contrast');
+        });
+        
+        document.getElementById('text-increase').addEventListener('click', function() {
+            if (document.body.classList.contains('text-larger')) {
+                return;
+            } else if (document.body.classList.contains('text-large')) {
+                document.body.classList.remove('text-large');
+                document.body.classList.add('text-larger');
+            } else {
+                document.body.classList.add('text-large');
+            }
+        });
+        
+        document.getElementById('text-decrease').addEventListener('click', function() {
+            if (document.body.classList.contains('text-larger')) {
+                document.body.classList.remove('text-larger');
+                document.body.classList.add('text-large');
+            } else if (document.body.classList.contains('text-large')) {
+                document.body.classList.remove('text-large');
+            }
+        });
+        
+        document.getElementById('simplify-toggle').addEventListener('click', function() {
+            // Hide non-essential elements
+            const nonEssential = document.querySelectorAll('.non-essential');
+            nonEssential.forEach(item => {
+                item.classList.toggle('hidden');
+            });
+            
+            // Simplify the layout
+            document.body.classList.toggle('simplified-mode');
+        });
+        
+        // Check for saved accessibility preferences
+        window.addEventListener('load', function() {
+            const savedPreferences = localStorage.getItem('accessibilityPreferences');
+            if (savedPreferences) {
+                const prefs = JSON.parse(savedPreferences);
+                if (prefs.dyslexicFont) document.body.classList.add('dyslexic-font');
+                if (prefs.highContrast) document.body.classList.add('high-contrast');
+                if (prefs.textSize === 'large') document.body.classList.add('text-large');
+                if (prefs.textSize === 'larger') document.body.classList.add('text-larger');
+                if (prefs.simplified) document.body.classList.add('simplified-mode');
+            }
+        });
+        
+        // Save preferences when changed
+        function savePreferences() {
+            const prefs = {
+                dyslexicFont: document.body.classList.contains('dyslexic-font'),
+                highContrast: document.body.classList.contains('high-contrast'),
+                textSize: document.body.classList.contains('text-larger') ? 'larger' : 
+                         document.body.classList.contains('text-large') ? 'large' : 'normal',
+                simplified: document.body.classList.contains('simplified-mode')
+            };
+            localStorage.setItem('accessibilityPreferences', JSON.stringify(prefs));
+        }
+        
+        // Add event listeners to save preferences
+        document.querySelectorAll('.accessibility-controls button').forEach(button => {
+            button.addEventListener('click', savePreferences);
+        });
+    </script>
+</body>
+</html>

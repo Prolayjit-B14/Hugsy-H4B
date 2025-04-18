@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroBridge - Inclusive EdTech for Neurodiverse Learners</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Bar -->
+    <nav class="bg-gradient-to-r from-purple-600 to-indigo-700 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-brain text-2xl"></i>
+                    <span class="text-2xl font-bold">NeuroBridge</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="hover:text-purple-200 transition">Home</a>
+                    <a href="#" class="hover:text-purple-200 transition">Learn</a>
+                    <a href="#" class="hover:text-purple-200 transition">Tools</a>
+                    <a href="#" class="hover:text-purple-200 transition">Community</a>
+                    <a href="#" class="hover:text-purple-200 transition">Resources</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="sensory-toggle" class="p-2 bg-white bg-opacity-20 rounded-full" title="Adjust Sensory Settings">
+                        <i class="fas fa-sliders-h"></i>
+                    </button>
+                    <div class="relative">
+                        <button id="profile-menu" class="flex items-center focus:outline-none">
+                            <div class="w-8 h-8 overflow-hidden rounded-full bg-purple-300">
+                                <img src="/api/placeholder/32/32" alt="User Avatar" class="object-cover w-full h-full">
+                            </div>
+                            <span class="ml-2 font-medium hidden md:block">My Account</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- User Type Selection -->
+    <div class="bg-white shadow">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-center space-x-6">
+                <button class="user-type-btn flex items-center px-4 py-2 rounded-full bg-purple-100 text-purple-800 border-2 border-purple-300">
+                    <i class="fas fa-child mr-2"></i>
+                    <span>I'm a Child</span>
+                </button>
+                <button class="user-type-btn flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 border-2 border-blue-300">
+                    <i class="fas fa-user-friends mr-2"></i>
+                    <span>I'm a Parent</span>
+                </button>
+                <button class="user-type-btn flex items-center px-4 py-2 rounded-full bg-green-100 text-green-800 border-2 border-green-300">
+                    <i class="fas fa-user-md mr-2"></i>
+                    <span>I'm a Professional</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-b from-indigo-50 to-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                        Empowering Every <span class="text-purple-600">Neurodiverse</span> Mind
+                    </h1>
+                    <p class="mt-4 text-lg text-gray-700">
+                        NeuroBridge is a personalized platform designed for children with neurodevelopmental and learning differences, their parents, and healthcare providers.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-4">
+                        <button class="px-6 py-3 bg-purple-600 text-white rounded-lg shadow-lg hover:bg-purple-700 transition">
+                            Get Started
+                        </button>
+                        <button class="px-6 py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg hover:bg-purple-50 transition">
+                            Take Assessment
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="/api/placeholder/500/400" alt="Diverse children learning together" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Disorder Quicklinks -->
+    <div class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Explore Learning Differences</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <a href="#" class="disorder-card bg-red-50 p-4 rounded-lg shadow hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-red-100 flex items-center justify-center">
+                        <i class="fas fa-brain text-red-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">ADHD</h3>
+                </a>
+                <a href="#" class="disorder-card bg-blue-50 p-4 rounded-lg shadow hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-puzzle-piece text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">Autism</h3>
+                </a>
+                <a href="#" class="disorder-card bg-green-50 p-4 rounded-lg shadow hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-green-100 flex items-center justify-center">
+                        <i class="fas fa-book text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">Dyslexia</h3>
+                </a>
+                <a href="#" class="disorder-card bg-yellow-50 p-4 rounded-lg shadow hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-yellow-100 flex items-center justify-center">
+                        <i class="fas fa-calculator text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">Dyscalculia</h3>
+                </a>
+                <a href="#" class="disorder-card bg-purple-50 p-4 rounded-lg shadow hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-pen text-purple-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">Dysgraphia</h3>
+                </a>
+                <a href="#" class="disorder-card bg-indigo-50 p-4 rounded-lg shadow hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-indigo-100 flex items-center justify-center">
+                        <i class="fas fa-running text-indigo-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">Dyspraxia</h3>
+                </a>
+                <a href="#" class="disorder-card bg-pink-50 p-4 rounded-lg shadow hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-pink-100 flex items-center justify-center">
+                        <i class="fas fa-ear-listen text-pink-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">APD</h3>
+                </a>
+                <a href="#" class="disorder-card bg-teal-50 p-4 rounded-lg shadow hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-teal-100 flex items-center justify-center">
+                        <i class="fas fa-comments text-teal-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">SCD</h3>
+                </a>
+                <a href="#" class="disorder-card bg-orange-50 p-4 rounded-lg shadow hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-orange-100 flex items-center justify-center">
+                        <i class="fas fa-hand-sparkles text-orange-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">SPD</h3>
+                </a>
+                <a href="#" class="disorder-card bg-gray-50 p-4 rounded-lg shadow hover:shadow-md transition text-center">
+                    <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-gray-100 flex items-center justify-center">
+                        <i class="fas fa-ellipsis-h text-gray-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">More</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">How NeuroBridge Helps</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-14 h-14 rounded-lg bg-blue-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-graduation-cap text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Personalized Learning</h3>
+                    <p class="text-gray-600">Adaptive education paths that adjust to each child's unique learning style, preferences, and challenges.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-14 h-14 rounded-lg bg-green-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-gamepad text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Gamified Therapy</h3>
+                    <p class="text-gray-600">Engaging games designed by specialists to develop skills while having fun and building confidence.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-14 h-14 rounded-lg bg-red-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Progress Tracking</h3>
+                    <p class="text-gray-600">Detailed insights and analytics to monitor development over time and celebrate every achievement.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-14 h-14 rounded-lg bg-purple-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Collaborative Care</h3>
+                    <p class="text-gray-600">Connect parents, teachers, and healthcare providers with shared tools for coordinated support.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-14 h-14 rounded-lg bg-yellow-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-calendar-check text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Daily Support</h3>
+                    <p class="text-gray-600">Routine builders, visual schedules, and reminders to help manage daily activities and reduce anxiety.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="w-14 h-14 rounded-lg bg-pink-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-heart text-pink-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Community Support</h3>
+                    <p class="text-gray-600">Connect with other families and professionals to share experiences, advice, and encouragement.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Preview Section -->
+    <div class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-4">Personalized Dashboard</h2>
+                    <p class="text-gray-600 mb-6">
+                        Our intuitive dashboard adapts to each user's needs, showing relevant tools, progress, and resources in a clean, accessible interface.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Customizable interface with sensory-friendly options</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>At-a-glance progress tracking and goal visualization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Quick access to favorite activities and resources</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Integrated calendar for appointments and schedules</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-100 p-4 rounded-xl shadow-lg">
+                        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-medium">Welcome back, Alex!</h3>
+                                <span class="text-sm text-gray-500">Friday, April 18</span>
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-3 mb-4">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-full bg-purple-200 flex items-center justify-center mr-4">
+                                        <i class="fas fa-star text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Today's Goal Progress</p>
+                                        <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                                            <div class="bg-purple-600 h-2.5 rounded-full" style="width: 70%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-blue-50 p-3 rounded-lg">
+                                    <p class="text-sm font-medium text-blue-800">Continue Learning</p>
+                                    <p class="text-xs text-blue-600">Reading Comprehension</p>
+                                </div>
+                                <div class="bg-green-50 p-3 rounded-lg">
+                                    <p class="text-sm font-medium text-green-800">Daily Challenge</p>
+                                    <p class="text-xs text-green-600">Math Puzzles</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4">
+                            <h3 class="text-lg font-medium mb-3">Recent Activity</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-gamepad text-yellow-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium">Word Builder Game</p>
+                                        <p class="text-xs text-gray-500">Completed • 20 min ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-book text-pink-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium">Reading Session</p>
+                                        <p class="text-xs text-gray-500">Completed • 1 hour ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-tasks text-green-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium">Focus Exercise</p>
+                                        <p class="text-xs text-gray-500">Completed • 2 hours ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="py-16 bg-indigo-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Success Stories</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <span class="text-blue-600 font-bold">JM</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Jennifer M.</h4>
+                            <p class="text-sm text-gray-600">Parent of a child with ADHD</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"NeuroBridge has been transformative for my son. The personalized learning activities have improved his focus, and the daily routines feature helps him stay organized."</p>
+                    <div class="mt-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">DR</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Dr. Rachel S.</h4>
+                            <p class="text-sm text-gray-600">Child Psychologist</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"As a professional, I recommend NeuroBridge to many families. The collaborative tools help me work effectively with parents and teachers to support each child's needs."</p>
+                    <div class="mt-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                            <span class="text-purple-600 font-bold">ET</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Emma T.</h4>
+                            <p class="text-sm text-gray-600">12-year-old with Dyslexia</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"I used to hate reading, but the games on NeuroBridge make it fun! I can choose how the screen looks, and it reads to me when I need help. I'm reading better now!"</p>
+                    <div class="mt-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="py-16 bg-gradient-to-r from-purple-600 to-indigo-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Start Your NeuroBridge Journey?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Join thousands of families and professionals who are transforming the learning experience for neurodiverse children.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="px-8 py-3 bg-white text-purple-700 rounded-lg shadow-lg hover:bg-gray-100 transition font-medium">
+                    Create Free Account
+                </button>
+                <button class="px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white hover:bg-opacity-10 transition font-medium">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+<style>
+// main.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize components
+    initUserTypeSelection();
+    initSensoryPreferences();
+    initDisorderCards();
+    initDashboardElements();
+    initAccessibilityControls();
+    
+    // Check if user is returning visitor
+    checkUserSession();
+});
+
+// User Type Selection
+function initUserTypeSelection() {
+    const userTypeButtons = document.querySelectorAll('.user-type-btn');
+    
+    userTypeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active state from all buttons
+            userTypeButtons.forEach(btn => {
+                btn.classList.remove('bg-opacity-75', 'border-opacity-100');
+                btn.classList.add('bg-opacity-100', 'border-opacity-75');
+            });
+            
+            // Add active state to clicked button
+            this.classList.add('bg-opacity-75', 'border-opacity-100');
+            this.classList.remove('bg-opacity-100', 'border-opacity-75');
+            
+            // Update content based on user type
+            const userType = this.querySelector('span').textContent.replace("I'm a ", "").toLowerCase();
+            updateContentForUserType(userType);
+            
+            // Save preference to localStorage
+            localStorage.setItem('userType', userType);
+        });
+    });
+}
+
+// Update content based on selected user type
+function updateContentForUserType(userType) {
+    // Sample content updates
+    const contentSections = {
+        'child': {
+            greeting: 'Welcome to your learning adventure!',
+            features: ['Fun Games', 'Learning Activities', 'Daily Challenges', 'Achievements'],
+            callToAction: 'Start Playing & Learning'
+        },
+        'parent': {
+            greeting: 'Welcome to the Parent Portal',
+            features: ['Progress Tracking', 'Resource Library', 'Schedule Management', 'Communication Tools'],
+            callToAction: 'Track Your Child\'s Progress'
+        },
+        'professional': {
+            greeting: 'Professional Dashboard',
+            features: ['Patient Management', 'Assessment Tools', 'Therapy Resources', 'Collaboration Platform'],
+            callToAction: 'Access Clinical Tools'
+        }
+    };
+    
+    // Example update to hero section
+    const heroHeading = document.querySelector('.hero-heading') || document.querySelector('h1');
+    if (heroHeading && contentSections[userType]) {
+        heroHeading.textContent = contentSections[userType].greeting;
+    }
+    
+    // More personalization can be implemented here
+    // This is a simplified example for demonstration
+}
+
+// Sensory Preferences
+function initSensoryPreferences() {
+    const sensoryToggle = document.getElementById('sensory-toggle');
+    
+    if (sensoryToggle) {
+        sensoryToggle.addEventListener('click', function() {
+            // Toggle sensory preferences panel
+            const sensoryPanel = document.getElementById('sensory-panel') || createSensoryPanel();
+            sensoryPanel.classList.toggle('hidden');
+        });
+    }
+    
+    // Apply saved preferences if they exist
+    applySavedSensoryPreferences();
+}
+
+// Create sensory preferences panel
+function createSensoryPanel() {
+    const panel = document.createElement('div');
+    panel.id = 'sensory-panel';
+    panel.className = 'absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-xl z-50 p-4';
+    
+    // Add sensory adjustment controls
+    panel.innerHTML = `
+        <h3 class="font-medium text-gray-900 mb-3">Sensory Preferences</h3>
+        
+        <div class="mb-3">
+            <label class="block text-sm text-gray-600 mb-1">Font Size</label>
+            <input type="range" min="80" max="150" value="100" class="w-full" id="font-size-slider">
+        </div>
+        
+        <div class="mb-3">
+            <label class="block text-sm text-gray-600 mb-1">Animation Speed</label>
+            <input type="range" min="0" max="100" value="50" class="w-full" id="animation-speed-slider">
+        </div>
+        
+        <div class="mb-3">
+            <label class="block text-sm text-gray-600 mb-1">Color Theme</label>
+            <div class="flex space-x-2 mt-1">
+                <button class="w-6 h-6 rounded-full bg-white border border-gray-300" data-theme="light"></button>
+                <button class="w-6 h-6 rounded-full bg-gray-900" data-theme="dark"></button>
+                <button class="w-6 h-6 rounded-full bg-blue-100" data-theme="calm"></button>
+                <button class="w-6 h-6 rounded-full bg-yellow-50" data-theme="warm"></button>
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label class="block text-sm text-gray-600 mb-1">Reduce Motion</label>
+            <div class="flex items-center">
+                <input type="checkbox" id="reduce-motion" class="mr-2">
+                <span class="text-sm">Minimize animations</span>
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label class="block text-sm text-gray-600 mb-1">Focus Mode</label>
+            <div class="flex items-center">
+                <input type="checkbox" id="focus-mode" class="mr-2">
+                <span class="text-sm">Reduce distractions</span>
+            </div>
+        </div>
+        
+        <button class="w-full bg-purple-600 text-white py-2 rounded-lg mt-2" id="save-preferences">
+            Save Preferences
+        </button>
+    `;
+    
+    // Add event listeners
+    panel.querySelector('#font-size-slider').addEventListener('input', updateFontSize);
+    panel.querySelector('#reduce-motion').addEventListener('change', toggleReduceMotion);
+    panel.querySelector('#focus-mode').addEventListener('change', toggleFocusMode);
+    
+    // Add event listeners for color theme buttons
+    panel.querySelectorAll('[data-theme]').forEach(button => {
+        button.addEventListener('click', function() {
+            const theme = this.getAttribute('data-theme');
+            setColorTheme(theme);
+        });
+    });
+    
+    // Save preferences button
+    panel.querySelector('#save-preferences').addEventListener('click', function() {
+        saveSensoryPreferences();
+        panel.classList.add('hidden');
+    });
+    
+    document.body.appendChild(panel);
+    return panel;
+}
+
+// Update font size
+function updateFontSize(e) {
+    const size = e.target.value;
+    document.documentElement.style.fontSize = `${size}%`;
+}
+
+// Toggle reduced motion
+function toggleReduceMotion(e) {
+    if (e.target.checked) {
+        document.body.classList.add('reduce-motion');
+    } else {
+        document.body.classList.remove('reduce-motion');
+    }
+}
+
+// Toggle focus mode
+function toggleFocusMode(e) {
+    if (e.target.checked) {
+        document.body.classList.add('focus-mode');
+    } else {
+        document.body.classList.remove('focus-mode');
+    }
+}
+
+// Set color theme
+function setColorTheme(theme) {
+    // Remove existing theme classes
+    document.body.classList.remove('theme-light', 'theme-dark', 'theme-calm', 'theme-warm');
+    
+    // Add new theme class
+    document.body.classList.add(`theme-${theme}`);
+    
+    // Store theme preference
+    localStorage.setItem('colorTheme', theme);
+}
+
+// Save all sensory preferences
+function saveSensoryPreferences() {
+    const fontSize = document.getElementById('font-size-slider').value;
+    const reduceMotion = document.getElementById('reduce-motion').checked;
+    const focusMode = document.getElementById('focus-mode').checked;
+    
+    // Save to localStorage
+    localStorage.setItem('fontSize', fontSize);
+    localStorage.setItem('reduceMotion', reduceMotion);
+    localStorage.setItem('focusMode', focusMode);
+    
+    // Apply preferences
+    applySavedSensoryPreferences();
+}
+
+// Apply saved sensory preferences
+function applySavedSensoryPreferences() {
+    // Font size
+    const fontSize = localStorage.getItem('fontSize') || '100';
+    document.documentElement.style.fontSize = `${fontSize}%`;
+    
+    // Reduce motion
+    const reduceMotion = localStorage.getItem('reduceMotion') === 'true';
+    if (reduceMotion) {
+        document.body.classList.add('reduce-motion');
+    } else {
+        document.body.classList.remove('reduce-motion');
+    }
+    
+    // Focus mode
+    const focusMode = localStorage.getItem('focusMode') === 'true';
+    if (focusMode) {
+        document.body.classList.add('focus-mode');
+    } else {
+        document.body.classList.remove('focus-mode');
+    }
+    
+    // Color theme
+    const colorTheme = localStorage.getItem('colorTheme') || 'light';
+    setColorTheme(colorTheme);
+}
+
+// Check user session
+function checkUserSession() {
+    const userType = localStorage.getItem('userType');
+    
+    if (userType) {
+        // Find and click the corresponding user type button
+        const userTypeButtons = document.querySelectorAll('.user-type-btn');
+        userTypeButtons.forEach(button => {
+            const btnText = button.querySelector('span').textContent.replace("I'm a ", "").toLowerCase();
+            if (btnText === userType) {
+                button.click();
+            }
+        });
+    }
+}
+
+// Initialize disorder cards
+function initDisorderCards() {
+    const disorderCards = document.querySelectorAll('.disorder-card');
+    
+    disorderCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get disorder name
+            const disorderName = this.querySelector('h3').textContent;
+            
+            // Navigate to disorder page or show modal
+            showDisorderInfo(disorderName);
+        });
+    });
+}
+
+// Show disorder information
+function showDisorderInfo(disorderName) {
+    // This would typically navigate to a new page
+    // For demo purposes, we'll create a modal
+    
+    // Check if modal already exists
+    let modal = document.getElementById('disorder-modal');
+    
+    if (!modal) {
+        // Create modal
+        modal = document.createElement('div');
+        modal.id = 'disorder-modal';
+        modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+        
+        // Modal content will be injected dynamically
+        document.body.appendChild(modal);
+    }
+    
+    // Update modal content based on disorder
+    modal.innerHTML = `
+        <div class="bg-white rounded-xl shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">${disorderName}</h2>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mb-4">
+                ${getDisorderContent(disorderName)}
+            </div>
+            <div class="flex justify-end">
+                <button class="bg-purple-600 text-white px-4 py-2 rounded-lg" id="view-resources">
+                    View Resources
+                </button>
+            </div>
+        </div>
+    `;
+    
+    // Show modal
+    modal.classList.remove('hidden');
+    
+    // Add event listeners
+    modal.querySelector('#close-modal').addEventListener('click', function() {
+        modal.classList.add('hidden');
+    });
+    
+    // Outside click to close
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
+    
+    // View resources button
+    modal.querySelector('#view-resources').addEventListener('click', function() {
+        window.location.href = `/resources/${disorderName.toLowerCase().replace(' ', '-')}`;
+    });
+}
+
+// Get content for disorder modal
+function getDisorderContent(disorderName) {
+    // Content library for different disorders
+    const disorderContent = {
+        'ADHD': `
+            <p class="mb-3">Attention-Deficit/Hyperactivity Disorder (ADHD) is a neurodevelopmental disorder characterized by patterns of inattention, hyperactivity, and impulsivity that interfere with functioning or development.</p>
+            
+            <h3 class="font-bold mb-2 mt-4">Common Symptoms:</h3>
+            <ul class="list-disc pl-5 mb-3">
+                <li>Difficulty maintaining attention</li>
+                <li>Excessive movement or restlessness</li>
+                <li>Impulsive decision making</li>
+                <li>Difficulty with organization and time management</li>
+                <li>Forgetfulness in daily activities</li>
+            </ul>
+            
+            <h3 class="font-bold mb-2 mt-4">How NeuroBridge Helps:</h3>
+            <p class="mb-3">Our platform provides specialized tools for ADHD management:</p>
+            <ul class="list-disc pl-5">
+                <li>Focus-building games and activities</li>
+                <li>Visual timers and organization tools</li>
+                <li>Reward systems for completing tasks</li>
+                <li>Adaptive learning that adjusts to attention spans</li>
+                <li>Mindfulness exercises for impulse control</li>
+            </ul>
+        `,
+        'Autism': `
+            <p class="mb-3">Autism Spectrum Disorder (ASD) is a complex developmental condition involving persistent challenges with social communication, restricted interests, and repetitive behavior.</p>
+            
+            <h3 class="font-bold mb-2 mt-4">Common Characteristics:</h3>
+            <ul class="list-disc pl-5 mb-3">
+                <li>Differences in social interaction and communication</li>
+                <li>Repetitive behaviors or restricted interests</li>
+                <li>Sensory sensitivities</li>
+                <li>Preference for routine and predictability</li>
+                <li>Unique strengths in pattern recognition or focused interests</li>
+            </ul>
+            
+            <h3 class="font-bold mb-2 mt-4">How NeuroBridge Helps:</h3>
+            <p class="mb-3">Our platform provides specialized tools for autism support:</p>
+            <ul class="list-disc pl-5">
+                <li>Social skills training through video modeling</li>
+                <li>Visual schedules and routine builders</li>
+                <li>Sensory-friendly interface options</li>
+                <li>Communication tools and social stories</li>
+                <li>Interest-based learning pathways</li>
+            </ul>
+        `,
+        'Dyslexia': `
+            <p class="mb-3">Dyslexia is a learning disorder characterized by difficulties with accurate and fluent word recognition, spelling, and decoding abilities, despite normal intelligence and adequate instruction.</p>
+            
+            <h3 class="font-bold mb-2 mt-4">Common Characteristics:</h3>
+            <ul class="list-disc pl-5 mb-3">
+                <li>Difficulty with phonological processing</li>
+                <li>Challenges with word recognition and decoding</li>
+                <li>Slow or inaccurate reading</li>
+                <li>Spelling difficulties</li>
+                <li>Often accompanied by strengths in creative thinking and problem-solving</li>
+            </ul>
+            
+            <h3 class="font-bold mb-2 mt-4">How NeuroBridge Helps:</h3>
+            <p class="mb-3">Our platform provides specialized tools for dyslexia support:</p>
+            <ul class="list-disc pl-5">
+                <li>Multi-sensory reading exercises</li>
+                <li>Text-to-speech and speech-to-text tools</li>
+                <li>Phonological awareness games</li>
+                <li>Customizable text display options</li>
+                <li>Audiobook and visual learning resources</li>
+            </ul>
+        `
+        // Additional disorders would be added here
+    };
+    
+    // Return content for selected disorder or a default message
+    return disorderContent[disorderName] || `
+        <p>Information about ${disorderName} is being developed. Please check back soon for detailed resources and tools.</p>
+        
+        <div class="bg-blue-50 p-4 rounded-lg mt-4">
+            <h3 class="font-bold mb-2">Available Now:</h3>
+            <ul class="list-disc pl-5">
+                <li>General information articles</li>
+                <li>Community discussion forums</li>
+                <li>Basic assessment tools</li>
+            </ul>
+        </div>
+    `;
+}
+
+// Initialize dashboard elements
+function initDashboardElements() {
+    // Initialize charts if they exist on the page
+    initCharts();
+    
+    // Initialize progress indicators
+    updateProgressBars();
+}
+
+// Initialize charts using Chart.js
+function initCharts() {
+    // Check if we have chart elements on the page  
+    const progressChart = document.getElementById('progress-chart');
+    
+    if (progressChart && typeof Chart !== 'undefined') {
+        new Chart(progressChart.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Minutes of Activity',
+                    data: [20, 35, 25, 45, 30, 55, 40],
+                    borderColor: '#8B5CF6',
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+    
+    // Add more charts initialization as needed
+}
+
+// Update progress bars
+function updateProgressBars() {
+    const progressBars = document.querySelectorAll('[data-progress]');
+    
+    progressBars.forEach(bar => {
+        const progress = bar.getAttribute('data-progress');
+        bar.style.width = `${progress}%`;
+    });
+}
+
+// Accessibility controls
+function initAccessibilityControls() {
+    // Add keyboard navigation for interactive elements
+    addKeyboardNavigation();
+    
+    // Add screen reader descriptions where needed
+    enhanceScreenReaderSupport();
+}
+
+// Add keyboard navigation
+function addKeyboardNavigation() {
+    // Make sure all interactive elements are keyboard accessible
+    const interactiveElements = document.querySelectorAll('button, a, [role="button"]');
+    
+    interactiveElements.forEach(element => {
+        if (!element.hasAttribute('tabindex')) {
+            element.setAttribute('tabindex', '0');
+        }
+        
+        // Add keyboard event handler for elements that aren't native buttons or links
+        if (element.tagName !== 'BUTTON' && element.tagName !== 'A') {
+            element.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    element.click();
+                }
+            });
+        }
+    });
+}
+
+// Enhance screen reader support
+function enhanceScreenReaderSupport() {
+    // Add ARIA labels where needed
+    const elementsNeedingLabels = document.querySelectorAll('[aria-label=""]');
+    
+    elementsNeedingLabels.forEach(element => {
+        // Try to determine appropriate label
+        let label = '';
+        
+        if (element.querySelector('img')) {
+            label = element.querySelector('img').alt || 'Image';
+        } else if (element.querySelector('i.fa, i.fas, i.fab')) {
+            // Try to determine icon meaning
+            const iconClasses = element.querySelector('i').className;
+            if (iconClasses.includes('search')) {
+                label = 'Search';
+            } else if (iconClasses.includes('menu')) {
+                label = 'Menu';
+            } else if (iconClasses.includes('user')) {
+                label = 'User account';
+            }
+            // More icon types could be added
+        }
+        
+        if (label) {
+            element.setAttribute('aria-label', label);
+        }
+    });
+}
+
+// Event listeners for specific page interactions
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle mobile menu if it exists
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('hidden');
+            }
+        });
+    }
+    
+    // Search functionality
+    const searchForm = document.getElementById('search-form');
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = this.querySelector('input').value;
+            performSearch(searchTerm);
+        });
+    }
+    
+    // Newsletter signup
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            // Validate email
+            if (validateEmail(email)) {
+                subscribeToNewsletter(email);
+                showToast('Thank you for subscribing!');
+            } else {
+                showToast('Please enter a valid email address.', 'error');
+            }
+        });
+    }
+});
+
+// Perform search
+function performSearch(term) {
+    // In a real app, this would query a backend
+    console.log('Searching for:', term);
+    
+    // For demo, show search results container
+    const searchResults = document.getElementById('search-results');
+    if (searchResults) {
+        searchResults.classList.remove('hidden');
+        searchResults.innerHTML = `
+            <h3 class="font-medium mb-3">Results for "${term}"</h3>
+            <p class="text-gray-500 italic mb-4">Searching resources, activities, and community posts...</p>
+            <div class="animate-pulse">
+                <div class="h-4 bg-gray-200 rounded w-3/4 mb-3"></div>
+                <div class="h-4 bg-gray-200 rounded w-full mb-3"></div>
+                <div class="h-4 bg-gray-200 rounded w-5/6 mb-3"></div>
+            </div>
+        `;
+        
+        // Simulate loading time
+        setTimeout(() => {
+            displaySearchResults(term, searchResults);
+        }, 1000);
+    }
+}
+
+// Display search results
+function displaySearchResults(term, container) {
+    // Sample results based on search term
+    // In a real app, these would come from a backend
+    let results = [];
+    
+    // Simple keyword matching for demo purposes
+    if (term.toLowerCase().includes('adhd')) {
+        results.push({
+            title: 'ADHD Focus Activities',
+            type: 'Learning Module',
+            url: '/resources/adhd-focus'
+        });
+        results.push({
+            title: 'Understanding ADHD in Children',
+            type: 'Article',
+            url: '/resources/understanding-adhd'
+        });
+    } else if (term.toLowerCase().includes('autism') || term.toLowerCase().includes('asd')) {
+        results.push({
+            title: 'Social Skills Development for Autism',
+            type: 'Learning Module',
+            url: '/resources/autism-social-skills'
+        });
+        results.push({
+            title: 'Visual Schedules for ASD',
+            type: 'Tool',
+            url: '/tools/visual-schedules'
+        });
+    } else if (term.toLowerCase().includes('dyslexia')) {
+        results.push({
+            title: 'Dyslexia Reading Strategies',
+            type: 'Learning Module',
+            url: '/resources/dyslexia-reading'
+        });
+        results.push({
+            title: 'Text-to-Speech Tools',
+            type: 'Tool',
+            url: '/tools/text-to-speech'
+        });
+    } else {
+        // Generic results
+        results.push({
+            title: 'Getting Started Guide',
+            type: 'Article',
+            url: '/resources/getting-started'
+        });
+        results.push({
+            title: 'Popular Learning Activities',
+            type: 'Activities',
+            url: '/activities/popular'
+        });
+    }
+    
+    // Display results
+    let resultsHTML = '';
+    
+    if (results.length > 0) {
+        resultsHTML = `
+            <h3 class="font-medium mb-3">Results for "${term}"</h3>
+            <ul class="divide-y divide-gray-200">
+                ${results.map(result => `
+                    <li class="py-3">
+                        <a href="${result.url}" class="block hover:bg-gray-50 -m-2 p-2 rounded-lg">
+                            <div class="font-medium text-blue-600">${result.title}</div>
+                            <div class="text-sm text-gray-500">${result.type}</div>
+                        </a>
+                    </li>
+                `).join('')}
+            </ul>
+            <div class="mt-2 text-right">
+                <a href="/search?q=${encodeURIComponent(term)}" class="text-sm text-purple-600 font-medium">
+                    View all results
+                </a>
+            </div>
+        `;
+    } else {
+        resultsHTML = `
+            <h3 class="font-medium mb-3">No results found for "${term}"</h3>
+            <p class="text-gray-500 mb-4">Try different keywords or check out our resource library.</p>
+            <a href="/resources" class="text-purple-600 font-medium">Browse all resources</a>
+        `;
+    }
+    
+    container.innerHTML = resultsHTML;
+}
+
+// Validate email
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// Subscribe to newsletter
+function subscribeToNewsletter(email) {
+    // In a real app, this would call an API
+    console.log('Subscribing email:', email);
+    
+    // For demo, clear the input
+    const emailInput = document.querySelector('#newsletter-form input[type="email"]');
+    if (emailInput) {
+        emailInput.value = '';
+    }
+}
+
+// Show toast notification
+function showToast(message, type = 'success') {
+    // Create toast container if it doesn't exist
+    let toastContainer = document.getElementById('toast-container');
+    
+    if (!toastContainer) {
+        toastContainer = document.createElement('div');
+        toastContainer.id = 'toast-container';
+        toastContainer.className = 'fixed bottom-4 right-4 z-50';
+        document.body.appendChild(toastContainer);
+    }
+    
+    // Create toast
+    const toast = document.createElement('div');
+    toast.className = `mb-3 p-4 rounded-lg shadow-lg flex items-center text-white ${type === 'success' ? 'bg-green-500' : 'bg-red-500'}`;
+    
+    toast.innerHTML = `
+        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} mr-2"></i>
+        <span>${message}</span>
+    `;
+    
+    // Add to container
+    toastContainer.appendChild(toast);
+    
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.add('opacity-0');
+        setTimeout(() => {
+            toast.remove();
+        }, 300);
+    }, 3000);
+}
+                        </style>
+                        </body>
+                        </html>

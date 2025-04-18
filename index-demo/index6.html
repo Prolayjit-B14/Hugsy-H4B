@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroBridge - Inclusive Learning for Neurodiverse Learners</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-purple-50 min-h-screen">
+    <!-- Accessibility Controls -->
+    <div class="bg-white py-2 px-4 flex justify-end items-center text-sm border-b border-gray-200">
+        <button id="contrast-toggle" class="mr-4 flex items-center">
+            <i class="fas fa-adjust mr-1"></i> Contrast
+        </button>
+        <button id="font-size-increase" class="mr-4 flex items-center">
+            <i class="fas fa-search-plus mr-1"></i> Font Size
+        </button>
+        <button id="reduced-motion" class="flex items-center">
+            <i class="fas fa-running mr-1"></i> Reduce Motion
+        </button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-indigo-600 text-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <!-- Mobile Menu Button -->
+            <div class="flex items-center justify-between py-3 lg:hidden">
+                <div class="flex items-center">
+                    <img src="/api/placeholder/40/40" alt="NeuroBridge Logo" class="h-10 w-10 rounded-full">
+                    <span class="ml-2 font-bold text-xl">NeuroBridge</span>
+                </div>
+                <button id="mobile-menu-button" class="focus:outline-none" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center justify-between py-3">
+                <div class="flex items-center">
+                    <img src="/api/placeholder/40/40" alt="NeuroBridge Logo" class="h-10 w-10 rounded-full">
+                    <span class="ml-2 font-bold text-xl">NeuroBridge</span>
+                </div>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-indigo-200 transition duration-300" aria-label="Home">Home</a></li>
+                    <li><a href="learn.html" class="hover:text-indigo-200 transition duration-300" aria-label="Learn Now">Learn</a></li>
+                    <li><a href="assessment.html" class="hover:text-indigo-200 transition duration-300" aria-label="Assessment">Assessment</a></li>
+                    <li><a href="dashboard.html" class="hover:text-indigo-200 transition duration-300" aria-label="Dashboard">Dashboard</a></li>
+                    <li><a href="resources.html" class="hover:text-indigo-200 transition duration-300" aria-label="Resources">Resources</a></li>
+                    <li><a href="community.html" class="hover:text-indigo-200 transition duration-300" aria-label="Community">Community</a></li>
+                    <li><a href="specialists.html" class="hover:text-indigo-200 transition duration-300" aria-label="Specialists">Specialists</a></li>
+                    <li><a href="parents.html" class="hover:text-indigo-200 transition duration-300" aria-label="Parents">Parents</a></li>
+                </ul>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden pb-4">
+                <ul class="space-y-3">
+                    <li><a href="index.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Home">Home</a></li>
+                    <li><a href="learn.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Learn Now">Learn</a></li>
+                    <li><a href="assessment.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Assessment">Assessment</a></li>
+                    <li><a href="dashboard.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Dashboard">Dashboard</a></li>
+                    <li><a href="resources.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Resources">Resources</a></li>
+                    <li><a href="community.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Community">Community</a></li>
+                    <li><a href="specialists.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Specialists">Specialists</a></li>
+                    <li><a href="parents.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Parents">Parents</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-12 md:py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Welcome to NeuroBridge</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">An inclusive learning platform designed specifically for neurodiverse learners, providing personalized education and support.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="assessment.html" class="bg-white text-indigo-700 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-indigo-50 transition duration-300">Take Assessment</a>
+                <a href="learn.html" class="bg-indigo-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-indigo-800 transition duration-300">Start Learning</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Introduction -->
+        <section class="mb-12 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-indigo-700">Personalized Learning for Every Mind</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">NeuroBridge adapts to your unique learning style and needs, providing customized activities for a variety of neurodevelopmental profiles including ADHD, Autism, Dyslexia, and more.</p>
+        </section>
+
+        <!-- What We Address Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-indigo-700 text-center">Learning Solutions for Various Profiles</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- ADHD Card -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
+                    <div class="bg-red-100 p-4">
+                        <h3 class="font-bold text-xl text-red-700 flex items-center">
+                            <i class="fas fa-bolt mr-2"></i> ADHD
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700">Focused activities with built-in breaks and rewards to help maintain attention and develop executive function skills.</p>
+                        <a href="adhd.html" class="mt-4 inline-block text-red-600 hover:text-red-700 font-medium">Learn more →</a>
+                    </div>
+                </div>
+                
+                <!-- Autism Card -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
+                    <div class="bg-blue-100 p-4">
+                        <h3 class="font-bold text-xl text-blue-700 flex items-center">
+                            <i class="fas fa-puzzle-piece mr-2"></i> Autism Spectrum
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700">Structured learning with visual supports, predictable routines, and social skills development activities.</p>
+                        <a href="autism.html" class="mt-4 inline-block text-blue-600 hover:text-blue-700 font-medium">Learn more →</a>
+                    </div>
+                </div>
+                
+                <!-- Dyslexia Card -->
+                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
+                    <div class="bg-green-100 p-4">
+                        <h3 class="font-bold text-xl text-green-700 flex items-center">
+                            <i class="fas fa-book-reader mr-2"></i> Dyslexia
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700">Multisensory reading and writing activities with audio support and specialized fonts to enhance readability.</p>
+                        <a href="dyslexia.html" class="mt-4 inline-block text-green-600 hover:text-green-700 font-medium">Learn more →</a>
+                    </div>
+                </div>
+                
+                <!-- View All Button -->
+                <div class="md:col-span-2 lg:col-span-3 text-center mt-4">
+                    <a href="all-profiles.html" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg shadow hover:bg-indigo-700 transition duration-300">
+                        View All Supported Profiles
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-indigo-700 text-center">Interactive Learning Activities</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Feature Cards -->
+                <a href="alphabet.html" class="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="/api/placeholder/400/200" alt="Alphabet Learning" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">📖 Alphabet & Words</h3>
+                        <p class="text-gray-700 mb-4">Multisensory approaches to letter recognition and phonics with adaptable difficulty levels.</p>
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300 w-full">Start Learning</button>
+                    </div>
+                </a>
+
+                <a href="numbers.html" class="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="/api/placeholder/400/200" alt="Number Learning" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">🔢 Numbers & Math</h3>
+                        <p class="text-gray-700 mb-4">Visual and interactive number concepts with scaffolding for dyscalculia and ADHD learners.</p>
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300 w-full">Start Learning</button>
+                    </div>
+                </a>
+
+                <a href="shapes.html" class="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="/api/placeholder/400/200" alt="Shapes Learning" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">🔺 Shapes & Colors</h3>
+                        <p class="text-gray-700 mb-4">Sensory-friendly activities for shape recognition and color identification with adjustable stimuli.</p>
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300 w-full">Start Learning</button>
+                    </div>
+                </a>
+
+                <a href="speech.html" class="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="/api/placeholder/400/200" alt="Speech Learning" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">🗣️ Speech & Language</h3>
+                        <p class="text-gray-700 mb-4">Speech recognition tools with visual feedback for pronunciation and language development.</p>
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300 w-full">Start Learning</button>
+                    </div>
+                </a>
+
+                <a href="motor-skills.html" class="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="/api/placeholder/400/200" alt="Motor Skills" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">✍️ Motor Skills</h3>
+                        <p class="text-gray-700 mb-4">Tracing and drawing activities with adaptable sensitivity for dyspraxia and fine motor challenges.</p>
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300 w-full">Start Learning</button>
+                    </div>
+                </a>
+
+                <a href="social-skills.html" class="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
+                    <img src="/api/placeholder/400/200" alt="Social Skills" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-indigo-700">🎭 Social Skills</h3>
+                        <p class="text-gray-700 mb-4">Interactive scenarios to develop emotional recognition and social communication skills.</p>
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300 w-full">Start Learning</button>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="mb-16 bg-indigo-50 rounded-xl p-8">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-indigo-700 text-center">How NeuroBridge Works</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <i class="fas fa-clipboard-check text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">1. Assessment</h3>
+                    <p class="text-gray-700">Take our adaptive assessment to identify learning strengths and challenges.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <i class="fas fa-sliders-h text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">2. Personalization</h3>
+                    <p class="text-gray-700">Receive a customized learning plan tailored to your unique profile.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <i class="fas fa-chart-line text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">3. Progress</h3>
+                    <p class="text-gray-700">Track improvement with detailed analytics and adaptive difficulty.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-indigo-700 text-center">Success Stories</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="/api/placeholder/50/50" alt="Parent" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h3 class="font-bold">Sarah, Parent of Alex</h3>
+                            <p class="text-sm text-gray-600">ADHD & Dyslexia</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"NeuroBridge has transformed learning for my son. The personalized approach helped him engage with reading in ways traditional methods never could."</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="/api/placeholder/50/50" alt="Teacher" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h3 class="font-bold">Michael, Special Education Teacher</h3>
+                            <p class="text-sm text-gray-600">School District #42</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"The data insights and adaptable activities have been invaluable for my classroom. I can better support each student's individual needs."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl p-8 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to Start Your Learning Journey?</h2>
+            <p class="text-lg mb-6 max-w-2xl mx-auto">Join thousands of families discovering the benefits of personalized, neurodiversity-affirming education.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="signup.html" class="bg-white text-indigo-700 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-indigo-50 transition duration-300">Create Free Account</a>
+                <a href="demo.html" class="bg-transparent border-2 border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-indigo-700 transition duration-300">Watch Demo</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">NeuroBridge</h3>
+                    <p class="text-gray-400">Inclusive education for neurodiverse learners.</p>
+                    <div class="flex mt-4 space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="research.html" class="text-gray-400 hover:text-white transition duration-300">Our Research</a></li>
+                        <li><a href="team.html" class="text-gray-400 hover:text-white transition duration-300">Our Team</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="parents-guide.html" class="text-gray-400 hover:text-white transition duration-300">Parent's Guide</a></li>
+                        <li><a href="educators.html" class="text-gray-400 hover:text-white transition duration-300">For Educators</a></li>
+                        <li><a href="specialists.html" class="text-gray-400 hover:text-white transition duration-300">For Specialists</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-white transition duration-300">FAQ</a></li>
+                        <li><a href="help.html" class="text-gray-400 hover:text-white transition duration-300">Help Center</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe for updates and resources</p>
+                    <form>
+                        <div class="flex">
+                            <input type="email" placeholder="Your email" class="bg-gray-700 text-white px-4 py-2 rounded-l-lg w-full focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                            <button type="submit" class="bg-indigo-600 px-4 py-2 rounded-r-lg hover:bg-indigo-700 transition duration-300">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">&copy; 2025 NeuroBridge. All Rights Reserved.</p>
+                <div class="mt-4 md:mt-0 flex space-x-6">
+                    <a href="privacy.html" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="terms.html" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+                    <a href="accessibility.html" class="text-gray-400 hover:text-white transition duration-300">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+<script>
+    // main.js for NeuroBridge platform
+
+// Mobile menu toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // Accessibility features
+    setupAccessibilityControls();
+});
+
+// Accessibility controls implementation
+function setupAccessibilityControls() {
+    // High contrast mode
+    const contrastToggle = document.getElementById('contrast-toggle');
+    if (contrastToggle) {
+        contrastToggle.addEventListener('click', function() {
+            document.body.classList.toggle('high-contrast');
+            // Save preference to localStorage
+            const isHighContrast = document.body.classList.contains('high-contrast');
+            localStorage.setItem('high-contrast', isHighContrast);
+        });
+        
+        // Apply saved preference
+        if (localStorage.getItem('high-contrast') === 'true') {
+            document.body.classList.add('high-contrast');
+        }
+    }
+
+    // Font size adjustment
+    const fontSizeButton = document.getElementById('font-size-increase');
+    if (fontSizeButton) {
+        fontSizeButton.addEventListener('click', function() {
+            const currentSize = parseInt(localStorage.getItem('font-size-level') || '0');
+            const newSize = (currentSize + 1) % 3; // Cycle through 3 size levels
+            
+            document.body.classList.remove('font-size-1', 'font-size-2');
+            if (newSize > 0) {
+                document.body.classList.add(`font-size-${newSize}`);
+            }
+            
+            localStorage.setItem('font-size-level', newSize);
+        });
+        
+        // Apply saved preference
+        const savedFontSize = localStorage.getItem('font-size-level');
+        if (savedFontSize && savedFontSize !== '0') {
+            document.body.classList.add(`font-size-${savedFontSize}`);
+        }
+    }
+
+    // Reduced motion
+    const reducedMotionButton = document.getElementById('reduced-motion');
+    if (reducedMotionButton) {
+        reducedMotionButton.addEventListener('click', function() {
+            document.body.classList.toggle('reduced-motion');
+            const isReducedMotion = document.body.classList.contains('reduced-motion');
+            localStorage.setItem('reduced-motion', isReducedMotion);
+        });
+        
+        // Apply saved preference
+        if (localStorage.getItem('reduced-motion') === 'true') {
+            document.body.classList.add('reduced-motion');
+        }
+    }
+}
+
+// Optional: User profile customization based on selected condition
+function setUserProfile(profileType) {
+    // Reset all profile-specific settings
+    document.body.classList.remove(
+        'profile-adhd', 
+        'profile-autism', 
+        'profile-dyslexia', 
+        'profile-dyscalculia', 
+        'profile-dysgraphia'
+    );
+    
+    // Apply specific profile settings
+    if (profileType) {
+        document.body.classList.add(`profile-${profileType}`);
+        localStorage.setItem('user-profile', profileType);
+        
+        // Apply specific accommodations based on profile
+        switch (profileType) {
+            case 'adhd':
+                // ADHD-friendly settings
+                applySetting('break-reminders', true);
+                applySetting('reduced-distractions', true);
+                break;
+            case 'autism':
+                // Autism-friendly settings
+                applySetting('predictable-transitions', true);
+                applySetting('sensory-adjustments', true);
+                break;
+            case 'dyslexia':
+                // Dyslexia-friendly settings
+                applySetting('dyslexia-font', true);
+                applySetting('increased-spacing', true);
+                break;
+            // Add more cases as needed
+        }
+    }
+}
+
+// Helper function to apply individual settings
+function applySetting(settingName, value) {
+    localStorage.setItem(settingName, value);
+    if (value) {
+        document.body.classList.add(settingName);
+    } else {
+        document.body.classList.remove(settingName);
+    }
+}
+
+// Load saved user profile on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const savedProfile = localStorage.getItem('user-profile');
+    if (savedProfile) {
+        setUserProfile(savedProfile);
+    }
+});
+</script>
+</body>
+</html>

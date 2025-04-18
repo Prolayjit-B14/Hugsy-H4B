@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BrightMinds Learning - Interactive educational platform for children with special learning needs including dyslexia, autism, and ADHD">
+    <title>BrightMinds Learning | Inclusive Education for Every Child</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+    .high-contrast {
+        background-color: black !important;
+        color: white !important;
+      }
+      
+      .no-animations * {
+        transition: none !important;
+        animation: none !important;
+      }
+      
+      .dyslexic-font {
+        font-family: 'OpenDyslexic', Arial, sans-serif;
+      }
+      
+      /* Optional: Panel styling */
+      .accessibility-panel {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        background: #f2f2f2;
+        padding: 1rem;
+        border-radius: 8px;
+        z-index: 9999;
+      }
+      
+      .button-group button,
+      .toggle-switch input + label {
+        margin-right: 5px;
+        cursor: pointer;
+      }
+    </style>      
+</head>
+<body>
+<!-- Accessibility Controls -->
+<div class="accessibility-controls">
+    <button id="font-toggle" aria-label="Toggle Dyslexia-Friendly Font">Dyslexia Font</button>
+    <button id="contrast-toggle" aria-label="Toggle High Contrast">High Contrast</button>
+    <button id="text-increase" aria-label="Increase Text Size">A+</button>
+    <button id="text-decrease" aria-label="Decrease Text Size">A-</button>
+    <button id="simplify-toggle" aria-label="Toggle Simplified Mode">Simple Mode</button>
+    <button id="read-aloud" aria-label="Read Page Aloud">📢 Read Aloud</button>
+    <button id="pause-animations" aria-label="Pause Animations">⏸️ Pause Animations</button>
+</div>
+
+    <!-- Header with Navigation -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" aria-label="BrightMinds Learning Home">
+                    <img src="/api/placeholder/160/50" alt="BrightMinds Learning Logo">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+                    <span class="sr-only">Menu</span>
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <ul id="primary-menu" class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="learning-paths.html">Learning Paths</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="login.html" class="btn btn-outline">Log In</a>
+                <a href="register.html" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <!-- Hero Section -->
+        <section class="hero fade-in">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Welcome to BrightMinds Learning</h1>
+                    <p>Interactive learning designed for all children, including those with dyslexia, autism, and special learning needs. Learn at your own pace with fun, engaging activities!</p>
+                    <div class="cta-buttons">
+                        <a href="register.html" class="cta-button">Start Free Trial</a>
+                        <a href="learn-more.html" class="cta-button secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="/api/placeholder/500/400" alt="Children engaged in interactive learning activities">
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us">
+            <div class="container">
+                <h2>Why Choose BrightMinds?</h2>
+                <p class="section-intro">Our platform is designed by educational specialists with over 15 years of experience in special education.</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3>Neurodiversity Focused</h3>
+                        <p>Activities designed specifically for diverse learning styles and cognitive profiles.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <h3>Adaptive Pacing</h3>
+                        <p>Learning that adjusts to each child's speed and style, with no time pressure.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3>Progress Tracking</h3>
+                        <p>Detailed analytics help parents and educators understand strengths and challenges.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <h3>Research-Based</h3>
+                        <p>Methods supported by the latest educational research and best practices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Learning Areas Section -->
+        <section class="featured-areas">
+            <div class="container">
+                <h2>Personalized Learning Areas</h2>
+                <p class="section-intro">Explore our specially designed learning modules that adapt to each child's unique needs and learning style.</p>
+
+                <!-- Feature Section -->
+                <div class="features-wrapper">
+                    <div class="features fade-in">
+                        <!-- Language Skills Section -->
+                        <a href="alphabet.html" class="feature-card" aria-label="Learn Alphabet & Words">
+                            <span class="feature-badge">Popular</span>
+                            <div class="feature-image">
+                                <img src="/api/placeholder/300/180" alt="Alphabet learning activities showing letters and associated pictures">
+                            </div>
+                            <div class="feature-content">
+                                <h3><i class="fa-solid fa-book-open"></i> Alphabet & Words</h3>
+                                <p>Multi-sensory alphabet learning with audio support and visual cues. Perfect for early readers and children with dyslexia.</p>
+                                <button class="btn btn-secondary">Start Learning</button>
+                            </div>
+                        </a>
+
+                        <a href="speech.html" class="feature-card" aria-label="Learn Speech & Language">
+                            <div class="feature-image">
+                                <img src="/api/placeholder/300/180" alt="Child practicing speech with visual support">
+                            </div>
+                            <div class="feature-content">
+                                <h3><i class="fa-solid fa-comment-dots"></i> Speech & Language</h3>
+                                <p>Practice pronunciation with visual mouth positioning guides. Record and playback your voice to improve communication skills.</p>
+                                <button class="btn btn-secondary">Start Learning</button>
+                            </div>
+                        </a>
+
+                        <!-- Math Skills Section -->
+                        <a href="number.html" class="feature-card" aria-label="Learn Numbers & Counting">
+                            <span class="feature-badge">New</span>
+                            <div class="feature-image">
+                                <img src="/api/placeholder/300/180" alt="Numbers and counting objects for math learning">
+                            </div>
+                            <div class="feature-content">
+                                <h3><i class="fa-solid fa-calculator"></i> Numbers & Counting</h3>
+                                <p>Visual counting activities with clear patterns and progression. Includes number recognition games with audio support.</p>
+                                <button class="btn btn-secondary">Start Learning</button>
+                            </div>
+                        </a>
+
+                        <!-- Visual Skills Section -->
+                        <a href="shapes.html" class="feature-card" aria-label="Learn Shapes & Colors">
+                            <div class="feature-image">
+                                <img src="/api/placeholder/300/180" alt="Various shapes and colors for visual learning">
+                            </div>
+                            <div class="feature-content">
+                                <h3><i class="fa-solid fa-shapes"></i> Shapes & Colors</h3>
+                                <p>Interactive activities to identify shapes and colors. Includes pattern recognition exercises with adjustable difficulty levels.</p>
+                                <button class="btn btn-secondary">Start Learning</button>
+                            </div>
+                        </a>
+
+                        <!-- Motor Skills Section -->
+                        <a href="tracing.html" class="feature-card" aria-label="Tracing Activities">
+                            <div class="feature-image">
+                                <img src="/api/placeholder/300/180" alt="Child tracing letters on screen or paper">
+                            </div>
+                            <div class="feature-content">
+                                <h3><i class="fa-solid fa-pencil"></i> Tracing Activities</h3>
+                                <p>Practice fine motor skills with guided tracing for letters, numbers, and shapes. Features adjustable guides and highlighting.</p>
+                                <button class="btn btn-secondary">Start Learning</button>
+                            </div>
+                        </a>
+
+                        <!-- Social Emotional Section -->
+                        <a href="social-emotional-play.html" class="feature-card" aria-label="Social & Emotional Play">
+                            <div class="feature-image">
+                                <img src="/api/placeholder/300/180" alt="Children engaged in cooperative play activities">
+                            </div>
+                            <div class="feature-content">
+                                <h3><i class="fa-solid fa-face-smile"></i> Social & Emotional Play</h3>
+                                <p>Learn about emotions, social cues, and appropriate responses through stories and interactive scenarios.</p>
+                                <button class="btn btn-secondary">Start Playing</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Path Section -->
+        <section class="learning-paths">
+            <div class="container">
+                <h2>Personalized Learning Paths</h2>
+                <p class="section-intro">Choose specialized learning tracks designed for different needs and abilities.</p>
+                
+                <div class="path-cards">
+                    <div class="path-card">
+                        <h4><i class="fa-solid fa-book-reader"></i> Dyslexia Support</h4>
+                        <p>Specialized reading and writing activities with multi-sensory approaches to help children with dyslexia master language skills.</p>
+                        <div class="path-features">
+                            <span><i class="fa-solid fa-check"></i> Orton-Gillingham Approach</span>
+                            <span><i class="fa-solid fa-check"></i> Audio-Visual Support</span>
+                            <span><i class="fa-solid fa-check"></i> Font Optimization</span>
+                        </div>
+                        <div class="path-progress">
+                            <div class="progress-label">
+                                <span>Progress</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <a href="path-dyslexia.html" class="btn btn-primary">Start Path</a>
+                    </div>
+                    
+                    <div class="path-card">
+                        <h4><i class="fa-solid fa-puzzle-piece"></i> Autism Learning</h4>
+                        <p>Structured activities with visual supports, predictable routines, and social stories designed for children on the autism spectrum.</p>
+                        <div class="path-features">
+                            <span><i class="fa-solid fa-check"></i> Visual Schedules</span>
+                            <span><i class="fa-solid fa-check"></i> Social Stories</span>
+                            <span><i class="fa-solid fa-check"></i> Sensory-Friendly Design</span>
+                        </div>
+                        <div class="path-progress">
+                            <div class="progress-label">
+                                <span>Progress</span>
+                                <span>40%</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                        <a href="path-autism.html" class="btn btn-primary">Start Path</a>
+                    </div>
+                    
+                    <div class="path-card">
+                        <h4><i class="fa-solid fa-bolt"></i> ADHD Focus Builder</h4>
+                        <p>Short, engaging activities with built-in rewards and breaks to help develop focus and executive functioning skills.</p>
+                        <div class="path-features">
+                            <span><i class="fa-solid fa-check"></i> Timed Activities</span>
+                            <span><i class="fa-solid fa-check"></i> Reward System</span>
+                            <span><i class="fa-solid fa-check"></i> Executive Function Training</span>
+                        </div>
+                        <div class="path-progress">
+                            <div class="progress-label">
+                                <span>Progress</span>
+                                <span>20%</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 20%;"></div>
+                            </div>
+                        </div>
+                        <a href="path-adhd.html" class="btn btn-primary">Start Path</a>
+                    </div>
+                    
+                    <div class="path-card">
+                        <h4><i class="fa-solid fa-comments"></i> Speech & Language</h4>
+                        <p>Activities focused on articulation, language development, and communication skills with audio recording and feedback.</p>
+                        <div class="path-features">
+                            <span><i class="fa-solid fa-check"></i> Articulation Practice</span>
+                            <span><i class="fa-solid fa-check"></i> Vocabulary Building</span>
+                            <span><i class="fa-solid fa-check"></i> Audio Feedback</span>
+                        </div>
+                        <div class="path-progress">
+                            <div class="progress-label">
+                                <span>Progress</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <a href="path-speech.html" class="btn btn-primary">Start Path</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories -->
+        <section class="success-stories">
+            <div class="container">
+                <h2>Success Stories</h2>
+                <p class="section-intro">See how BrightMinds Learning has helped children thrive in their educational journey.</p>
+                
+                <div class="testimonials-slider">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <blockquote>
+                                "BrightMinds has transformed my son's relationship with reading. As a child with dyslexia, he used to avoid books at all costs. Now he's excited to practice reading every day with the interactive activities!"
+                            </blockquote>
+                            <cite>- Maria P., parent of 8-year-old with dyslexia</cite>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <blockquote>
+                                "The visual schedules and predictable routines in the autism learning path have helped my daughter feel secure and confident. Her teacher has noticed significant improvement in her classroom participation."
+                            </blockquote>
+                            <cite>- James T., parent of 7-year-old with autism</cite>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <blockquote>
+                                "As a special education teacher, I've recommended BrightMinds to dozens of families. The platform's ability to adapt to different learning needs while keeping children engaged is truly remarkable."
+                            </blockquote>
+                            <cite>- Sarah L., Special Education Teacher</cite>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="prev-btn" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="slider-dots">
+                        <button class="dot active" aria-label="Testimonial 1"></button>
+                        <button class="dot" aria-label="Testimonial 2"></button>
+                        <button class="dot" aria-label="Testimonial 3"></button>
+                    </div>
+                    <button class="next-btn" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section class="recent-progress">
+            <div class="container">
+                <h2>Your Learning Journey</h2>
+                <div id="progress-display">
+                    <p class="section-intro">Sign in to track your progress and earn rewards!</p>
+                    <div class="achievements">
+                        <div class="achievement-badge">
+                            <i class="fa-solid fa-font"></i>
+                            <span>ABC Master</span>
+                        </div>
+                        <div class="achievement-badge">
+                            <i class="fa-solid fa-hashtag"></i>
+                            <span>Number Ninja</span>
+                        </div>
+                        <div class="achievement-badge">
+                            <i class="fa-solid fa-palette"></i>
+                            <span>Color Wizard</span>
+                        </div>
+                        <div class="achievement-badge">
+                            <i class="fa-solid fa-theater-masks"></i>
+                            <span>Emotion Expert</span>
+                        </div>
+                        <div class="achievement-badge">
+                            <i class="fa-solid fa-star"></i>
+                            <span>Super Learner</span>
+                        </div>
+                    </div>
+                    <div class="progress-cta">
+                        <a href="register.html" class="btn btn-primary">Create Account to Track Progress</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessible Tools Section -->
+        <section class="accessible-tools">
+            <div class="container">
+                <h2>Specialized Learning Tools</h2>
+                <p class="section-intro">Tools designed to make learning accessible for all children.</p>
+                
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </div>
+                        <h4>Text-to-Speech</h4>
+                        <p>Reads content aloud with adjustable speed and voice options.</p>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                        <h4>Speech Recognition</h4>
+                        <p>Practice pronunciation and get instant feedback.</p>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fa-solid fa-keyboard"></i>
+                        </div>
+                        <h4>Word Prediction</h4>
+                        <p>Helps with spelling and writing for children with dyslexia.</p>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fa-solid fa-hand-pointer"></i>
+                        </div>
+                        <h4>Alternative Input</h4>
+                        <p>Switch access and various input methods for motor challenges.</p>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fa-solid fa-glasses"></i>
+                        </div>
+                        <h4>Visual Aids</h4>
+                        <p>Color overlays and reading guides for visual processing.</p>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-icon">
+                            <i class="fa-solid fa-hourglass-half"></i>
+                        </div>
+                        <h4>Focus Timers</h4>
+                        <p>Visual timers and break reminders for attention support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parent Resources Section -->
+        <section class="parent-resources">
+            <div class="container">
+                <h2>Resources for Parents & Educators</h2>
+                <p class="section-intro">Support materials to help guide your child's learning journey.</p>
+                
+                <div class="resources-container">
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/api/placeholder/300/180" alt="Parents and educators collaborating">
+                        </div>
+                        <div class="resource-content">
+                            <h4>Dyslexia Support Guide</h4>
+                            <p>Practical strategies and activities to support children with dyslexia at home and school.</p>
+                            <a href="guide-dyslexia.html" class="btn btn-outline">Read Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/api/placeholder/300/180" alt="Parent helping child with homework">
+                        </div>
+                        <div class="resource-content">
+                            <h4>Progress Tracking</h4>
+                            <p>Learn how to monitor your child's progress and celebrate their achievements.</p>
+                            <a href="guide-progress.html" class="btn btn-outline">Read Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/api/placeholder/300/180" alt="Parent and child using tablet together">
+                        </div>
+                        <div class="resource-content">
+                            <h4>Technology Tips</h4>
+                            <p>How to set up and use assistive technology for maximum learning benefit.</p>
+                            <a href="guide-tech.html" class="btn btn-outline">Read Guide</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resource-link-grid">
+                    <a href="webinars.html" class="resource-link-item">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Webinar Library</span>
+                    </a>
+                    <a href="printables.html" class="resource-link-item">
+                        <i class="fa-solid fa-print"></i>
+                        <span>Printable Worksheets</span>
+                    </a>
+                    <a href="community.html" class="resource-link-item">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Parent Community</span>
+                    </a>
+                    <a href="research.html" class="resource-link-item">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Research Articles</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Start Your Child's Learning Adventure Today</h2>
+                    <p>Join thousands of families who have discovered the joy of personalized learning.</p>
+                    <div class="cta-buttons">
+                        <a href="register.html" class="btn btn-primary btn-large">Start 14-Day Free Trial</a>
+                        <a href="pricing.html" class="btn btn-outline btn-large">View Pricing Plans</a>
+                    </div>
+                    <p class="cta-note">No credit card required. Cancel anytime.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="/api/placeholder/160/50" alt="BrightMinds Learning Logo">
+                    </div>
+                    <p>Making education accessible and engaging for all children, regardless of learning differences.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Follow us on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Follow us on Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" aria-label="Follow us on Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Follow us on YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Learning</h4>
+                    <ul class="footer-links">
+                        <li><a href="learning-paths.html">Learning Paths</a></li>
+                        <li><a href="subjects.html">Subjects</a></li>
+                        <li><a href="age-groups.html">Age Groups</a></li>
+                        <li><a href="accessibility.html">Accessibility Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="parent-guides.html">Parent Guides</a></li>
+                        <li><a href="educator-resources.html">Educator Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="webinars.html">Webinars</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="accessibility-statement.html">Accessibility Statement</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BrightMinds Learning. All rights reserved.</p>
+                <p>Made with <i class="fa-solid fa-heart"></i> for children of all abilities.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Newsletter Modal -->
+    <div id="newsletter-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close newsletter modal">&times;</button>
+            <h3>Join Our Newsletter</h3>
+            <p>Get the latest learning resources and special offers delivered to your inbox.</p>
+            <form class="newsletter-form">
+                <div class="form-group">
+                    <label for="newsletter-email">Email Address</label>
+                    <input type="email" id="newsletter-email" placeholder="your@email.com" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+<!-- Accessibility Panel -->
+<div class="accessibility-panel" id="accessibility-panel">
+    <button class="accessibility-toggle" aria-expanded="false" aria-controls="accessibility-controls">
+      <i class="fa-solid fa-universal-access"></i>
+      <span>Accessibility</span>
+    </button>
+  
+    <div class="accessibility-controls" id="accessibility-controls" style="display: none;">
+      <h4>Customize Your Experience</h4>
+  
+      <!-- Font Size Controls -->
+      <div class="control-group">
+        <label>Text Size</label>
+        <div class="button-group">
+          <button class="control-btn" data-action="decrease-font">A-</button>
+          <button class="control-btn" data-action="reset-font">Reset</button>
+          <button class="control-btn" data-action="increase-font">A+</button>
+        </div>
+      </div>
+  
+      <!-- Contrast Controls -->
+      <div class="control-group">
+        <label>Contrast</label>
+        <div class="button-group">
+          <button class="control-btn" data-action="high-contrast">High</button>
+          <button class="control-btn active" data-action="normal-contrast">Normal</button>
+        </div>
+      </div>
+  
+      <!-- Animations Toggle -->
+      <div class="control-group">
+        <label>Animations</label>
+        <div class="toggle-switch">
+          <input type="checkbox" id="animations-toggle" checked>
+          <label for="animations-toggle">Enable</label>
+        </div>
+      </div>
+  
+      <!-- Dyslexic Font Toggle -->
+      <div class="control-group">
+        <label>Dyslexia-Friendly Font</label>
+        <div class="toggle-switch">
+          <input type="checkbox" id="dyslexic-font-toggle">
+          <label for="dyslexic-font-toggle">Enable</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <!-- Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const toggleBtn = document.querySelector(".accessibility-toggle");
+          const panel = document.getElementById("accessibility-controls");
+        
+          let currentFontSize = 100;
+        
+          toggleBtn.addEventListener("click", () => {
+            const isOpen = toggleBtn.getAttribute("aria-expanded") === "true";
+            toggleBtn.setAttribute("aria-expanded", !isOpen);
+            panel.style.display = isOpen ? "none" : "block";
+          });
+        
+          document.querySelectorAll(".control-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+              const action = btn.getAttribute("data-action");
+              if (action === "increase-font") {
+                currentFontSize += 10;
+              } else if (action === "decrease-font") {
+                currentFontSize = Math.max(50, currentFontSize - 10);
+              } else if (action === "reset-font") {
+                currentFontSize = 100;
+              }
+              document.body.style.fontSize = `${currentFontSize}%`;
+            });
+          });
+        
+          document.querySelector("[data-action='high-contrast']").addEventListener("click", () => {
+            document.body.classList.add("high-contrast");
+          });
+        
+          document.querySelector("[data-action='normal-contrast']").addEventListener("click", () => {
+            document.body.classList.remove("high-contrast");
+          });
+        
+          document.getElementById("animations-toggle").addEventListener("change", (e) => {
+            document.body.classList.toggle("no-animations", !e.target.checked);
+          });
+        
+          document.getElementById("dyslexic-font-toggle").addEventListener("change", (e) => {
+            document.body.classList.toggle("dyslexic-font", e.target.checked);
+          });
+        });
+        </script>
+        
+    <script src="script.js" defer></script>
+    <script src="accssibility.js" defer></script>
+</body>
+</html>
