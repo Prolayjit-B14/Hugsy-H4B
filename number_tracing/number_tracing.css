@@ -1,0 +1,80 @@
+body {
+    font-family: 'Comic Sans MS', cursive;
+    text-align: center;
+    background: #f0f9ff;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #3a3aee;
+    margin-bottom: 20px;
+  }
+  
+  canvas#tracingCanvas {
+    border: 4px dashed #ff99cc;
+    background: #fff0f5;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    touch-action: none;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+  
+  #currentNumber {
+    font-size: 2rem;
+    background: #e6ffe6;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #66cc66;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #ffccff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ffcce5;
+  }
+  
+  .buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  #confettiCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+  }
+  
+  @media screen and (max-width: 600px) {
+    canvas#tracingCanvas {
+      width: 90% !important;
+      height: auto !important;
+    }
+  
+    .controls {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
