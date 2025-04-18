@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shape Tracing</title>
+  <link rel="stylesheet" href="shape_tracing.css" />
+</head>
+<body>
+  <h1>✏️ Trace the Shape</h1>
+  <canvas id="tracingCanvas" width="300" height="300"></canvas>
+  <h2 id="shapeName">Circle</h2>
+
+  <div class="buttons">
+    <button onclick="prevShape()">⬅️ Prev</button>
+    <button onclick="clearCanvas()">🧹 Clear</button>
+    <button onclick="speakShape()">🔊 Say Shape</button>
+    <button onclick="nextShape()">➡️ Next</button>
+  </div>
+  <button id="topBtn" onclick="scrollToTop()">⬆️ Move to Top</button>
+
+  <script src="shape_tracing.js"></script>
+</body>
+</html>
