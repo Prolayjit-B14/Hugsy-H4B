@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Game</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #6dd5ed, #2193b0);
+        text-align: center;
+      }
+      /* Navbar */
+      .navbar {
+        background: #032b44;
+        padding: 15px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+      }
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .navbar a:hover {
+        color: #f4b400;
+      }
+      /* Game Container */
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        background: white;
+        padding: 40px;
+        margin: 50px auto;
+        max-width: 600px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+      h1 {
+        color: #032b44;
+        font-size: 2.2em;
+        font-weight: bold;
+      }
+      .game-card {
+        padding: 25px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #6a1b9a;
+      }
+      #inputValue {
+        padding: 12px;
+        font-size: 20px;
+        border-radius: 10px;
+        width: 60%;
+        border: 2px solid #6a1b9a;
+        text-align: center;
+      }
+      button {
+        padding: 15px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        background-color: #032b44;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background 0.3s;
+        margin: 10px;
+      }
+      button:hover {
+        background-color: #0288d1;
+      }
+      #result {
+        font-size: 1.8em;
+        font-weight: bold;
+        color: #388e3c;
+      }
+      #error-msg {
+        color: #f44336;
+        font-size: 1.2em;
+        margin-top: 10px;
+      }
+      /* Footer */
+      .footer {
+        background: #032b44;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <h2>Math Game</h2>
+      <div>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Game Container -->
+    <div class="container">
+      <h1>Math Game</h1>
+      <div class="game-card" id="question"></div>
+      <button id="submit-btn" disabled>Submit</button>
+      <p id="error-msg" class="hide"></p>
+      <div class="controls-container">
+        <p id="result"></p>
+        <button id="start-btn">Start Game</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>&copy; 2025 Math Game. All Rights Reserved.</p>
+    </div>
+
+    <script>
+      let operators = ["+", "-", "*"];
+      const startBtn = document.getElementById("start-btn");
+      const question = document.getElementById("question");
+      const controls = document.querySelector(".controls-container");
+      const result = document.getElementById("result");
+      const submitBtn = document.getElementById("submit-btn");
+      const errorMessage = document.getElementById("error-msg");
+      let answerValue;
+      let operatorQuestion = false;
+
+      // Random Value Generator
+      const randomValue = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
+      const questionGenerator = () => {
+        let [num1, num2] = [randomValue(1, 20), randomValue(1, 20)];
+        let randomOperator = operators[Math.floor(Math.random() * operators.length)];
+
+        if (randomOperator == "-" && num2 > num1) {
+          [num1, num2] = [num2, num1];
+        }
+
+        let solution = eval(`${num1}${randomOperator}${num2}`);
+        let randomVar = randomValue(1, 5);
+
+        if (randomVar == 1) {
+          answerValue = num1;
+          question.innerHTML = `<input type="number" id="inputValue" placeholder="?" /> ${randomOperator} ${num2} = ${solution}`;
+        } else if (randomVar == 2) {
+          answerValue = num2;
+          question.innerHTML = `${num1} ${randomOperator} <input type="number" id="inputValue" placeholder="?" /> = ${solution}`;
+        } else if (randomVar == 3) {
+          answerValue = randomOperator;
+          operatorQuestion = true;
+          question.innerHTML = `${num1} <input type="text" id="inputValue" placeholder="?" /> ${num2} = ${solution}`;
+        } else {
+          answerValue = solution;
+          question.innerHTML = `${num1} ${randomOperator} ${num2} = <input type="number" id="inputValue" placeholder="?" />`;
+        }
+
+        submitBtn.disabled = false;
+      };
+
+      submitBtn.addEventListener("click", () => {
+        errorMessage.classList.add("hide");
+        let userInput = document.getElementById("inputValue").value.trim();
+
+        if (!userInput) {
+          errorMessage.classList.remove("hide");
+          errorMessage.innerHTML = "Input Cannot Be Empty";
+          return;
+        }
+
+        if (operatorQuestion) {
+          if (!operators.includes(userInput)) {
+            errorMessage.classList.remove("hide");
+            errorMessage.innerHTML = "Please enter a valid operator (+, -, *)";
+            return;
+          }
+        } else {
+          userInput = Number(userInput);
+          if (isNaN(userInput)) {
+            errorMessage.classList.remove("hide");
+            errorMessage.innerHTML = "Please enter a valid number";
+            return;
+          }
+        }
+
+        if (userInput == answerValue) {
+          stopGame(`🎉 Yippie!! <span>Correct</span> Answer`);
+        } else {
+          stopGame(`😢 Oops!! <span>Wrong</span> Answer`);
+        }
+      });
+
+      startBtn.addEventListener("click", () => {
+        operatorQuestion = false;
+        errorMessage.classList.add("hide");
+        controls.classList.add("hide");
+        startBtn.classList.add("hide");
+        submitBtn.disabled = false;
+        questionGenerator();
+      });
+
+      const stopGame = (resultText) => {
+        result.innerHTML = resultText;
+        startBtn.innerText = "Restart";
+        controls.classList.remove("hide");
+        startBtn.classList.remove("hide");
+        submitBtn.disabled = true;
+      };
+    </script>
+  </body>
+</html>
