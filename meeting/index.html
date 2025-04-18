@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive meeting platform for kids with similar disabilities">
+  <title>Connect Together</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="spark.ico" type="image/x-icon">
+  <link rel="icon" href="spark.ico" type="image/png">
+</head>
+<body>
+  <header>
+    <h1>Connect Together</h1>
+    <p>A platform for kids to interact and connect with others like them.</p>
+  </header>
+
+  <main>
+    <section class="join-meeting">
+      <h2>Join or Create a Meeting</h2>
+      <form id="meeting-form">
+        <label for="room-name">Enter Room Name:</label>
+        <input type="text" id="room-name" placeholder="e.g., hearing-impaired-group" required />
+        <button type="submit">Join Meeting</button>
+      </form>
+    </section>
+
+    <section class="meeting-area">
+      <h2>Meeting Room</h2>
+      <div id="jitsi-container"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Connect Together | Built for inclusion and accessibility</p>
+  </footer>
+
+  <script src="https://meet.jit.si/external_api.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
