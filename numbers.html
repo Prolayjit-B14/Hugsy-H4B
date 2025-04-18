@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers & Counting | Learn</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset and body styles */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Comic Sans MS', sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+        }
+
+        /* Navigation bar */
+        nav {
+            background: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main content area */
+        .content {
+            flex: 1;
+            padding: 20px;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            max-width: 90%;
+            margin: auto;
+        }
+
+        .card {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.2);
+            background: #4caf50 !important;
+        }
+
+        /* Number card colors */
+        .num0 { background: #e74c3c; }
+        .num1 { background: #ff6b6b; }
+        .num2 { background: #6bcbff; }
+        .num3 { background: #ffb86b; }
+        .num4 { background: #8a7ff7; }
+        .num5 { background: #f7d746; }
+        .num6 { background: #1abc9c; }
+        .num7 { background: #ff85f2; }
+        .num8 { background: #ff6347; }
+        .num9 { background: #7f8c8d; }
+        .num10 { background: #3498db; }
+        .num11 { background: #f39c12; }
+        .num12 { background: #27ae60; }
+        .num13 { background: #9b59b6; }
+        .num14 { background: #e67e22; }
+        .num15 { background: #16a085; }
+        .num16 { background: #c0392b; }
+        .num17 { background: #34495e; }
+        .num18 { background: #2ecc71; }
+        .num19 { background: #d35400; }
+        .num20 { background: #1abc9c; }
+
+        .back-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background: #555;
+        }
+
+        /* Footer fixed at the bottom */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="learn.html">Learn</a>
+        <a href="games.html">Games</a>
+        <a href="about.html">About</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>🔢 Learn Numbers & Counting!</h1>
+        <p>Click on a number to hear it.</p>
+
+        <div class="container">
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const numbersContainer = document.querySelector(".container");
+                    for (let i = 0; i <= 20; i++) {
+                        let card = document.createElement("div");
+                        card.className = `card num${i}`;
+                        card.textContent = i;
+                        card.onclick = () => speak(i);
+                        numbersContainer.appendChild(card);
+                    }
+                });
+
+                function speak(text) {
+                    let speech = new SpeechSynthesisUtterance(text);
+                    speech.lang = 'en-US';
+                    window.speechSynthesis.speak(speech);
+                }
+            </script>
+        </div>
+
+        <a href="learn.html" class="back-button">🔙 Back to Learn</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Learn Numbers | Designed with ❤️ by You
+    </footer>
+
+</body>
+</html>

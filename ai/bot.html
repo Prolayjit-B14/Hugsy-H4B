@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuddyBot - A Friend for Kids</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        
+        h1 {
+            color: #4b6cb7;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        .robot {
+            width: 200px;
+            height: 280px;
+            margin: 0 auto;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .robot-head {
+            width: 120px;
+            height: 100px;
+            background-color: #64b5f6;
+            border-radius: 20px 20px 10px 10px;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .robot-eye {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            top: 30px;
+        }
+        
+        .robot-eye-left {
+            left: 25px;
+        }
+        
+        .robot-eye-right {
+            right: 25px;
+        }
+        
+        .robot-pupil {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #333;
+            border-radius: 50%;
+            top: 7px;
+            left: 7px;
+            animation: blink 4s infinite;
+        }
+        
+        .robot-mouth {
+            position: absolute;
+            width: 50px;
+            height: 10px;
+            background-color: #e91e63;
+            border-radius: 5px;
+            bottom: 20px;
+            left: 35px;
+        }
+        
+        .robot-body {
+            width: 140px;
+            height: 120px;
+            background-color: #90caf9;
+            border-radius: 20px;
+            margin: 10px auto;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .robot-arm {
+            width: 20px;
+            height: 80px;
+            background-color: #64b5f6;
+            position: absolute;
+            top: 20px;
+            border-radius: 10px;
+        }
+        
+        .robot-arm-left {
+            left: -15px;
+            transform-origin: top center;
+            animation: wave 3s infinite;
+        }
+        
+        .robot-arm-right {
+            right: -15px;
+        }
+        
+        .robot-leg {
+            width: 25px;
+            height: 50px;
+            background-color: #42a5f5;
+            position: absolute;
+            bottom: -50px;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .robot-leg-left {
+            left: 30px;
+        }
+        
+        .robot-leg-right {
+            right: 30px;
+        }
+        
+        .antenna {
+            width: 5px;
+            height: 20px;
+            background-color: #42a5f5;
+            position: absolute;
+            top: -20px;
+            left: 57px;
+        }
+        
+        .antenna-top {
+            width: 15px;
+            height: 15px;
+            background-color: #ff5722;
+            border-radius: 50%;
+            position: absolute;
+            top: -15px;
+            left: -5px;
+            animation: glow 2s infinite;
+        }
+        
+        .chat-box {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            overflow: hidden;
+            z-index: 1000;
+        }
+        
+        .chat-header {
+            background-color: #4b6cb7;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-title {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .close-chat, .full-size {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .full-size {
+            margin-right: 10px;
+        }
+        
+        .chat-messages {
+            height: 320px;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 15px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        
+        .bot-message {
+            background-color: #e3f2fd;
+            color: #333;
+            border-top-left-radius: 5px;
+            align-self: flex-start;
+        }
+        
+        .user-message {
+            background-color: #4b6cb7;
+            color: white;
+            border-top-right-radius: 5px;
+            margin-left: auto;
+            text-align: right;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+        
+        #message-input {
+            flex-grow: 1;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+        
+        #send-button {
+            background-color: #4b6cb7;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-15deg); }
+            75% { transform: rotate(15deg); }
+        }
+        
+        @keyframes blink {
+            0%, 45%, 55%, 100% { transform: scale(1); }
+            50% { transform: scale(0.1); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px #ff5722; }
+            50% { box-shadow: 0 0 20px #ff5722, 0 0 30px #ff9800; }
+        }
+        
+        .welcome-bubble {
+            position: absolute;
+            top: -60px;
+            right: -80px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 200px;
+            opacity: 0;
+            animation: appear 1s ease-in-out 1s forwards;
+        }
+        
+        .welcome-bubble:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: white transparent;
+        }
+        
+        @keyframes appear {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Meet BuddyBot!</h1>
+        <div class="welcome-bubble">
+            Click me to chat! I'm here to help!
+        </div>
+        <div class="robot" id="robot">
+            <div class="antenna">
+                <div class="antenna-top"></div>
+            </div>
+            <div class="robot-head">
+                <div class="robot-eye robot-eye-left">
+                    <div class="robot-pupil"></div>
+                </div>
+                <div class="robot-eye robot-eye-right">
+                    <div class="robot-pupil"></div>
+                </div>
+                <div class="robot-mouth"></div>
+            </div>
+            <div class="robot-body">
+                <div class="robot-arm robot-arm-left"></div>
+                <div class="robot-arm robot-arm-right"></div>
+                <div class="robot-leg robot-leg-left"></div>
+                <div class="robot-leg robot-leg-right"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-box" id="chat-box">
+        <div class="chat-header">
+            <h3 class="chat-title">Chat with BuddyBot</h3>
+            <div>
+                <button class="full-size" id="full-size">Full Size</button>
+                <button class="close-chat" id="close-chat">X</button>
+            </div>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <!-- Messages will be added here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const robot = document.getElementById('robot');
+            const chatBox = document.getElementById('chat-box');
+            const closeChat = document.getElementById('close-chat');
+            const fullSize = document.getElementById('full-size');
+            const messageInput = document.getElementById('message-input');
+            const sendButton = document.getElementById('send-button');
+            const chatMessages = document.getElementById('chat-messages');
+            
+            // Pre-defined bot responses for demo
+            const botResponses = [
+                "Hello! I'm BuddyBot! How can I help you today?",
+                "It's okay to feel distracted sometimes. Want to try a quick focus game?",
+                "Remember to take breaks when you need them!",
+                "Great job! You're doing awesome!",
+                "I can help you organize your thoughts. Want to make a list together?",
+                "Let's break this big task into smaller steps, okay?",
+                "It's normal to feel frustrated sometimes. Let's take a deep breath together.",
+                "You're not alone - I'm here to help you anytime!"
+            ];
+            
+            // Add initial bot message when chat opens
+            function addInitialMessages() {
+                addMessage("Hi there! I'm BuddyBot, your friendly assistant!", "bot");
+                addMessage("I'm here to help you focus, organize your thoughts, and have fun learning!", "bot");
+                addMessage("What would you like to talk about today?", "bot");
+            }
+            
+            function addMessage(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', sender + '-message');
+                messageDiv.textContent = text;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            // Robot click handler
+            robot.addEventListener('click', function() {
+                chatBox.style.display = 'block';
+                // Only add initial messages if chat is empty
+                if (chatMessages.children.length === 0) {
+                    addInitialMessages();
+                }
+            });
+            
+            // Close chat handler
+            closeChat.addEventListener('click', function() {
+                chatBox.style.display = 'none';
+            });
+            
+            // Full size chat handler
+            fullSize.addEventListener('click', function() {
+                // In a real application, redirect to the full AI page
+                alert("In a real application, this would redirect to your full AI assistant page where you'd integrate an advanced API-based solution.");
+                // window.location.href = "full-ai-page.html";
+            });
+            
+            // Send message handler
+            function sendMessage() {
+                const messageText = messageInput.value.trim();
+                if (messageText) {
+                    addMessage(messageText, 'user');
+                    messageInput.value = '';
+                    
+                    // Simulate bot thinking
+                    setTimeout(function() {
+                        // Choose random response from pre-defined list for demo
+                        const randomResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
+                        addMessage(randomResponse, 'bot');
+                    }, 1000);
+                }
+            }
+            
+            sendButton.addEventListener('click', sendMessage);
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // Make robot eyes follow cursor
+            document.addEventListener('mousemove', function(e) {
+                const pupils = document.querySelectorAll('.robot-pupil');
+                const robotRect = robot.getBoundingClientRect();
+                const robotCenterX = robotRect.left + robotRect.width / 2;
+                const robotCenterY = robotRect.top + robotRect.height / 3;
+                
+                const angle = Math.atan2(e.clientY - robotCenterY, e.clientX - robotCenterX);
+                const distance = Math.min(5, Math.sqrt(Math.pow(e.clientX - robotCenterX, 2) + Math.pow(e.clientY - robotCenterY, 2)) / 50);
+                
+                const pupilX = Math.cos(angle) * distance;
+                const pupilY = Math.sin(angle) * distance;
+                
+                pupils.forEach(pupil => {
+                    pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

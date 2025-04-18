@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuddyBot - Full Chat Experience</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background-color: #4b6cb7;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            background-color: white;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 18px;
+            max-width: 70%;
+            word-wrap: break-word;
+            line-height: 1.5;
+            position: relative;
+            animation: fade-in 0.3s ease-in-out;
+        }
+        
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .bot-message {
+            align-self: flex-start;
+            background-color: #e3f2fd;
+            color: #333;
+            border-top-left-radius: 5px;
+        }
+        
+        .user-message {
+            align-self: flex-end;
+            background-color: #4b6cb7;
+            color: white;
+            border-top-right-radius: 5px;
+        }
+        
+        .message-time {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 5px;
+            text-align: right;
+        }
+        
+        .bot-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #90caf9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            position: absolute;
+            left: -50px;
+            bottom: 0;
+        }
+        
+        .chat-input-container {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+        }
+        
+        .chat-input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        
+        .send-button {
+            background-color: #4b6cb7;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .send-button:hover {
+            background-color: #3f5ba9;
+        }
+        
+        .tools-container {
+            display: flex;
+            background-color: #f5f5f5;
+            padding: 10px 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tool-button {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 8px 15px;
+            margin-right: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        .tool-button:hover {
+            background-color: #e3f2fd;
+        }
+        
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            background-color: #e3f2fd;
+            border-radius: 18px;
+            padding: 12px 20px;
+            margin-bottom: 15px;
+        }
+        
+        .typing-bubble {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #90caf9;
+            margin-right: 5px;
+            animation: typing-bubble 1.4s infinite both;
+        }
+        
+        .typing-bubble:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-bubble:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing-bubble {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+        
+        footer {
+            background-color: #4b6cb7;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .message {
+                max-width: 85%;
+            }
+            
+            .bot-avatar {
+                width: 30px;
+                height: 30px;
+                left: -40px;
+            }
+            
+            .chat-input-container {
+                padding: 15px;
+            }
+            
+            .chat-input {
+                padding: 12px;
+            }
+            
+            .send-button {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-icon">🤖</div>
+            <h1>BuddyBot Full Chat</h1>
+        </div>
+        <a href="index.html" class="back-button">← Back to Home</a>
+    </header>
+    
+    <main>
+        <div class="chat-container">
+            <div class="tools-container">
+                <button class="tool-button">🎯 Focus Timer</button>
+                <button class="tool-button">📝 Task List</button>
+                <button class="tool-button">🧩 Break Tasks Down</button>
+                <button class="tool-button">😊 Feeling Helper</button>
+                <button class="tool-button">🎮 Fun Games</button>
+                <button class="tool-button">📚 Learning Tips</button>
+            </div>
+            
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will be loaded here -->
+                <div class="message bot-message">
+                    <div class="bot-avatar">🤖</div>
+                    Welcome to BuddyBot's full chat experience! I'm your friendly AI assistant designed especially for kids with ADHD.
+                    <div class="message-time">Just now</div>
+                </div>
+                
+                <div class="message bot-message">
+                    <div class="bot-avatar">🤖</div>
+                    I can help you with:
+                    • Focusing on tasks
+                    • Breaking down big projects
+                    • Managing your time
+                    • Dealing with feelings
+                    • Learning in a way that works for you
+                    <div class="message-time">Just now</div>
+                </div>
+                
+                <div class="message bot-message">
+                    <div class="bot-avatar">🤖</div>
+                    What would you like help with today?
+                    <div class="message-time">Just now</div>
+                </div>
+                
+                <div class="typing-indicator" id="typing-indicator">
+                    <div class="typing-bubble"></div>
+                    <div class="typing-bubble"></div>
+                    <div class="typing-bubble"></div>
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chat-input" placeholder="Type your message here...">
+                <button class="send-button" id="send-button">➤</button>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        BuddyBot - Supporting Children with ADHD | © 2025 | Privacy Policy | Terms of Use
+    </footer>
+
+        
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatInput = document.getElementById('chat-input');
+            const sendButton = document.getElementById('send-button');
+            const chatMessages = document.getElementById('chat-messages');
+            const typingIndicator = document.getElementById('typing-indicator');
+            
+            // Tool buttons functionality
+            const toolButtons = document.querySelectorAll('.tool-button');
+            toolButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const toolName = this.textContent;
+                    handleToolSelection(toolName);
+                });
+            });
+            
+            function handleToolSelection(toolName) {
+                let response = "";
+                
+                if (toolName.includes("Focus Timer")) {
+                    response = "Let's set up a focus timer! How long would you like to focus? We can start with 10 minutes and take a 2-minute break after.";
+                } else if (toolName.includes("Task List")) {
+                    response = "Let's make a task list together! What's the first thing you need to do today?";
+                } else if (toolName.includes("Break Tasks")) {
+                    response = "Big tasks can feel overwhelming! Tell me what big task you're working on, and I'll help you break it into smaller steps.";
+                } else if (toolName.includes("Feeling Helper")) {
+                    response = "How are you feeling today? Happy, sad, frustrated, excited, or something else? I'm here to listen and help.";
+                } else if (toolName.includes("Fun Games")) {
+                    response = "Games can help our brains get better at focusing! Would you like to play a memory game, a word game, or a quick attention challenge?";
+                } else if (toolName.includes("Learning Tips")) {
+                    response = "Learning can be fun! What subject are you working on? I can give you some special strategies that make learning easier and more exciting!";
+                }
+                
+                // Show typing indicator
+                showTypingIndicator();
+                
+                // Add bot response after delay
+                setTimeout(() => {
+                    hideTypingIndicator();
+                    addBotMessage(response);
+                }, 1500);
+            }
+            
+            // Send message functionality
+            function sendMessage() {
+                const messageText = chatInput.value.trim();
+                if (messageText) {
+                    // Add user message
+                    addUserMessage(messageText);
+                    chatInput.value = '';
+                    
+                    // Show typing indicator
+                    showTypingIndicator();
+                    
+                    // Process message and respond
+                    setTimeout(() => {
+                        processUserMessage(messageText);
+                    }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
+                }
+            }
+            
+            function processUserMessage(messageText) {
+                // This would be where you connect to your AI API
+                // For demo purposes, we'll use some pre-defined responses
+                
+                let botResponse = "";
+                const messageLower = messageText.toLowerCase();
+                
+                if (messageLower.includes("hello") || messageLower.includes("hi")) {
+                    botResponse = "Hi there! It's great to talk with you! How can I help you today?";
+                } else if (messageLower.includes("focus") || messageLower.includes("concentrate")) {
+                    botResponse = "When it's hard to focus, try the '5-4-3-2-1' game: Find 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, and 1 thing you can taste. This helps bring your attention back to what you're doing!";
+                } else if (messageLower.includes("homework") || messageLower.includes("school")) {
+                    botResponse = "Homework can be tricky sometimes! Let's break it down into smaller parts. What subject are you working on? We can set a timer for 15 minutes of focus, then take a 5-minute break!";
+                } else if (messageLower.includes("bored") || messageLower.includes("boring")) {
+                    botResponse = "Feeling bored can happen to everyone! Would you like to try a quick brain game, do a fun movement break, or talk about something interesting you learned recently?";
+                } else if (messageLower.includes("angry") || messageLower.includes("mad") || messageLower.includes("upset")) {
+                    botResponse = "It's okay to feel angry sometimes. Let's try taking 3 deep breaths together. Breathe in... and out... How about we count to 10 slowly? Sometimes a quick movement break helps too!";
+                } else if (messageLower.includes("sad") || messageLower.includes("unhappy")) {
+                    botResponse = "I'm sorry you're feeling sad. That happens to everyone sometimes. Would you like to talk about what's making you feel this way? Or maybe we could think of some things that usually make you smile?";
+                } else if (messageLower.includes("friend") || messageLower.includes("friends")) {
+                    botResponse = "Friends are so important! Sometimes making friends or getting along with them can be tricky. Would you like to talk about friendship skills or something specific about your friends?";
+                } else if (messageLower.includes("thank")) {
+                    botResponse = "You're very welcome! I'm always happy to help. Is there anything else you'd like to talk about?";
+                } else {
+                    botResponse = "That's interesting! I'd love to know more about that. Can you tell me more or ask me a specific question about how I can help you?";
+                }
+                
+                hideTypingIndicator();
+                addBotMessage(botResponse);
+            }
+            
+            function addUserMessage(text) {
+                const time = getCurrentTime();
+                const messageHTML = `
+                    <div class="message user-message">
+                        ${text}
+                        <div class="message-time">${time}</div>
+                    </div>
+                `;
+                
+                // Add message to chat
+                chatMessages.insertAdjacentHTML('beforeend', messageHTML);
+                scrollToBottom();
+            }
+            
+            function addBotMessage(text) {
+                const time = getCurrentTime();
+                const messageHTML = `
+                    <div class="message bot-message">
+                        <div class="bot-avatar">🤖</div>
+                        ${text}
+                        <div class="message-time">${time}</div>
+                    </div>
+                `;
+                
+                // Add message to chat
+                chatMessages.insertAdjacentHTML('beforeend', messageHTML);
+                scrollToBottom();
+            }
+            
+            function showTypingIndicator() {
+                typingIndicator.style.display = 'block';
+                scrollToBottom();
+            }
+            
+            function hideTypingIndicator() {
+                typingIndicator.style.display = 'none';
+            }
+            
+            function scrollToBottom() {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            function getCurrentTime() {
+                const now = new Date();
+                let hours = now.getHours();
+                let minutes = now.getMinutes();
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                
+                hours = hours % 12;
+                hours = hours ? hours : 12; // the hour '0' should be '12'
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                
+                return hours + ':' + minutes + ' ' + ampm;
+            }
+            
+            // Event listeners
+            sendButton.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // Focus the input field when page loads
+            chatInput.focus();
+            
+            // Optional: Add some example suggestions buttons
+            const suggestionsHTML = `
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                    <button class="tool-button" onclick="document.getElementById('chat-input').value = 'I need help with math homework'">Help with math</button>
+                    <button class="tool-button" onclick="document.getElementById('chat-input').value = 'I feel distracted'">I feel distracted</button>
+                    <button class="tool-button" onclick="document.getElementById('chat-input').value = 'How can I remember things better?'">Memory help</button>
+                </div>
+            `;
+            
+            // Add suggestions after the last bot message
+            setTimeout(() => {
+                addBotMessage("Here are some things you can ask me about:" + suggestionsHTML);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
