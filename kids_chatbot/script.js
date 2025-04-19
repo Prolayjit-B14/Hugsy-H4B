@@ -1,17 +1,3 @@
-// const responses = {
-//     "hi": ["Hello friend! 👋", "Hi there! Ready to have fun? 🌟", "Hey buddy! How are you? 😊"],
-//     "hello": ["Hi there, wonderful to meet you! 🌈", "Hello! I'm your robot friend! 🤖", "Hey! Let's have some fun! 🎈"],
-//     "how are you": ["I'm super duper happy! How about you? 😄", "I'm fantastic! Thanks for asking! ⭐", "I'm jumping with joy! 🦘"],
-//     "what is your name": ["I'm Buddy the Bot! 🤖", "You can call me Buddy! I love making friends! 🎀", "I'm your friend Buddy! Nice to meet you! 👋"],
-//     "bye": ["Goodbye, friend! Come back soon! 👋", "See you later, alligator! 🐊", "Bye bye! Have a wonderful day! 🌞"],
-//     "tell me a joke": [
-//         "Why don't eggs tell jokes? They'd crack up! 🥚",
-//         "What do you call a bear with no teeth? A gummy bear! 🐻",
-//         "Why did the cookie go to the doctor? Because it was feeling crumbly! 🍪"
-//     ],
-//     "default": ["That's interesting! Tell me more! 🎈", "Wow, how cool! 🌟", "Amazing! Let's learn more together! 📚"]
-// };
-
 const chatMessages = document.getElementById('chatMessages');
 const userInput = document.getElementById('userInput');
 const sendBtn = document.getElementById('sendBtn');
