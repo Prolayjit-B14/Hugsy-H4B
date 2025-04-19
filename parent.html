@@ -1,5 +1,1512 @@
-<link rel="icon" href="Hugsy-logo.jpg" type="image/x-icon">
-  <link rel="icon" href="Hugsy-logo.jpg" type="image/png">
-<footer>
-    Made by: <strong>DSP Squad</strong>
-  </footer>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHD Support | NeuroBridge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-purple-50 min-h-screen">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-indigo-600 text-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <!-- Mobile Menu Button -->
+            <div class="flex items-center justify-between py-3 lg:hidden">
+                <div class="flex items-center">
+                    <img src="/api/placeholder/40/40" alt="NeuroBridge Logo" class="h-10 w-10 rounded-full">
+                    <span class="ml-2 font-bold text-xl">NeuroBridge</span>
+                </div>
+                <button id="mobile-menu-button" class="focus:outline-none" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center justify-between py-3">
+                <div class="flex items-center">
+                    <img src="/api/placeholder/40/40" alt="NeuroBridge Logo" class="h-10 w-10 rounded-full">
+                    <span class="ml-2 font-bold text-xl">NeuroBridge</span>
+                </div>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-indigo-200 transition duration-300" aria-label="Home">Home</a></li>
+                    <li><a href="learn.html" class="hover:text-indigo-200 transition duration-300" aria-label="Learn Now">Learn</a></li>
+                    <li><a href="assessment.html" class="hover:text-indigo-200 transition duration-300" aria-label="Assessment">Assessment</a></li>
+                    <li><a href="dashboard.html" class="hover:text-indigo-200 transition duration-300" aria-label="Dashboard">Dashboard</a></li>
+                    <li><a href="resources.html" class="hover:text-indigo-200 transition duration-300" aria-label="Resources">Resources</a></li>
+                    <li><a href="community.html" class="hover:text-indigo-200 transition duration-300" aria-label="Community">Community</a></li>
+                    <li><a href="specialists.html" class="hover:text-indigo-200 transition duration-300" aria-label="Specialists">Specialists</a></li>
+                    <li><a href="parents.html" class="hover:text-indigo-200 transition duration-300" aria-label="Parents">Parents</a></li>
+                </ul>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden pb-4">
+                <ul class="space-y-3">
+                    <li><a href="index.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Home">Home</a></li>
+                    <li><a href="learn.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Learn Now">Learn</a></li>
+                    <li><a href="assessment.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Assessment">Assessment</a></li>
+                    <li><a href="dashboard.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Dashboard">Dashboard</a></li>
+                    <li><a href="resources.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Resources">Resources</a></li>
+                    <li><a href="community.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Community">Community</a></li>
+                    <li><a href="specialists.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Specialists">Specialists</a></li>
+                    <li><a href="parents.html" class="block hover:text-indigo-200 transition duration-300" aria-label="Parents">Parents</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <div class="bg-gradient-to-r from-red-500 to-red-700 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <span class="inline-block bg-red-800 text-white text-sm font-bold py-1 px-3 rounded-full mb-4">ADHD SUPPORT</span>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Harness Focus & Build Executive Function</h1>
+                    <p class="text-xl mb-6">Personalized learning strategies designed for children and adults with ADHD.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#assessment" class="bg-white text-red-600 font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-red-50 transition duration-300">Take Assessment</a>
+                        <a href="#activities" class="bg-red-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-red-900 transition duration-300">Start Activities</a>
+                    </div>
+                </div>
+                <div class="md:w-1/4 flex justify-center">
+                    <img src="/Hug-H4B/Hugsy-logo.jpg" alt="Child focusing on educational activity" class="rounded-lg shadow-xl max-w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Trust Indicators -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center text-center">
+                <div class="w-full md:w-1/4 p-4">
+                    <div class="text-blue-600 mb-2">
+                        <i class="fas fa-certificate text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">Board Certified</h3>
+                    <p class="text-gray-600">Specialists in pediatric neurodevelopment</p>
+                </div>
+                <div class="w-full md:w-1/4 p-4">
+                    <div class="text-blue-600 mb-2">
+                        <i class="fas fa-user-md text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">20+ Years Experience</h3>
+                    <p class="text-gray-600">Dedicated to children's developmental health</p>
+                </div>
+                <div class="w-full md:w-1/4 p-4">
+                    <div class="text-blue-600 mb-2">
+                        <i class="fas fa-heart text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">5,000+ Families</h3>
+                    <p class="text-gray-600">Helped on their neurodevelopmental journey</p>
+                </div>
+                <div class="w-full md:w-1/4 p-4">
+                    <div class="text-blue-600 mb-2">
+                        <i class="fas fa-star text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">4.9/5 Rating</h3>
+                    <p class="text-gray-600">From parents who trust our care</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-12">
+        <!-- Understanding ADHD Section -->
+        <section class="mb-16">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Understanding ADHD</h2>
+                    <p class="text-lg text-gray-700 mb-4">Attention-Deficit/Hyperactivity Disorder (ADHD) is a neurodevelopmental condition that affects attention regulation, impulse control, and activity levels.</p>
+                    <p class="text-lg text-gray-700 mb-4">People with ADHD often have different brain development and neural activity that affects executive functioning.</p>
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded mb-6">
+                        <h3 class="font-bold text-red-700 mb-2">Key Challenges:</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Maintaining focus on less stimulating tasks</li>
+                            <li>Regulating attention and switching between activities</li>
+                            <li>Planning, organizing, and managing time</li>
+                            <li>Controlling impulses and managing emotions</li>
+                            <li>Working memory and recall of instructions</li>
+                        </ul>
+                    </div>
+                    <p class="text-lg text-gray-700">At NeuroBridge, we recognize ADHD as a different way of processing information—not a deficit. Our tools harness ADHD strengths while providing support for challenges.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-white rounded-lg shadow-xl p-6">
+                        <h3 class="text-2xl font-bold text-red-600 mb-4">ADHD By The Numbers</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-red-600 mb-2">8-10%</div>
+                                <p class="text-gray-600">of children worldwide</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-red-600 mb-2">4-5%</div>
+                                <p class="text-gray-600">of adults worldwide</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-red-600 mb-2">3:1</div>
+                                <p class="text-gray-600">male to female diagnosis ratio</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl font-bold text-red-600 mb-2">60%</div>
+                                <p class="text-gray-600">have co-occurring conditions</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-6 border-t border-gray-200">
+                            <h4 class="font-bold text-gray-800 mb-2">ADHD Strengths Include:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-red-100 text-red-800 py-1 px-3 rounded-full text-sm">Creativity</span>
+                                <span class="bg-red-100 text-red-800 py-1 px-3 rounded-full text-sm">Hyperfocus</span>
+                                <span class="bg-red-100 text-red-800 py-1 px-3 rounded-full text-sm">Problem Solving</span>
+                                <span class="bg-red-100 text-red-800 py-1 px-3 rounded-full text-sm">Energy</span>
+                                <span class="bg-red-100 text-red-800 py-1 px-3 rounded-full text-sm">Resilience</span>
+                                <span class="bg-red-100 text-red-800 py-1 px-3 rounded-full text-sm">Adaptability</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalized Assessment Section -->
+        <section id="assessment" class="mb-16 bg-indigo-50 rounded-xl p-8">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-indigo-700 mb-4">Personalized ADHD Assessment</h2>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">Discover your unique ADHD profile with our adaptive assessment tools designed by neurodevelopmental specialists.</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold text-indigo-700 mb-4">How It Works</h3>
+                        <ol class="space-y-4">
+                            <li class="flex">
+                                <div class="bg-indigo-100 text-indigo-700 font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">1</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Complete the Assessment</h4>
+                                    <p class="text-gray-700">Answer questions about attention, organization, impulse control, and learning preferences through interactive activities.</p>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <div class="bg-indigo-100 text-indigo-700 font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">2</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Receive Your Profile</h4>
+                                    <p class="text-gray-700">Get detailed insights about your ADHD subtype, strengths, challenges, and recommended learning strategies.</p>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <div class="bg-indigo-100 text-indigo-700 font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">3</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Personalized Learning Plan</h4>
+                                    <p class="text-gray-700">Access a customized curriculum and tools designed specifically for your ADHD profile and learning goals.</p>
+                                </div>
+                            </li>
+                        </ol>
+                        <div class="mt-6">
+                            <a href="adhd-assessment.html" class="inline-block bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow hover:bg-indigo-700 transition duration-300">Start Assessment</a>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold text-indigo-700 mb-4">What We Assess</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-brain text-indigo-600 mr-2"></i>
+                                    <h4 class="font-bold text-gray-800">Attention Profile</h4>
+                                </div>
+                                <p class="text-gray-700 text-sm">Focus duration, distractibility patterns, hyperfocus triggers</p>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-tasks text-indigo-600 mr-2"></i>
+                                    <h4 class="font-bold text-gray-800">Executive Function</h4>
+                                </div>
+                                <p class="text-gray-700 text-sm">Planning, organization, time management, working memory</p>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-bolt text-indigo-600 mr-2"></i>
+                                    <h4 class="font-bold text-gray-800">Activity Level</h4>
+                                </div>
+                                <p class="text-gray-700 text-sm">Energy regulation, fidgeting, motor activity needs</p>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-lightbulb text-indigo-600 mr-2"></i>
+                                    <h4 class="font-bold text-gray-800">Learning Style</h4>
+                                </div>
+                                <p class="text-gray-700 text-sm">Visual, auditory, kinesthetic, and reading/writing preferences</p>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-hand-peace text-indigo-600 mr-2"></i>
+                                    <h4 class="font-bold text-gray-800">Strengths</h4>
+                                </div>
+                                <p class="text-gray-700 text-sm">Creativity, problem-solving abilities, interests, and talents</p>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-heart text-indigo-600 mr-2"></i>
+                                    <h4 class="font-bold text-gray-800">Emotional Regulation</h4>
+                                </div>
+                                <p class="text-gray-700 text-sm">Frustration tolerance, emotional reactivity, motivation patterns</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Benefits Section -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Choose NeuroBridge</h2>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">Our platform combines neuroscience research, evidence-based strategies, and engaging technology to create a transformative experience for individuals with ADHD.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Benefit 1 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 transform transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-brain text-2xl text-red-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Neuroscience-Backed</h3>
+                <p class="text-gray-700 text-center">Developed with leading ADHD researchers to work with your brain's unique wiring, not against it.</p>
+                <div class="mt-4 flex justify-center">
+                    <span class="inline-block bg-red-100 text-red-800 text-xs font-semibold py-1 px-2 rounded-full">Evidence-Based</span>
+                </div>
+            </div>
+            
+            <!-- Benefit 2 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 transform transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-chart-line text-2xl text-blue-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Adaptive Learning</h3>
+                <p class="text-gray-700 text-center">Our AI-powered system adjusts difficulty, rewards, and pacing based on your unique ADHD profile.</p>
+                <div class="mt-4 flex justify-center">
+                    <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold py-1 px-2 rounded-full">Personalized</span>
+                </div>
+            </div>
+            
+            <!-- Benefit 3 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 transform transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-users text-2xl text-green-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Expert Support</h3>
+                <p class="text-gray-700 text-center">Connect with certified ADHD coaches, therapists, and educators for guidance when you need it most.</p>
+                <div class="mt-4 flex justify-center">
+                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold py-1 px-2 rounded-full">Professional</span>
+                </div>
+            </div>
+            
+            <!-- Benefit 4 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 transform transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-trophy text-2xl text-purple-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Dopamine-Optimized</h3>
+                <p class="text-gray-700 text-center">Strategic rewards and gamification designed to boost motivation and engagement for the ADHD brain.</p>
+                <div class="mt-4 flex justify-center">
+                    <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold py-1 px-2 rounded-full">Engaging</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Stats Row -->
+        <div class="mt-16 bg-white rounded-xl shadow-lg p-8">
+            <h3 class="text-2xl font-bold text-center text-gray-800 mb-8">Proven Results</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-red-600 mb-2">87%</div>
+                    <p class="text-gray-600">of users report improved focus after 30 days</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">92%</div>
+                    <p class="text-gray-600">of parents see better homework completion</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-green-600 mb-2">76%</div>
+                    <p class="text-gray-600">reduction in task initiation difficulties</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">25k+</div>
+                    <p class="text-gray-600">active users building executive function</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA -->
+        <div class="mt-12 text-center">
+            <a href="#assessment" class="inline-block bg-gradient-to-r from-red-600 to-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:from-red-700 hover:to-red-800 transition duration-300">
+                Start Your Free Assessment
+            </a>
+            <p class="mt-4 text-gray-600">No credit card required. Full access to basic tools.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Neurodevelopmental Conditions Section -->
+<div class="py-16 bg-gradient-to-b from-white to-blue-50">
+    <div class="container mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Neurodevelopmental Conditions</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Learn about the conditions we specialize in and how we provide evidence-based support.</p>
+        </div>
+        
+        <!-- Condition Cards - Grid Style -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 mb-16">
+            <a href="#" class="bg-red-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="p-5 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center">
+                        <i class="fas fa-brain text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-red-800">ADHD</h3>
+                    <p class="text-red-600 text-sm mt-2">Attention Deficit Hyperactivity Disorder</p>
+                </div>
+            </a>
+            
+            <a href="#" class="bg-blue-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="p-5 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-puzzle-piece text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-blue-800">Autism</h3>
+                    <p class="text-blue-600 text-sm mt-2">Autism Spectrum Disorder</p>
+                </div>
+            </a>
+            
+            <a href="#" class="bg-green-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="p-5 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
+                        <i class="fas fa-book text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-green-800">Dyslexia</h3>
+                    <p class="text-green-600 text-sm mt-2">Reading Disability</p>
+                </div>
+            </a>
+            
+            <a href="#" class="bg-yellow-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="p-5 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-100 flex items-center justify-center">
+                        <i class="fas fa-calculator text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-yellow-800">Dyscalculia</h3>
+                    <p class="text-yellow-600 text-sm mt-2">Math Learning Disability</p>
+                </div>
+            </a>
+            
+            <a href="#" class="bg-purple-50 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="p-5 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-pen text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-purple-800">Dysgraphia</h3>
+                    <p class="text-purple-600 text-sm mt-2">Writing Disability</p>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Extended Conditions List -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h3 class="text-2xl font-bold text-blue-800 mb-6">Additional Conditions We Support</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors">
+                    <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-running text-indigo-600"></i>
+                    </div>
+                    <h4 class="font-medium">Dyspraxia</h4>
+                </div>
+                
+                <div class="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors">
+                    <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-ear-listen text-pink-600"></i>
+                    </div>
+                    <h4 class="font-medium">APD</h4>
+                </div>
+                
+                <div class="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors">
+                    <div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-comments text-teal-600"></i>
+                    </div>
+                    <h4 class="font-medium">SCD</h4>
+                </div>
+                
+                <div class="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors">
+                    <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-hand-sparkles text-orange-600"></i>
+                    </div>
+                    <h4 class="font-medium">SPD</h4>
+                </div>
+                
+                <div class="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors">
+                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-random text-red-600"></i>
+                    </div>
+                    <h4 class="font-medium">Tourette's Syndrome</h4>
+                </div>
+                
+                <div class="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-exclamation text-green-600"></i>
+                    </div>
+                    <h4 class="font-medium">ODD</h4>
+                </div>
+                
+                <div class="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors">
+                    <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-cloud-rain text-yellow-600"></i>
+                    </div>
+                    <h4 class="font-medium">Executive Function</h4>
+                </div>
+                
+                <div class="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors">
+                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-ellipsis-h text-purple-600"></i>
+                    </div>
+                    <h4 class="font-medium">And More</h4>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="text-center">
+            <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:-translate-y-1">
+                Schedule an Assessment
+            </a>
+            <p class="mt-4 text-gray-600">Not sure which condition applies? Our comprehensive evaluations can help.</p>
+        </div>
+    </div>
+</div>
+
+
+        <!-- Tools & Strategies Section -->
+        <section class="mb-16 bg-gray-50 rounded-xl p-8">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">ADHD Support Tools & Strategies</h2>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">Practical resources to help manage ADHD challenges in daily life, school, and work.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Tool 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-2xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Visual Timer</h3>
+                    <p class="text-gray-600 text-center mb-4">Customizable timer with visual countdown to improve time awareness and task completion.</p>
+                    <a href="tools/timer.html" class="block text-center text-red-600 hover:text-red-800 font-medium">Use Tool →</a>
+                </div>
+                
+                <!-- Tool 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-list-check text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Task Breaker</h3>
+                    <p class="text-gray-600 text-center mb-4">Automatically breaks large assignments into manageable chunks with built-in rewards.</p>
+                    <a href="tools/task-breaker.html" class="block text-center text-blue-600 hover:text-blue-800 font-medium">Use Tool →</a>
+                </div>
+                
+                <!-- Tool 3 -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-calendar-alt text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Visual Schedule</h3>
+                    <p class="text-gray-600 text-center mb-4">Create visual daily routines with reminders to improve transitions and reduce anxiety.</p>
+                    <a href="tools/schedule.html" class="block text-center text-green-600 hover:text-green-800 font-medium">Use Tool →</a>
+                </div>
+                
+                <!-- Tool 4 -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-volume-up text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Focus Sounds</h3>
+                    <p class="text-gray-600 text-center mb-4">Customizable background sounds proven to enhance focus for the ADHD brain.</p>
+                    <a href="tools/focus-sounds.html" class="block text-center text-purple-600 hover:text-purple-800 font-medium">Use Tool →</a>
+                </div>
+            </div>
+            
+<div class="text-center mt-6">
+    <a href="all-strategies.html" class="inline-block bg-gray-700 text-white font-bold py-2 px-6 rounded hover:bg-gray-800 transition duration-300">
+        View All 15+ ADHD Strategies
+    </a>
+</div>
+
+</section>
+
+
+
+
+
+<!-- NeuroBridge Comprehensive Support Section -->
+<div class="py-16 bg-gradient-to-b from-gray-50 to-blue-50">
+    <div class="container mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-800">Comprehensive Neurodevelopmental Support</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mt-4">Specialized care and tools designed for children with unique neurological profiles</p>
+        </div>
+        
+        <!-- Features Grid -->
+        <div class="grid md:grid-cols-3 gap-8 mb-20">
+            <div class="bg-white p-6 rounded-xl shadow-md transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                    <i class="fas fa-graduation-cap text-blue-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-blue-800 mb-2">Personalized Learning</h3>
+                <p class="text-gray-600">Adaptive education paths that adjust to each child's unique learning style, preferences, and challenges.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                    <i class="fas fa-gamepad text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-blue-800 mb-2">Gamified Therapy</h3>
+                <p class="text-gray-600">Engaging games designed by specialists to develop skills while having fun and building confidence.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="w-14 h-14 rounded-full bg-red-100 flex items-center justify-center mb-4">
+                    <i class="fas fa-chart-line text-red-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-blue-800 mb-2">Progress Tracking</h3>
+                <p class="text-gray-600">Detailed insights and analytics to monitor development over time and celebrate every achievement.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="w-14 h-14 rounded-full bg-purple-100 flex items-center justify-center mb-4">
+                    <i class="fas fa-users text-purple-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-blue-800 mb-2">Collaborative Care</h3>
+                <p class="text-gray-600">Connect parents, teachers, and healthcare providers with shared tools for coordinated support.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="w-14 h-14 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
+                    <i class="fas fa-calendar-check text-yellow-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-blue-800 mb-2">Daily Support</h3>
+                <p class="text-gray-600">Routine builders, visual schedules, and reminders to help manage daily activities and reduce anxiety.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="w-14 h-14 rounded-full bg-pink-100 flex items-center justify-center mb-4">
+                    <i class="fas fa-heart text-pink-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-blue-800 mb-2">Community Support</h3>
+                <p class="text-gray-600">Connect with other families and professionals to share experiences, advice, and encouragement.</p>
+            </div>
+        </div>
+        <!-- Community Section -->
+<section class="mb-16">
+    <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Join Our ADHD Community</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">Connect with others who understand your experiences and share strategies that work.</p>
+    </div>
+    
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-5">
+            <!-- Feature Image -->
+            <div class="lg:col-span-2 relative">
+                <img src="/api/placeholder/600/400" alt="ADHD Community Members" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
+                    <div class="p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">5,000+</h3>
+                        <p class="text-lg">Active members supporting each other</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Community Features -->
+            <div class="lg:col-span-3 p-6 md:p-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Community Benefits</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <div class="flex items-start mb-4">
+                            <div class="bg-red-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-users text-red-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Support Groups</h4>
+                                <p class="text-gray-600 text-sm">Age-specific and interest-based groups moderated by ADHD specialists</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-4">
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-video text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Virtual Meetups</h4>
+                                <p class="text-gray-600 text-sm">Weekly video sessions for socializing, skill-building, and accountability</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-start mb-4">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-graduation-cap text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Peer Learning</h4>
+                                <p class="text-gray-600 text-sm">Exchange practical tips and solutions that work in real-world settings</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-4">
+                            <div class="bg-purple-100 p-2 rounded-full mr-3">
+                                <i class="fas fa-hands-helping text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Accountability Partners</h4>
+                                <p class="text-gray-600 text-sm">Match with a buddy for regular check-ins and mutual support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Upcoming Events -->
+                <div class="mt-8 bg-gray-50 p-4 rounded-lg">
+                    <h4 class="font-bold text-gray-800 mb-3">Upcoming Community Events</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="bg-red-100 text-red-800 text-xs font-bold py-1 px-2 rounded mr-3">APR 21</span>
+                                <span class="text-gray-700">Adult ADHD Study Strategies Webinar</span>
+                            </div>
+                            <a href="events/webinar-study.html" class="text-blue-600 text-sm">Register</a>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="bg-green-100 text-green-800 text-xs font-bold py-1 px-2 rounded mr-3">APR 24</span>
+                                <span class="text-gray-700">Teen Social Skills Group</span>
+                            </div>
+                            <a href="events/teen-group.html" class="text-blue-600 text-sm">Register</a>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-bold py-1 px-2 rounded mr-3">APR 26</span>
+                                <span class="text-gray-700">Parent Support Circle: Managing Meltdowns</span>
+                            </div>
+                            <a href="events/parent-circle.html" class="text-blue-600 text-sm">Register</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <a href="community.html" class="bg-red-600 text-white font-bold py-3 px-8 rounded-lg shadow hover:bg-red-700 transition duration-300">Join Community</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        <!-- Services Section -->
+        <div class="mt-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-800">Our Specialized Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mt-4">Comprehensive care designed to address the unique needs of children with neurodevelopmental differences.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl transform hover:-translate-y-2">
+                    <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-brain text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-3">Comprehensive Evaluations</h3>
+                    <p class="text-gray-600 mb-4">Thorough assessments for ADHD, Autism, learning disorders, and other neurodevelopmental conditions.</p>
+                    <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl transform hover:-translate-y-2">
+                    <div class="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-comments text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-3">Speech & Language Therapy</h3>
+                    <p class="text-gray-600 mb-4">Specialized therapy to improve communication skills, language processing, and social interaction.</p>
+                    <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl transform hover:-translate-y-2">
+                    <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-hand-holding-heart text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-3">Occupational Therapy</h3>
+                    <p class="text-gray-600 mb-4">Helping children develop fine motor skills, sensory processing, and everyday functional abilities.</p>
+                    <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl transform hover:-translate-y-2">
+                    <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-book-reader text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-3">Academic Interventions</h3>
+                    <p class="text-gray-600 mb-4">Tailored strategies for dyslexia, dyscalculia, dysgraphia, and other learning differences.</p>
+                    <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl transform hover:-translate-y-2">
+                    <div class="bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-3">Social Skills Groups</h3>
+                    <p class="text-gray-600 mb-4">Structured groups to develop friendship skills, emotional regulation, and social confidence.</p>
+                    <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl transform hover:-translate-y-2">
+                    <div class="bg-indigo-100 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-home text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-3">Parent Coaching</h3>
+                    <p class="text-gray-600 mb-4">Empowering families with practical strategies and emotional support for home success.</p>
+                    <a href="#" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                        Learn more <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="mt-16 text-center">
+            <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:-translate-y-1">
+                Schedule a Consultation
+            </a>
+        </div>
+    </div>
+</div>
+<!-- Expert Support Section -->
+<section class="mb-16 bg-indigo-50 rounded-xl p-8">
+    <div class="flex flex-col lg:flex-row items-center gap-8">
+        <div class="lg:w-1/2">
+            <span class="inline-block bg-indigo-100 text-indigo-800 text-sm font-bold py-1 px-3 rounded-full mb-4">EXPERT GUIDANCE</span>
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Connect with ADHD Specialists</h2>
+            <p class="text-lg text-gray-700 mb-6">Our platform connects you with certified ADHD coaches, therapists, and educational specialists who understand neurodiversity.</p>
+            
+            <div class="bg-white rounded-lg p-6 shadow-md mb-6">
+                <h3 class="font-bold text-gray-800 mb-3">Our Specialists Provide:</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Personalized coaching sessions tailored to your specific ADHD profile</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">School and workplace accommodation guidance and documentation</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Family support and parenting strategies for children with ADHD</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span class="text-gray-700">Medication management consultation and referrals when appropriate</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="specialists.html" class="bg-indigo-600 text-white text-center font-bold py-3 px-6 rounded-lg shadow hover:bg-indigo-700 transition duration-300">Find a Specialist</a>
+                <a href="become-provider.html" class="bg-white text-indigo-600 text-center font-bold py-3 px-6 rounded-lg shadow border border-indigo-600 hover:bg-indigo-50 transition duration-300">Join as a Provider</a>
+            </div>
+        </div>
+        
+        <div class="lg:w-1/2">
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Specialist 1 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+                    <img src="/api/placeholder/120/120" alt="Dr. Rachel Chen" class="w-24 h-24 rounded-full mb-3">
+                    <h4 class="font-bold text-gray-800">Dr. Rachel Chen</h4>
+                    <p class="text-gray-500 text-sm mb-2">ADHD Psychologist</p>
+                    <div class="flex text-yellow-400 mb-2">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <a href="specialist/dr-chen.html" class="text-indigo-600 text-sm font-medium">View Profile</a>
+                </div>
+                
+                <!-- Specialist 2 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+                    <img src="/api/placeholder/120/120" alt="Marcus Johnson" class="w-24 h-24 rounded-full mb-3">
+                    <h4 class="font-bold text-gray-800">Marcus Johnson</h4>
+                    <p class="text-gray-500 text-sm mb-2">ADHD Coach</p>
+                    <div class="flex text-yellow-400 mb-2">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="specialist/marcus-j.html" class="text-indigo-600 text-sm font-medium">View Profile</a>
+                </div>
+                
+                <!-- Specialist 3 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+                    <img src="/api/placeholder/120/120" alt="Dr. Sarah Martinez" class="w-24 h-24 rounded-full mb-3">
+                    <h4 class="font-bold text-gray-800">Dr. Sarah Martinez</h4>
+                    <p class="text-gray-500 text-sm mb-2">Educational Specialist</p>
+                    <div class="flex text-yellow-400 mb-2">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <a href="specialist/dr-martinez.html" class="text-indigo-600 text-sm font-medium">View Profile</a>
+                </div>
+                
+                <!-- Specialist 4 -->
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+                    <img src="/api/placeholder/120/120" alt="James Wilson" class="w-24 h-24 rounded-full mb-3">
+                    <h4 class="font-bold text-gray-800">James Wilson</h4>
+                    <p class="text-gray-500 text-sm mb-2">Family Therapist</p>
+                    <div class="flex text-yellow-400 mb-2">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <a href="specialist/james-w.html" class="text-indigo-600 text-sm font-medium">View Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        <!-- Interactive Activities Section -->
+        <section id="activities" class="mb-16">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">ADHD-Optimized Learning Activities</h2>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">Engaging, reward-rich activities designed to build skills while maintaining focus and motivation.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Activity 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/200" alt="Focus Forest Game" class="w-full h-48 object-cover">
+                        <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold py-1 px-3 rounded-bl-lg">
+                            POPULAR
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Focus Forest</h3>
+                        <p class="text-gray-600 mb-4">A gamified attention training activity where players build their forest by maintaining focus during increasingly challenging tasks.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs py-1 px-2 rounded">Attention Training</span>
+                            <span class="bg-green-100 text-green-800 text-xs py-1 px-2 rounded">Ages 7-12</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs py-1 px-2 rounded">Gamified</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">4.5/5</span>
+                            </div>
+                            <a href="focus-forest.html" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-300">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/200" alt="Time Quest" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Time Quest</h3>
+                        <p class="text-gray-600 mb-4">An adventure game that teaches time management and planning skills through exciting missions with increasing complexity.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs py-1 px-2 rounded">Executive Function</span>
+                            <span class="bg-green-100 text-green-800 text-xs py-1 px-2 rounded">Ages 8-14</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs py-1 px-2 rounded">Time Management</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">4.0/5</span>
+                            </div>
+                            <a href="time-quest.html" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-300">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/200" alt="Memory Mansion" class="w-full h-48 object-cover">
+                        <div class="absolute top-0 right-0 bg-green-600 text-white text-xs font-bold py-1 px-3 rounded-bl-lg">
+                            NEW
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Memory Mansion</h3>
+                        <p class="text-gray-600 mb-4">Build and design your dream mansion while strengthening working memory through engaging and visually stimulating challenges.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs py-1 px-2 rounded">Working Memory</span>
+                            <span class="bg-green-100 text-green-800 text-xs py-1 px-2 rounded">Ages 6-12</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs py-1 px-2 rounded">Visual Learning</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">4.9/5</span>
+                            </div>
+                            <a href="memory-mansion.html" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-300">Play Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- View More Button -->
+                <div class="md:col-span-2 lg:col-span-3 text-center mt-6">
+                    <a href="adhd-activities.html" class="inline-block bg-gray-800 text-white font-bold py-3 px-8 rounded-lg shadow hover:bg-gray-900 transition duration-300">
+                        View All ADHD Activities <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+<!-- Learning Paths Section -->
+<section class="learning-paths py-16 bg-gradient-to-b from-indigo-50 to-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Personalized Learning Paths</h2>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">Our adaptive curriculum adjusts to your unique learning style, helping you master any subject at your own pace with confidence.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Mathematics Path Card -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:translate-y-1">
+                <div class="bg-blue-600 h-2"></div>
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-calculator text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Mathematics</h3>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-4">From basic arithmetic to advanced calculus, develop strong mathematical foundations through interactive lessons.</p>
+                    
+                    <div class="space-y-2 mb-6">
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-sm">240+ interactive lessons</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-sm">Practice problems with step-by-step solutions</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-sm">Visual concept explanations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700">Your Progress</span>
+                            <span class="text-sm font-medium text-blue-600">73%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 73%"></div>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg transition font-medium flex items-center justify-center">
+                        <span>Continue Learning</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Language Arts Path Card -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:translate-y-1">
+                <div class="bg-purple-600 h-2"></div>
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-book text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Language Arts</h3>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-4">Improve reading comprehension, writing skills, and literary analysis through engaging content.</p>
+                    
+                    <div class="space-y-2 mb-6">
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-sm">180+ lessons and guided exercises</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-sm">Writing feedback and personalized guidance</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-sm">Classic and modern literature analysis</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700">Your Progress</span>
+                            <span class="text-sm font-medium text-purple-600">45%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-purple-600 h-2.5 rounded-full" style="width: 45%"></div>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg transition font-medium flex items-center justify-center">
+                        <span>Continue Learning</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Science Path Card -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:translate-y-1">
+                <div class="bg-green-600 h-2"></div>
+                <div class="p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-flask text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Science</h3>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-4">Explore physics, chemistry, biology, and environmental science through interactive experiments.</p>
+                    
+                    <div class="space-y-2 mb-6">
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-sm">200+ lessons with hands-on experiments</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-sm">Virtual lab simulations and demonstrations</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-sm">Real-world applications and case studies</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700">Your Progress</span>
+                            <span class="text-sm font-medium text-green-600">28%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 28%"></div>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-4 rounded-lg transition font-medium flex items-center justify-center">
+                        <span>Continue Learning</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Learning Path Recommendation Section -->
+        <div class="mt-12 bg-indigo-50 rounded-xl p-6 md:p-8 shadow-md">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-6 md:mb-0 md:mr-8">
+                    <h3 class="text-2xl font-bold text-indigo-900 mb-2">Discover Your Perfect Learning Path</h3>
+                    <p class="text-indigo-700">Take our assessment to get personalized learning recommendations based on your interests, learning style, and goals.</p>
+                </div>
+                <div class="flex-shrink-0">
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg transition font-medium flex items-center justify-center shadow-md hover:shadow-lg">
+                        <i class="fas fa-compass mr-2"></i>
+                        <span>Explore All Learning Paths</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Dashboard Preview Section -->
+    <div class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-4">Personalized Dashboard</h2>
+                    <p class="text-gray-600 mb-6">
+                        Our intuitive dashboard adapts to each user's needs, showing relevant tools, progress, and resources in a clean, accessible interface.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Customizable interface with sensory-friendly options</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>At-a-glance progress tracking and goal visualization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Quick access to favorite activities and resources</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Integrated calendar for appointments and schedules</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-100 p-4 rounded-xl shadow-lg">
+                        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-medium">Welcome back, Alex!</h3>
+                                <span class="text-sm text-gray-500">Friday, April 18</span>
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-3 mb-4">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-full bg-purple-200 flex items-center justify-center mr-4">
+                                        <i class="fas fa-star text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Today's Goal Progress</p>
+                                        <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                                            <div class="bg-purple-600 h-2.5 rounded-full" style="width: 70%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-blue-50 p-3 rounded-lg">
+                                    <p class="text-sm font-medium text-blue-800">Continue Learning</p>
+                                    <p class="text-xs text-blue-600">Reading Comprehension</p>
+                                </div>
+                                <div class="bg-green-50 p-3 rounded-lg">
+                                    <p class="text-sm font-medium text-green-800">Daily Challenge</p>
+                                    <p class="text-xs text-green-600">Math Puzzles</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4">
+                            <h3 class="text-lg font-medium mb-3">Recent Activity</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-gamepad text-yellow-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium">Word Builder Game</p>
+                                        <p class="text-xs text-gray-500">Completed • 20 min ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-book text-pink-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium">Reading Session</p>
+                                        <p class="text-xs text-gray-500">Completed • 1 hour ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                        <i class="fas fa-tasks text-green-600 text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium">Focus Exercise</p>
+                                        <p class="text-xs text-gray-500">Completed • 2 hours ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Resources Section -->
+    <section id="resources" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Helpful Resources</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Information and tools to support your family's journey.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Resources Column 1 -->
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-800 mb-6">Educational Articles</h3>
+                    <div class="space-y-4">
+                        <a href="#" class="block bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition">
+                            <h4 class="font-semibold text-blue-800">Understanding ADHD in the Classroom</h4>
+                            <p class="text-gray-600 mt-1">Strategies for academic success</p>
+                        </a>
+                        <a href="#" class="block bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition">
+                            <h4 class="font-semibold text-blue-800">Sensory Processing: What Parents Need to Know</h4>
+                            <p class="text-gray-600 mt-1">Creating supportive environments</p>
+                        </a>
+                        <a href="#" class="block bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition">
+                            <h4 class="font-semibold text-blue-800">Early Signs of Autism Spectrum Disorder</h4>
+                            <p class="text-gray-600 mt-1">When and how to seek evaluation</p>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Resources Column 2 -->
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-800 mb-6">Upcoming Workshops</h3>
+                    <div class="space-y-4">
+                        <div class="block bg-yellow-50 p-4 rounded-lg">
+                            <div class="text-yellow-800 font-semibold">May 24, 2025</div>
+                            <h4 class="font-semibold text-blue-800">Dyslexia: Strategies for Home Reading Support</h4>
+                            <p class="text-gray-600 mt-1">Virtual workshop for parents</p>
+                            <a href="#" class="text-blue-600 text-sm hover:underline mt-2 inline-block">Register →</a>
+                        </div>
+                        <div class="block bg-yellow-50 p-4 rounded-lg">
+                            <div class="text-yellow-800 font-semibold">June 12, 2025</div>
+                            <h4 class="font-semibold text-blue-800">Executive Function Skills for Teens</h4>
+                            <p class="text-gray-600 mt-1">In-person session for ages 13-17</p>
+                            <a href="#" class="text-blue-600 text-sm hover:underline mt-2 inline-block">Register →</a>
+                        </div>
+                        <div class="block bg-yellow-50 p-4 rounded-lg">
+                            <div class="text-yellow-800 font-semibold">July 8, 2025</div>
+                            <h4 class="font-semibold text-blue-800">Understanding IEPs and 504 Plans</h4>
+                            <p class="text-gray-600 mt-1">Advocacy workshop for parents</p>
+                            <a href="#" class="text-blue-600 text-sm hover:underline mt-2 inline-block">Register →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Resources Column 3 -->
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-800 mb-6">Free Downloads</h3>
+                    <div class="space-y-4">
+                        <a href="#" class="flex items-center bg-green-50 p-4 rounded-lg hover:bg-green-100 transition">
+                            <div class="bg-green-200 rounded-full p-3 mr-4">
+                                <i class="fas fa-file-pdf text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-blue-800">Visual Schedule Templates</h4>
+                                <p class="text-gray-600 text-sm">Printable daily routines</p>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-center bg-green-50 p-4 rounded-lg hover:bg-green-100 transition">
+                            <div class="bg-green-200 rounded-full p-3 mr-4">
+                                <i class="fas fa-file-pdf text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-blue-800">Sensory Diet Activities</h4>
+                                <p class="text-gray-600 text-sm">Guide for home sensory support</p>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-center bg-green-50 p-4 rounded-lg hover:bg-green-100 transition">
+                            <div class="bg-green-200 rounded-full p-3 mr-4">
+                                <i class="fas fa-file-pdf text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-blue-800">School Accommodation Checklist</h4>
+                                <p class="text-gray-600 text-sm">Advocacy resource for parents</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-full font-medium inline-block transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">Explore Resource Library</a>
+            </div>
+        </div>
+    </section>
+
+<!-- Appointment Section - Improved with form validation, ARIA attributes, and better UX -->
+<section id="appointment" class="py-16 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Start Your Child's Journey Today</h2>
+                <p class="text-xl text-blue-100">Schedule a consultation with our specialists to discuss your child's unique needs.</p>
+            </div>
+            
+            <div class="bg-white rounded-xl p-8 shadow-2xl text-gray-800">
+                <form id="appointment-form" class="needs-validation" novalidate>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="parent-name" class="block text-gray-700 font-medium mb-2">Parent/Guardian Name <span class="text-red-500">*</span></label>
+                            <input type="text" id="parent-name" name="parent-name" required aria-required="true" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" aria-describedby="parent-name-error">
+                            <div id="parent-name-error" class="mt-1 text-red-500 text-sm hidden">Please enter your name</div>
+                        </div>
+                        <div>
+                            <label for="child-name" class="block text-gray-700 font-medium mb-2">Child's Name <span class="text-red-500">*</span></label>
+                            <input type="text" id="child-name" name="child-name" required aria-required="true" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" aria-describedby="child-name-error">
+                            <div id="child-name-error" class="mt-1 text-red-500 text-sm hidden">Please enter your child's name</div>
+                        </div>
+                        <div>
+                            <label for="child-age" class="block text-gray-700 font-medium mb-2">Child's Age <span class="text-red-500">*</span></label>
+                            <input type="number" id="child-age" name="child-age" min="0" max="18" required aria-required="true" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" aria-describedby="child-age-error">
+                            <div id="child-age-error" class="mt-1 text-red-500 text-sm hidden">Please enter a valid age (0-18)</div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email Address <span class="text-red-500">*</span></label>
+                            <input type="email" id="email" name="email" required aria-required="true" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" aria-describedby="email-error">
+                            <div id="email-error" class="mt-1 text-red-500 text-sm hidden">Please enter a valid email address</div>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number <span class="text-red-500">*</span></label>
+                            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required aria-required="true" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" aria-describedby="phone-error" placeholder="123-456-7890">
+                            <div id="phone-error" class="mt-1 text-red-500 text-sm hidden">Please enter a valid phone number (123-456-7890)</div>
+                        </div>
+                        <div>
+                            <label for="appointment-time" class="block text-gray-700 font-medium mb-2">Preferred Appointment Time <span class="text-red-500">*</span></label>
+                            <select id="appointment-time" name="appointment-time" required aria-required="true" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                                <option value="">Select a time</option>
+                                <option value="morning">Morning (9am-12pm)</option>
+                                <option value="afternoon">Afternoon (12pm-3pm)</option>
+                                <option value="late-afternoon">Late Afternoon (3pm-6pm)</option>
+                            </select>
+                            <div id="appointment-time-error" class="mt-1 text-red-500 text-sm hidden">Please select a preferred time</div>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="concerns" class="block text-gray-700 font-medium mb-2">Briefly describe your concerns</label>
+                            <textarea id="concerns" name="concerns" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <div class="flex items-center">
+                            <input id="privacy-consent" type="checkbox" required aria-required="true" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="privacy-consent" class="ml-2 block text-sm text-gray-700">
+                                I consent to the processing of my personal data according to the <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a> <span class="text-red-500">*</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">Request Consultation</button>
+                        <p class="text-gray-600 mt-4 text-sm">Our team will contact you within 1 business day to confirm your appointment.</p>
+                        <div id="form-success" class="mt-4 text-green-600 font-medium hidden">Thank you! Your appointment request has been submitted successfully.</div>
+                        <div id="form-error" class="mt-4 text-red-600 font-medium hidden">There was an error submitting your request. Please try again or call us directly.</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Find answers to common questions about our services and approach.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden" x-data="{open: false}">
+                    <button class="w-full flex items-center justify-between p-6 focus:outline-none" id="faq-btn-1">
+                        <h3 class="text-lg font-semibold text-blue-800">How do I know if my child needs an evaluation?</h3>
+                        <span class="text-blue-600 fas fa-chevron-down transform transition-transform" id="faq-icon-1"></span>
+                    </button>
+                    <div class="hidden p-6 pt-0 border-t border-gray-200" id="faq-content-1">
+                        <p class="text-gray-600">If you notice your child struggling with learning, behavior, social skills, communication, or sensory processing more than their peers, it may indicate a need for evaluation. Warning signs include consistent academic difficulties despite support, unusual behavioral patterns, delayed developmental milestones, or challenges with friendships. Our initial consultations can help determine if a comprehensive evaluation would be beneficial.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden" x-data="{open: false}">
+                    <button class="w-full flex items-center justify-between p-6 focus:outline-none" id="faq-btn-2">
+                        <h3 class="text-lg font-semibold text-blue-800">What happens during an evaluation?</h3>
+                        <span class="text-blue-600 fas fa-chevron-down transform transition-transform" id="faq-icon-2"></span>
+                    </button>
+                    <div class="hidden p-6 pt-0 border-t border-gray-200" id="faq-content-2">
+                        <p class="text-gray-600">Our evaluations are comprehensive and typically occur over 2-3 sessions. They include standardized testing, clinical observations, parent and teacher questionnaires, and a thorough developmental history. We assess cognitive abilities, academic skills, attention, executive functioning, social-emotional development, and any specific areas of concern. After completing all assessments, we provide a detailed report with diagnosis (if applicable) and personalized recommendations.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden" x-data="{open: false}">
+                    <button class="w-full flex items-center justify-between p-6 focus:outline-none" id="faq-btn-3">
+                        <h3 class="text-lg font-semibold text-blue-800">How long are therapy sessions and how often do they occur?</h3>
+                        <span class="text-blue-600 fas fa-chevron-down transform transition-transform" id="faq-icon-3"></span>
+                    </button>
+                    <div class="hidden p-6 pt-0 border-t border-gray-200" id="faq-content-3">
+                        <p class="text-gray-600">Most therapy sessions are 45-60 minutes long, depending on your child's age, attention span, and specific needs. The frequency of sessions varies based on the treatment plan, but typically range from once weekly to twice monthly. We regularly assess progress and adjust the therapy schedule accordingly, with the goal of gradually reducing frequency as your child develops skills and strategies.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden" x-data="{open: false}">
+                    <button class="w-full flex items-center justify-between p-6 focus:outline-none" id="faq-btn-4">
+                        <h3 class="text-lg font-semibold text-blue-800">Will my insurance cover your services?</h3>
+                        <span class="text-blue-600 fas fa-chevron-down transform transition-transform" id="faq-icon-4"></span>
+                    </button>
+                    <div class="hidden p-6 pt-0 border-t border-gray-200" id="faq-content-4">
+                        <p class="text-gray-600">We accept many major insurance plans, including Blue Cross, Aetna, Cigna, UnitedHealthcare, Medicaid, and Tricare. Coverage varies depending on your specific plan and benefits. Our administrative team can verify your benefits before your first appointment and explain any potential out-of-pocket costs. We also offer flexible payment plans and a limited number of sliding scale spots for families without adequate insurance coverage.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
+                    View all FAQs <i class="fas fa-chevron-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
