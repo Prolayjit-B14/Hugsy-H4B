@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speech & Language | Learn</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Hugsy-logo.jpg" type="image/x-icon">
+    <link rel="icon" href="Hugsy-logo.jpg" type="image/png">
     <style>
         body {
             font-family: 'Comic Sans MS', sans-serif;
@@ -116,6 +118,45 @@
             width: 100%;
             margin-top: auto;
         }
+          /* Logo styling */
+header .logo {
+    width: 100px;  /* Adjust size based on your logo */
+    height: auto;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  header .logo:hover {
+    transform: scale(1.1);  /* Optional: adds a hover effect */
+  }
+  .footer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    background: #f8f9fa;
+    color: #3b3b98;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .footer::before {
+    content: "✨";
+    animation: twinkle 2s infinite;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+  }
+  
     </style>
 </head>
 <body>
@@ -151,9 +192,9 @@
     </div>
 
     <!-- Footer -->
-    <div class="footer">
-        &copy; 2025 Learn & Play | All rights reserved.
-    </div>
+    <footer>
+        Made by: <strong>DSP Squad</strong>
+      </footer>
 
     <script>
         function speak(text) {
