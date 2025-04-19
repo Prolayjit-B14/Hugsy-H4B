@@ -68,7 +68,7 @@
             color: #555;
         }
 
-        .container {
+        .letters-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -80,27 +80,25 @@
         }
 
         .card {
-            width: 150px;
-            height: 150px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 120px;
+            height: 140px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            color: rgb(104, 104, 104);
             font-weight: bold;
-            color: black;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.3s, background 0.3s;
-            padding: 5px;
-            z-index: 1;
-        }
-
-        .card img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 3px;
-        }
+          }
+          .card img {
+            width: 60px;
+            height: 60px;
+          }
+          
 
         .card:hover {
             transform: scale(1.2);
@@ -165,6 +163,29 @@
             padding: 10px;
             font-size: 0.9em;
         }
+        /* Modal Styles */
+    #img-modal {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      #img-modal img {
+        max-width: 80%;
+        max-height: 70%;
+        border: 10px solid rgb(101, 99, 99);
+        border-radius: 15px;
+      }
+      #modal-caption {
+        color: rgb(129, 129, 129);
+        font-size: 1.5em;
+        margin-top: 10px;
+      }
     </style>
 </head>
 <body>
@@ -183,100 +204,171 @@
     <h1>📖 Learn the Alphabet!</h1>
     <p>Click a letter to hear its pronunciation.</p>
 
-    <div class="container">
-        <div class="card letter-a" onclick="speak('A for Apple')">
-            <img src="images/apple.jpg" alt="Apple"> A
+    <div class="letters-container">
+        <div class="card" onclick="speakAndShow('A for Apple', 'images/apple.jpg', 'Apple')">
+          <img src="images/apple.jpg" alt="Apple">
+          <div class="card-text">A</div>
         </div>
-        <div class="card letter-b" onclick="speak('B for Ball')">
-            <img src="images/ball.jpg" alt="Ball"> B
+        <div class="card" onclick="speakAndShow('B for Ball', 'images/ball.jpg', 'Ball')">
+          <img src="images/ball.jpg" alt="Ball">
+          <div class="card-text">B</div>
         </div>
-        <div class="card letter-c" onclick="speak('C for Cat')">
-            <img src="images/cat.jpg" alt="Cat"> C
+        <div class="card" onclick="speakAndShow('C for Cat', 'images/cat.jpg', 'Cat')">
+          <img src="images/cat.jpg" alt="Cat">
+          <div class="card-text">C</div>
         </div>
-        <div class="card letter-d" onclick="speak('D for Dog')">
-            <img src="images/dog.webp" alt="Dog"> D
+        <div class="card" onclick="speakAndShow('D for Dog', 'images/dog.webp', 'Dog')">
+          <img src="images/dog.webp" alt="Dog">
+          <div class="card-text">D</div>
         </div>
-        <div class="card letter-e" onclick="speak('E for Elephant')">
-            <img src="images/elephant.jpg" alt="Elephant"> E
+        <div class="card" onclick="speakAndShow('E for Elephant', 'images/elephant.jpg', 'Elephant')">
+          <img src="images/elephant.jpg" alt="Elephant">
+          <div class="card-text">E</div>
         </div>
-        <div class="card letter-f" onclick="speak('F for Fish')">
-            <img src="images/fish.png" alt="Fish"> F
+        <div class="card" onclick="speakAndShow('F for Fish', 'images/fish.png', 'Fish')">
+          <img src="images/fish.png" alt="Fish">
+          <div class="card-text">F</div>
         </div>
-        <div class="card letter-g" onclick="speak('G for Grapes')">
-            <img src="images/grapes.jpg" alt="Grapes"> G
+        <div class="card" onclick="speakAndShow('G for Grapes', 'images/grapes.jpg', 'Grapes')">
+          <img src="images/grapes.jpg" alt="Grapes">
+          <div class="card-text">G</div>
         </div>
-        <div class="card letter-h" onclick="speak('H for House')">
-            <img src="images/house.png" alt="House"> H
+        <div class="card" onclick="speakAndShow('H for Hat', 'images/house.png', 'Hat')">
+          <img src="images/house.png" alt="House">
+          <div class="card-text">H</div>
         </div>
-        <div class="card letter-i" onclick="speak('I for Ice cream')">
-            <img src="images/icecream.avif" alt="Ice Cream"> I
+        <div class="card" onclick="speakAndShow('I for Ice cream', 'images/icecream.avif', 'Ice Cream')">
+          <img src="images/icecream.avif" alt="Ice Cream">
+          <div class="card-text">I</div>
         </div>
-        <div class="card letter-j" onclick="speak('J for Jug')">
-            <img src="images/jug.avif" alt="Jug"> J
+        <div class="card" onclick="speakAndShow('J for Jug', 'images/jug.jpg', 'Jug')">
+          <img src="images/jug.avif" alt="Jug">
+          <div class="card-text">J</div>
         </div>
-        <div class="card letter-k" onclick="speak('K for Kite')">
-            <img src="images/kite.jpg" alt="Kite"> K
+        <div class="card" onclick="speakAndShow('K for Kite', 'images/kite.jpg', 'Kite')">
+          <img src="images/kite.jpg" alt="Kite">
+          <div class="card-text">K</div>
         </div>
-        <div class="card letter-l" onclick="speak('L for Lion')">
-            <img src="images/lion.jpg" alt="Lion"> L
+        <div class="card" onclick="speakAndShow('L for Lion', 'images/lion.jpg', 'Lion')">
+          <img src="images/lion.jpg" alt="Lion">
+          <div class="card-text">L</div>
         </div>
-        <div class="card letter-m" onclick="speak('M for Mango')">
-            <img src="images/mango.webp" alt="Mango"> M
+        <div class="card" onclick="speakAndShow('M for Mango', 'images/mango.webp', 'Mango')">
+          <img src="images/mango.webp" alt="Monkey">
+          <div class="card-text">M</div>
         </div>
-        <div class="card letter-n" onclick="speak('N for Nest')">
-            <img src="images/nest.jpg" alt="Nest"> N
+        <div class="card" onclick="speakAndShow('N for Nest', 'images/nest.jpg', 'Nest')">
+          <img src="images/nest.jpg" alt="Nest">
+          <div class="card-text">N</div>
         </div>
-        <div class="card letter-o" onclick="speak('O for Orange')">
-            <img src="images/orange.jpg" alt="Orange"> O
+        <div class="card" onclick="speakAndShow('O for Orange', 'images/orange.jpg', 'Orange')">
+          <img src="images/orange.jpg" alt="Owl">
+          <div class="card-text">O</div>
         </div>
-        <div class="card letter-p" onclick="speak('P for Parrot')">
-            <img src="images/parrot.jpg" alt="Parrot"> P
+        <div class="card" onclick="speakAndShow('P for Parrot', 'images/parrot.jpg', 'Parrot')">
+          <img src="images/parrot.jpg" alt="Parrot">
+          <div class="card-text">P</div>
         </div>
-        <div class="card letter-q" onclick="speak('Q for Queen')">
-            <img src="images/queen.avif" alt="Queen"> Q
+        <div class="card" onclick="speakAndShow('Q for Queen', 'images/queen.avif', 'Queen')">
+          <img src="images/queen.avif" alt="Queen">
+          <div class="card-text">Q</div>
         </div>
-        <div class="card letter-r" onclick="speak('R for Rabbit')">
-            <img src="images/rabbit.avif" alt="Rabbit"> R
+        <div class="card" onclick="speakAndShow('R for Rabbit', 'images/rabbit.avif', 'Rabbit')">
+          <img src="images/rabbit.avif" alt="Rabbit">
+          <div class="card-text">R</div>
         </div>
-        <div class="card letter-s" onclick="speak('S for Sun')">
-            <img src="images/sun.jpg" alt="Sun"> S
+        <div class="card" onclick="speakAndShow('S for Sun', 'images/sun.jpg', 'Sun')">
+          <img src="images/sun.jpg" alt="Sun">
+          <div class="card-text">S</div>
         </div>
-        <div class="card letter-t" onclick="speak('T for Tiger')">
-            <img src="images/tiger.jpg" alt="Tiger"> T
+        <div class="card" onclick="speakAndShow('T for Tiger', 'images/tiger.jpg', 'Tiger')">
+          <img src="images/tiger.jpg" alt="Tiger">
+          <div class="card-text">T</div>
         </div>
-        <div class="card letter-u" onclick="speak('U for Umbrella')">
-            <img src="images/umbrella.webp" alt="Umbrella"> U
+        <div class="card" onclick="speakAndShow('U for Umbrella', 'images/umbrella.webp', 'Umbrella')">
+          <img src="images/umbrella.webp" alt="Umbrella">
+          <div class="card-text">U</div>
         </div>
-        <div class="card letter-v" onclick="speak('V for Violin')">
-            <img src="images/violin.jpg" alt="Violin"> V
+        <div class="card" onclick="speakAndShow('V for Violin', 'images/violin.jpg', 'Violin')">
+          <img src="images/violin.jpg" alt="Violin">
+          <div class="card-text">V</div>
         </div>
-        <div class="card letter-w" onclick="speak('W for Wolf')">
-            <img src="images/wolf.avif" alt="Wolf"> W
+        <div class="card" onclick="speakAndShow('W for Wolf', 'images/wolf.avif', 'Wolf')">
+          <img src="images/wolf.avif" alt="Watch">
+          <div class="card-text">W</div>
         </div>
-        <div class="card letter-x" onclick="speak('X for Xylophone')">
-            <img src="images/xylophone.png" alt="Xylophone"> X
+        <div class="card" onclick="speakAndShow('X for Xylophone', 'images/xylophone.png', 'Xylophone')">
+          <img src="images/xylophone.png" alt="Xylophone">
+          <div class="card-text">X</div>
         </div>
-        <div class="card letter-y" onclick="speak('Y for Yak')">
-            <img src="images/yak.webp" alt="Yak"> Y
+        <div class="card" onclick="speakAndShow('Y for Yak', 'images/yak.webp', 'Yak')">
+          <img src="images/yak.webp" alt="Yak">
+          <div class="card-text">Y</div>
         </div>
-        <div class="card letter-z" onclick="speak('Z for Zebra')">
-            <img src="images/zebra.jpg" alt="Zebra"> Z
+        <div class="card" onclick="speakAndShow('Z for Zebra', 'images/zebra.jpg', 'Zebra')">
+          <img src="images/zebra.jpg" alt="Zebra">
+          <div class="card-text">Z</div>
         </div>
-    </div>
-
-    <a href="learn.html" class="back-button">🔙 Back to Learn</a>
-
-    <script>
-        function speak(text) {
-            let speech = new SpeechSynthesisUtterance(text);
-            speech.lang = 'en-US';
-            window.speechSynthesis.speak(speech);
+      </div>
+    
+      <!-- Image Modal -->
+      <div id="img-modal" onclick="closeModal()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:2000; align-items:center; justify-content:center; flex-direction:column;">
+        <img id="modal-img" src="" alt="">
+        <p id="modal-caption"></p>
+      </div>
+    
+      <script>
+        function speakAndShow(text, imgSrc, altText) {
+          let speech = new SpeechSynthesisUtterance(text);
+          speech.lang = 'en-US';
+          window.speechSynthesis.speak(speech);
+    
+          document.getElementById('modal-img').src = imgSrc;
+          document.getElementById('modal-img').alt = altText;
+          document.getElementById('modal-caption').innerText = text;
+          document.getElementById('img-modal').style.display = 'flex';
         }
-    </script>
+        const rainbowColors = [
+        '#FFB3BA', // pastel red
+        '#FFDFBA', // pastel orange
+        '#FFFFBA', // pastel yellow
+        '#BAFFC9', // pastel green
+        '#BAE1FF', // pastel blue
+        '#D7BAFF', // pastel indigo
+        '#FFBAED'  // pastel violet
+      ];
+    
+      function getRandomColor() {
+        return rainbowColors[Math.floor(Math.random() * rainbowColors.length)];
+      }
+    
+      function assignInitialColors() {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+          card.style.backgroundColor = rainbowColors[index % rainbowColors.length];
+    
+          card.addEventListener('mouseenter', () => {
+            card.style.backgroundColor = getRandomColor();
+          });
+    
+          card.addEventListener('mouseleave', () => {
+            card.style.backgroundColor = rainbowColors[index % rainbowColors.length];
+          });
+        });
+      }
+    
+      window.onload = assignInitialColors;
+    
+        function closeModal() {
+          document.getElementById('img-modal').style.display = 'none';
+        }
+      </script>
+    
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Kids Learning Platform. All Rights Reserved.</p>
     </footer>
+ 
 </body>
 </html>
