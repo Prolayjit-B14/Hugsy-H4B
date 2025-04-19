@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Assistant Chatbot</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="../Hugsy-logo.jpg" type="image/x-icon">
+  <link rel="icon" href="../Hugsy-logo.jpg" type="image/png">
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img src="../Hugsy-logo.jpg" alt="Connect Together Logo" class="logo" />
+  </header>
+    <div class="chat-container">
+      <div class="chat-header">
+        <div class="header-content">
+          <i class="fas fa-heartbeat"></i>
+          <h1>Health Assistant</h1>
+        </div>
+      </div>
+      <div class="chat-box" id="chatBox">
+        <div class="message bot">
+          <div class="message-content">
+            Hello! I'm your health assistant. How can I help you today?
+          </div>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input
+          type="text"
+          id="userInput"
+          placeholder="Type your health-related question here..."
+        />
+        <button id="sendBtn">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <footer>
+      Made by: <strong>DSP Squad</strong>
+    </footer>
+  </body>
+</html>

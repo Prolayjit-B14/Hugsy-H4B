@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabet & Words | Learn</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="../Hugsy-logo.jpg" type="image/x-icon">
+  <link rel="icon" href="../Hugsy-logo.jpg" type="image/png">
+
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            padding: 8px 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50;
+        }
+
+        /* Fix for overlapping content */
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            padding-top: 80px; /* Increased padding to give extra space */
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .letters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px;
+            max-width: 90%;
+            margin: auto;
+            z-index: 2; /* Ensures the container stays above other elements */
+        }
+
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 120px;
+            height: 140px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgb(104, 104, 104);
+            font-weight: bold;
+          }
+          .card img {
+            width: 60px;
+            height: 60px;
+          }
+          
+
+        .card:hover {
+            transform: scale(1.2);
+            background: #4caf50 !important;
+        }
+
+        /* Letter-specific backgrounds */
+        .letter-a { background: #ff6b6b; }
+        .letter-b { background: #6bcbff; }
+        .letter-c { background: #ffb86b; }
+        .letter-d { background: #8a7ff7; }
+        .letter-e { background: #f7d746; }
+        .letter-f { background: #1abc9c; }
+        .letter-g { background: #ff85f2; }
+        .letter-h { background: #ff6347; }
+        .letter-i { background: #7f8c8d; }
+        .letter-j { background: #3498db; }
+        .letter-k { background: #2ecc71; }
+        .letter-l { background: #f39c12; }
+        .letter-m { background: #9b59b6; }
+        .letter-n { background: #e74c3c; }
+        .letter-o { background: #f1c40f; }
+        .letter-p { background: #e67e22; }
+        .letter-q { background: #16a085; }
+        .letter-r { background: #2980b9; }
+        .letter-s { background: #27ae60; }
+        .letter-t { background: #d35400; }
+        .letter-u { background: #8e44ad; }
+        .letter-v { background: #2c3e50; }
+        .letter-w { background: #c0392b; }
+        .letter-x { background: #f39c12; }
+        .letter-y { background: #16a085; }
+        .letter-z { background: #7f8c8d; }
+
+        /* Back Button */
+        .back-button {
+            margin-top: 20px;
+            margin-bottom: 40px; /* Added space before footer */
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background: #555;
+        }
+
+        /* Footer */
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+         /* Logo styling */
+header .logo {
+  width: 100px;  /* Adjust size based on your logo */
+  height: auto;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+header .logo:hover {
+  transform: scale(1.1);  /* Optional: adds a hover effect */
+}
+.footer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  background: #f8f9fa;
+  color: #3b3b98;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  letter-spacing: 0.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer::before {
+  content: "✨";
+  animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+        /* Modal Styles */
+    #img-modal {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      #img-modal img {
+        max-width: 80%;
+        max-height: 70%;
+        border: 10px solid rgb(101, 99, 99);
+        border-radius: 15px;
+      }
+      #modal-caption {
+        color: rgb(129, 129, 129);
+        font-size: 1.5em;
+        margin-top: 10px;
+      }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="stories.html">Stories</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
+    <header>
+      <img src="../Hugsy-logo.jpg" alt="Connect Together Logo" class="logo" />
+  </header>
+
+    <h1>📖 Learn the Alphabet!</h1>
+    <p>Click a letter to hear its pronunciation.</p>
+
+    <div class="letters-container">
+        <div class="card" onclick="speakAndShow('A for Apple', 'images/apple.jpg', 'Apple')">
+          <img src="images/apple.jpg" alt="Apple">
+          <div class="card-text">A</div>
+        </div>
+        <div class="card" onclick="speakAndShow('B for Ball', 'images/ball.jpg', 'Ball')">
+          <img src="images/ball.jpg" alt="Ball">
+          <div class="card-text">B</div>
+        </div>
+        <div class="card" onclick="speakAndShow('C for Cat', 'images/cat.jpg', 'Cat')">
+          <img src="images/cat.jpg" alt="Cat">
+          <div class="card-text">C</div>
+        </div>
+        <div class="card" onclick="speakAndShow('D for Dog', 'images/dog.webp', 'Dog')">
+          <img src="images/dog.webp" alt="Dog">
+          <div class="card-text">D</div>
+        </div>
+        <div class="card" onclick="speakAndShow('E for Elephant', 'images/elephant.jpg', 'Elephant')">
+          <img src="images/elephant.jpg" alt="Elephant">
+          <div class="card-text">E</div>
+        </div>
+        <div class="card" onclick="speakAndShow('F for Fish', 'images/fish.png', 'Fish')">
+          <img src="images/fish.png" alt="Fish">
+          <div class="card-text">F</div>
+        </div>
+        <div class="card" onclick="speakAndShow('G for Grapes', 'images/grapes.jpg', 'Grapes')">
+          <img src="images/grapes.jpg" alt="Grapes">
+          <div class="card-text">G</div>
+        </div>
+        <div class="card" onclick="speakAndShow('H for Hat', 'images/house.png', 'Hat')">
+          <img src="images/house.png" alt="House">
+          <div class="card-text">H</div>
+        </div>
+        <div class="card" onclick="speakAndShow('I for Ice cream', 'images/icecream.avif', 'Ice Cream')">
+          <img src="images/icecream.avif" alt="Ice Cream">
+          <div class="card-text">I</div>
+        </div>
+        <div class="card" onclick="speakAndShow('J for Jug', 'images/jug.jpg', 'Jug')">
+          <img src="images/jug.avif" alt="Jug">
+          <div class="card-text">J</div>
+        </div>
+        <div class="card" onclick="speakAndShow('K for Kite', 'images/kite.jpg', 'Kite')">
+          <img src="images/kite.jpg" alt="Kite">
+          <div class="card-text">K</div>
+        </div>
+        <div class="card" onclick="speakAndShow('L for Lion', 'images/lion.jpg', 'Lion')">
+          <img src="images/lion.jpg" alt="Lion">
+          <div class="card-text">L</div>
+        </div>
+        <div class="card" onclick="speakAndShow('M for Mango', 'images/mango.webp', 'Mango')">
+          <img src="images/mango.webp" alt="Monkey">
+          <div class="card-text">M</div>
+        </div>
+        <div class="card" onclick="speakAndShow('N for Nest', 'images/nest.jpg', 'Nest')">
+          <img src="images/nest.jpg" alt="Nest">
+          <div class="card-text">N</div>
+        </div>
+        <div class="card" onclick="speakAndShow('O for Orange', 'images/orange.jpg', 'Orange')">
+          <img src="images/orange.jpg" alt="Owl">
+          <div class="card-text">O</div>
+        </div>
+        <div class="card" onclick="speakAndShow('P for Parrot', 'images/parrot.jpg', 'Parrot')">
+          <img src="images/parrot.jpg" alt="Parrot">
+          <div class="card-text">P</div>
+        </div>
+        <div class="card" onclick="speakAndShow('Q for Queen', 'images/queen.avif', 'Queen')">
+          <img src="images/queen.avif" alt="Queen">
+          <div class="card-text">Q</div>
+        </div>
+        <div class="card" onclick="speakAndShow('R for Rabbit', 'images/rabbit.avif', 'Rabbit')">
+          <img src="images/rabbit.avif" alt="Rabbit">
+          <div class="card-text">R</div>
+        </div>
+        <div class="card" onclick="speakAndShow('S for Sun', 'images/sun.jpg', 'Sun')">
+          <img src="images/sun.jpg" alt="Sun">
+          <div class="card-text">S</div>
+        </div>
+        <div class="card" onclick="speakAndShow('T for Tiger', 'images/tiger.jpg', 'Tiger')">
+          <img src="images/tiger.jpg" alt="Tiger">
+          <div class="card-text">T</div>
+        </div>
+        <div class="card" onclick="speakAndShow('U for Umbrella', 'images/umbrella.webp', 'Umbrella')">
+          <img src="images/umbrella.webp" alt="Umbrella">
+          <div class="card-text">U</div>
+        </div>
+        <div class="card" onclick="speakAndShow('V for Violin', 'images/violin.jpg', 'Violin')">
+          <img src="images/violin.jpg" alt="Violin">
+          <div class="card-text">V</div>
+        </div>
+        <div class="card" onclick="speakAndShow('W for Wolf', 'images/wolf.avif', 'Wolf')">
+          <img src="images/wolf.avif" alt="Watch">
+          <div class="card-text">W</div>
+        </div>
+        <div class="card" onclick="speakAndShow('X for Xylophone', 'images/xylophone.png', 'Xylophone')">
+          <img src="images/xylophone.png" alt="Xylophone">
+          <div class="card-text">X</div>
+        </div>
+        <div class="card" onclick="speakAndShow('Y for Yak', 'images/yak.webp', 'Yak')">
+          <img src="images/yak.webp" alt="Yak">
+          <div class="card-text">Y</div>
+        </div>
+        <div class="card" onclick="speakAndShow('Z for Zebra', 'images/zebra.jpg', 'Zebra')">
+          <img src="images/zebra.jpg" alt="Zebra">
+          <div class="card-text">Z</div>
+        </div>
+      </div>
+    
+      <!-- Image Modal -->
+      <div id="img-modal" onclick="closeModal()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:2000; align-items:center; justify-content:center; flex-direction:column;">
+        <img id="modal-img" src="" alt="">
+        <p id="modal-caption"></p>
+      </div>
+    
+      <script>
+        function speakAndShow(text, imgSrc, altText) {
+          let speech = new SpeechSynthesisUtterance(text);
+          speech.lang = 'en-US';
+          window.speechSynthesis.speak(speech);
+    
+          document.getElementById('modal-img').src = imgSrc;
+          document.getElementById('modal-img').alt = altText;
+          document.getElementById('modal-caption').innerText = text;
+          document.getElementById('img-modal').style.display = 'flex';
+        }
+        const rainbowColors = [
+        '#FFB3BA', // pastel red
+        '#FFDFBA', // pastel orange
+        '#FFFFBA', // pastel yellow
+        '#BAFFC9', // pastel green
+        '#BAE1FF', // pastel blue
+        '#D7BAFF', // pastel indigo
+        '#FFBAED'  // pastel violet
+      ];
+    
+      function getRandomColor() {
+        return rainbowColors[Math.floor(Math.random() * rainbowColors.length)];
+      }
+    
+      function assignInitialColors() {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+          card.style.backgroundColor = rainbowColors[index % rainbowColors.length];
+    
+          card.addEventListener('mouseenter', () => {
+            card.style.backgroundColor = getRandomColor();
+          });
+    
+          card.addEventListener('mouseleave', () => {
+            card.style.backgroundColor = rainbowColors[index % rainbowColors.length];
+          });
+        });
+      }
+    
+      window.onload = assignInitialColors;
+    
+        function closeModal() {
+          document.getElementById('img-modal').style.display = 'none';
+        }
+      </script>
+    
+
+    <!-- Footer -->
+    <footer>
+      Made by: <strong>DSP Squad</strong>
+    </footer>
+ 
+</body>
+</html>
