@@ -457,6 +457,18 @@
                 flex: 1 1 140px;
             }
         }
+        /* Logo styling */
+header .logo {
+    width: 150px;  /* Adjust size based on your logo */
+    height: auto;
+    margin-bottom: 1px;
+    transition: transform 0.3s ease-in-out;
+    justify-content: center;
+  }
+  
+  header .logo:hover {
+    transform: scale(1.1);  /* Optional: adds a hover effect */
+  }
     </style>
 </head>
 <body>
@@ -475,8 +487,15 @@
 
     <!-- Main Content -->
     <main class="content">
-        <h1>Welcome to Hugsy </h1>
+
+        <h1>Welcome to Hugsy</h1>
+
         <p class="tagline">Where every mind shines bright - fun, interactive learning designed for children with different thinking styles!</p>
+
+        <header>
+            <img src="Hugsy-logo.jpg" alt="Connect Together Logo" class="logo" />
+            
+          </header>
 
         <!-- Progress tracking - helpful for ADHD to visualize progress -->
         <div class="activity-tracker">
