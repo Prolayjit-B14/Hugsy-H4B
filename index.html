@@ -3,10 +3,476 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hugsy</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Hugsy - Learning For Every Mind</title>
+  <style>
+    /* Core styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s ease;
+    }
+    
+    body {
+      font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa 0%, #bbdefb 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+      color: #333;
+    }
+    
+    /* Clouds animation */
+    .cloud {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 8px 10px rgba(0,0,0,0.1);
+      opacity: 0.85;
+    }
+    
+    .cloud:before, .cloud:after {
+      content: '';
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+    }
+    
+    .cloud1 {
+      width: 120px;
+      height: 120px;
+      top: 8%;
+      left: 10%;
+      animation: float 20s linear infinite;
+    }
+    
+    .cloud1:before {
+      width: 140px;
+      height: 140px;
+      top: -50%;
+      left: -30%;
+    }
+    
+    .cloud1:after {
+      width: 100px;
+      height: 100px;
+      top: -30%;
+      right: -20%;
+    }
+    
+    .cloud2 {
+      width: 100px;
+      height: 100px;
+      top: 15%;
+      right: 15%;
+      animation: float 25s linear infinite;
+      animation-delay: 2s;
+    }
+    
+    .cloud2:before {
+      width: 120px;
+      height: 120px;
+      top: -40%;
+      left: -40%;
+    }
+    
+    .cloud3 {
+      width: 80px;
+      height: 80px;
+      top: 30%;
+      left: 20%;
+      animation: float 18s linear infinite;
+      animation-delay: 4s;
+    }
+    
+    .cloud4 {
+      width: 150px;
+      height: 150px;
+      bottom: 25%;
+      right: 10%;
+      animation: float 22s linear infinite;
+      animation-delay: 1s;
+    }
+    
+    .cloud5 {
+      width: 90px;
+      height: 90px;
+      bottom: 15%;
+      left: 15%;
+      animation: float 24s linear infinite;
+      animation-delay: 3s;
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateX(0) translateY(0);
+      }
+      50% {
+        transform: translateX(30px) translateY(-15px);
+      }
+      100% {
+        transform: translateX(0) translateY(0);
+      }
+    }
+    
+    /* Main content */
+    .main-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      position: relative;
+      flex: 1;
+    }
+    
+    /* Logo and tagline */
+    .logo-tagline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .logo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 8px solid white;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      animation: pulse 3s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .tagline {
+      font-size: 1.5rem;
+      color: #2a6099;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      text-shadow: 1px 1px 0 white;
+    }
+    
+    /* Container */
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 25px;
+      padding: 40px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 90%;
+      width: 550px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .container:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(90deg, #FF9D6C, #FF6B6B, #7873F5, #5EC9F5);
+      border-radius: 25px 25px 0 0;
+    }
+    
+    h1 {
+      color: #2a6099;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .brand {
+      color: #FF6B6B;
+      font-weight: bold;
+      position: relative;
+    }
+    
+    .brand:after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #FF9D6C, #FF6B6B);
+      border-radius: 5px;
+      opacity: 0.5;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    
+    /* Button options */
+    .user-options {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .animated-btn {
+      background-color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 18px 25px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .animated-btn:nth-child(1) {
+      color: #2a6099;
+    }
+    
+    .animated-btn:nth-child(2) {
+      color: #FF6B6B;
+    }
+    
+    .animated-btn:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+    
+    .animated-btn:nth-child(1):before {
+      background: linear-gradient(to bottom, #5EC9F5, #7873F5);
+    }
+    
+    .animated-btn:nth-child(2):before {
+      background: linear-gradient(to bottom, #FF9D6C, #FF6B6B);
+    }
+    
+    .animated-btn:hover, .animated-btn:focus {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+    }
+    
+    .animated-btn:hover:before, .animated-btn:focus:before {
+      width: 100%;
+      opacity: 0.1;
+    }
+    
+    .animated-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    
+    /* Button icons */
+    .btn-icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+    }
+    
+    /* Character animations */
+    .character {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      bottom: -50px;
+      animation: bounce 2s infinite;
+    }
+    
+    .character1 {
+      left: -30px;
+      animation-delay: 0.5s;
+    }
+    
+    .character2 {
+      right: -30px;
+      animation-delay: 1s;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 1.5s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 15px 0;
+      background-color: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 -5px 10px rgba(0,0,0,0.05);
+      z-index: 10;
+      position: relative;
+    }
+    
+    /* Accessibility improvements */
+    button:focus {
+      outline: 3px solid #4A90E2;
+      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5);
+    }
+    
+    /* Sensory comfort indicators */
+    .comfort-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0 10px;
+    }
+    
+    .comfort-indicator {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #666;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+    
+    .comfort-indicator img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+    
+    /* Animation controls for sensory needs */
+    .sensory-controls {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
+    
+    .sensory-btn {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: none;
+      border-radius: 20px;
+      padding: 8px 15px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #555;
+    }
+    
+    .sensory-btn:hover {
+      background-color: white;
+    }
+    
+    /* Reduced motion option */
+    .reduced-motion {
+      animation: none !important;
+      transition: none !important;
+    }
+    
+    /* For screens with reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.001s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001s !important;
+      }
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 30px 15px;
+      }
+      
+      .logo {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .container {
+        padding: 30px 20px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .tagline {
+        font-size: 1.2rem;
+      }
+      
+      .animated-btn {
+        padding: 15px 20px;
+        font-size: 1.1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .logo {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .container {
+        padding: 25px 15px;
+      }
+      
+      h1 {
+        font-size: 1.6rem;
+      }
+      
+      .comfort-indicators {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
   <link rel="icon" href="Hugsy-logo.jpg" type="image/x-icon">
-  <link rel="icon" href="Hugsy-logo.jpg" type="image/png">
 </head>
 <body>
    
@@ -18,33 +484,58 @@
   <div class="cloud cloud5"></div>
 
   <div class="main-content">
-    <!-- Logo, tagline, container with parent/child buttons -->
-     <!-- Logo and Tagline Section -->
-  <div class="logo-tagline fade-in">
-    <img src="Hugsy-logo.jpg" alt="NeuroEase Logo" class="logo" />
-    <p class="tagline">Where learning feels like a warm hug.</p>
-  </div>
+    <!-- Logo and Tagline Section -->
+    <div class="logo-tagline fade-in">
+      <img src="/Hugsy-H4B/Hugsy-logo.jpg" alt="Hugsy Logo" class="logo" />
+      <p class="tagline">Where learning feels like a warm hug.</p>
+    </div>
 
-  <!-- Main Container -->
-  <div class="container fade-in-up">
-    <h1>Welcome to <span class="brand">Hugsy</span></h1>
-    <p class="subtitle">Choose your path to continue:</p>
+    <!-- Sensory comfort indicators -->
+    <div class="comfort-indicators fade-in">
+        <div class="comfort-indicator">
+          🔊 Quiet space
+        </div>
+        <div class="comfort-indicator">
+          🎨 Visual friendly
+        </div>
+        <div class="comfort-indicator">
+          🧠 Focus support
+        </div>
+      </div>
 
-    <div class="user-options">
+    <!-- Main Container -->
+    <div class="container fade-in-up">
+      <h1>Welcome to <span class="brand">Hugsy</span></h1>
+      <p class="subtitle">Choose your path to continue:</p>
 
-      <button class="animated-btn" onclick="navigateTo('parent')">👨‍👩‍👧 I am a Parent</button>
-      <button class="animated-btn" onclick="navigateTo('child')">🧒 I am a Child</button>
+      <div class="user-options">
+        <button class="animated-btn" onclick="navigateTo('parent')">
+          👨‍👩‍👧 I am a Parent/Caregiver
+        </button>
+        <button class="animated-btn" onclick="navigateTo('child')">
+          🧒 I am a Child
+        </button>
+      </div>
+
+
     </div>
   </div>
-
-  </div>
   
-
-  
-  <script src="script.js"></script>
   <footer class="footer">
-    Made by: <strong>DSP Squad</strong>
+    Made by: <strong>DSP Squad</strong> 
   </footer>
   
+  <script>
+    // Simple navigation function
+    function navigateTo(userType) {
+      if (userType === 'parent') {
+        window.location.href = 'parent.html';
+      } else if (userType === 'child') {
+        window.location.href = 'child.html';
+      }
+    }
+    
+
+  </script>
 </body>
 </html>
